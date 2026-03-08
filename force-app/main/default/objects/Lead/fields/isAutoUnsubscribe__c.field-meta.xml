@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isAutoUnsubscribe__c</fullName>
+    <formula>OR(AND(isblank( pi__last_activity__c ),NOT(JU_nagatatuushin_taisyou__c),NOT(sendanEmail__c)),  HasOptedOutOfEmailForSales__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>自動購読解除flg</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Contact</entityName>
+    <fieldName>en_kankeiLV__c</fieldName>
+    <masterLabel>【取引先責任者】エンジ_ゼネコン</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;仕事上の連絡が取れる（電話・メール等）​&lt;/p&gt;</info>
+        <picklistValueName>LV1</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;必要な時にアポイントが取れて面会出来る​&lt;/p&gt;</info>
+        <picklistValueName>LV2</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;面会に関して当社の都合にある程度合わせて頂ける​&lt;/p&gt;</info>
+        <picklistValueName>LV3</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;全ての物件のネゴに応じてもらえる​&lt;/p&gt;</info>
+        <picklistValueName>LV4</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;競合他社や社内情報を提供してくれる&lt;/p&gt;&lt;p&gt;（当社にとって有利な情報や不利な情報も教えてくれる）&lt;/p&gt;</info>
+        <picklistValueName>LV5</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;会食の応じてくれる&lt;/p&gt;&lt;p&gt;（公私ともにお付き合いいただけるレベル）​&lt;/p&gt;</info>
+        <picklistValueName>LV6</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;定期的な会食が出来る&lt;/p&gt;&lt;p&gt;（当社への発注量の調整を検討して頂けるレベル）​&lt;/p&gt;</info>
+        <picklistValueName>LV7</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>en_tantosya1</recordTypeName>
+</PathAssistant>

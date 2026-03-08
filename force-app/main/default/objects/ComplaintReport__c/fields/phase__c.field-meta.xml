@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>phase__c</fullName>
+    <label>フェーズ</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>入力中</fullName>
+                <default>true</default>
+                <label>入力中</label>
+            </value>
+            <value>
+                <fullName>営業担当者確認中</fullName>
+                <default>false</default>
+                <label>営業担当者確認中</label>
+            </value>
+            <value>
+                <fullName>承認中</fullName>
+                <default>false</default>
+                <label>承認中</label>
+            </value>
+            <value>
+                <fullName>承認済み</fullName>
+                <default>false</default>
+                <label>承認済み</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

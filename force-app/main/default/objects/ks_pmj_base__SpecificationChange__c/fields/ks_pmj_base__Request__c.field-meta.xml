@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ks_pmj_base__Request__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <label>要件</label>
+    <referenceTo>ks_pmj_base__ks_Request__c</referenceTo>
+    <relationshipLabel>変更管理</relationshipLabel>
+    <relationshipName>SpecificationChange</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__All</fullName>
+    <columns>NAME</columns>
+    <columns>pd_jp_20151124__ProspectId__c</columns>
+    <columns>pd_jp_20151124__ProspectName__c</columns>
+    <columns>pd_jp_20151124__Email__c</columns>
+    <columns>pd_jp_20151124__Company__c</columns>
+    <columns>pd_jp_20151124__SourceCampaign__c</columns>
+    <columns>pd_jp_20151124__Lead__c</columns>
+    <columns>pd_jp_20151124__Contact__c</columns>
+    <columns>pd_jp_20151124__Account__c</columns>
+    <columns>pd_jp_20151124__ProspectCreatedAt__c</columns>
+    <columns>pd_jp_20151124__ProspectUpdatedAt__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>pd_jp_20151124__Account__c</field>
+        <operation>equals</operation>
+        <value>仕入れ先_個人</value>
+    </filters>
+    <label>すべて選択</label>
+</ListView>

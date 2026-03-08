@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InContractAmountInclTax__c</fullName>
+    <formula>IF(
+    OR(isOutOfContract__c,Excludedfrombilling_summary__c),
+    0,
+    ROUND(ShippingAmountALL__c * 1.1, 0)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>契約内税込み金額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

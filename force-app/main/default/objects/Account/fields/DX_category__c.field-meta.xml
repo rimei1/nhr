@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_category__c</fullName>
+    <label>攻略種別</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>共存</fullName>
+                <default>false</default>
+                <label>共存</label>
+            </value>
+            <value>
+                <fullName>本丸</fullName>
+                <default>false</default>
+                <label>本丸</label>
+            </value>
+            <value>
+                <fullName>BA-plusナーチャリング対象</fullName>
+                <default>false</default>
+                <label>BA-plusナーチャリング対象</label>
+            </value>
+            <value>
+                <fullName>調査・ナーチャリング対象</fullName>
+                <default>false</default>
+                <label>調査・ナーチャリング対象</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EN_Alert_Date__c</fullName>
+    <formula>IF ( RecordType.DeveloperName == &apos;en_zenekonsh&apos; ,
+  IF ( EN_Alert_BeforeMonth__c != null ,
+       ADDMONTHS(en_ukeoityakkouyoteibi__c, -EN_Alert_BeforeMonth__c),
+       IF ( en_zyutyuumokuhyougaku__c &gt;= 50000000 ,
+            ADDMONTHS(en_ukeoityakkouyoteibi__c, -6),
+            ADDMONTHS(en_ukeoityakkouyoteibi__c, -6)
+            )
+      )
+				, null
+			)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>アラート日_EN</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

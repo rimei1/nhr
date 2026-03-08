@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSjjjjjj</fullName>
+    <columns>RecordingDate__c</columns>
+    <columns>OPPORTUNITY.LAST_UPDATE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>FirstEstimates__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Department__c</columns>
+    <columns>cw_jissekic__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.CSWEB</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.AMOUNT</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Z(新規問合),W(仕入見積依頼),V(見積作成中)</value>
+    </filters>
+    <label>CS_商談一覧_フェーズチェック用</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>CSWEBCompany</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

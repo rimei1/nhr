@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>customerOrgKeyPersonSubtotal__c</fullName>
+    <externalId>false</externalId>
+    <formula>involvedOrgProcurementBim_point__c +
+involvedOrgBusinessDept_point__c +
+involvedOrgProductionDesign_point__c +
+involvedRoleProcurementBim_point__c +
+involvedRoleBusinessDept_point__c +
+involvedRoleProductionDesign_point__c +
+projectVendorDecisionProcess_point__c +
+keyPersonOrgAndName_point__c +
+keyPersonBaPromotionBarriers_point__c +
+keyPersonPreferences_point__c +
+hasBlockingPerson_point__c +
+blockingPersonDeptAndName_point__c +
+blockingPersonPreferences_point__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>顧客組織・キーマン_小計</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

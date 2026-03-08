@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>5</activeVersionNumber>
+    <description>売上計画を作成時に当会計年度、翌会計年度2年分の年月分レコードを作成</description>
+    <masterLabel>CreateSalesPlan</masterLabel>
+</FlowDefinition>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cw_listview_kouzi</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>CW_EstimatedContent__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>CW_bukkentyakkouduki__c</columns>
+    <columns>CW_bukkensyunkouduki__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.CSWEB</value>
+    </filters>
+    <filters>
+        <field>cw_syoudansyubetsu__c</field>
+        <operation>equals</operation>
+        <value>工事</value>
+    </filters>
+    <label>CS_工事のみ</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>CSWEBCompany</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

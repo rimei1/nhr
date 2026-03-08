@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_hosyou__c</fullName>
+    <label>保全情報</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CW_hosyou_ari</fullName>
+                <default>false</default>
+                <label>有</label>
+            </value>
+            <value>
+                <fullName>CW_hosyou_nashi</fullName>
+                <default>false</default>
+                <label>無</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

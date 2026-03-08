@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>kad_toino1__c</fullName>
+    <description>Teamsにある問い合わせ管理簿No.略称はJu（住環境）Cw（CSWEB）、PF（マーケPF）に項番を記載</description>
+    <externalId>false</externalId>
+    <label>問い合わせNo</label>
+    <length>255</length>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

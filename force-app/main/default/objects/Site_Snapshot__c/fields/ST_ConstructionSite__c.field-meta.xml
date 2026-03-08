@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_ConstructionSite__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>現場</label>
+    <referenceTo>ST_ConstructionSite__c</referenceTo>
+    <relationshipLabel>現場_スナップショット</relationshipLabel>
+    <relationshipName>Site_SnapshotST_ConstructionSite</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

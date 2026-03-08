@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nhcompany__c</fullName>
+    <description>マニュアルに紐づく事業会社名称</description>
+    <label>事業会社名</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>野原住環境</fullName>
+                <default>false</default>
+                <label>野原住環境</label>
+            </value>
+            <value>
+                <fullName>CSWEB</fullName>
+                <default>false</default>
+                <label>CSWEB</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

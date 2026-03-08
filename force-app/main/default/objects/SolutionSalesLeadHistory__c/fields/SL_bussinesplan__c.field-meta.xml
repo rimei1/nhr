@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_bussinesplan__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>SL_ビジネスプラン (100～300アクティブスペース / 50ユーザー)</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

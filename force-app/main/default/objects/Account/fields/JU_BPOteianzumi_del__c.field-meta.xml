@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_BPOteianzumi_del__c</fullName>
+    <formula>OR( JU_BPOteianzumiKari__c
+, IF (OR(JU_BPO__c &gt; 0,00NRC000000G92X&gt;0,00NRC000000G95l&gt;0), true, false))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>作図積算BPO提案済み</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_LossReasonDetail__c</fullName>
+    <inlineHelpText>①野原（野原高い）→競合先はどこですか？何%違いがありますか？金額が合えば野原に注文してもらえそうですか？
+
+②顧客（顧客失注）→受注先は分かりますか？
+
+③その他→具体的な理由は分かりますか？</inlineHelpText>
+    <label>失注理由詳細</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOLXYZCSO001__CSOProFileLink</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>250</height>
+    <isResizable>true</isResizable>
+    <linkType>page</linkType>
+    <masterLabel>システム権限</masterLabel>
+    <openType>newWindow</openType>
+    <page>SOLXYZCSO001__CSOProfileSelect</page>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <width>500</width>
+</WebLink>

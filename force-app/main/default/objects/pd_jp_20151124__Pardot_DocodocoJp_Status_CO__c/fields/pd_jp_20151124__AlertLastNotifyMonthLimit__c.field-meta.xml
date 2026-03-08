@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__AlertLastNotifyMonthLimit__c</fullName>
+    <deprecated>false</deprecated>
+    <label>企業情報の月間上限超過アラート最終通知日</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

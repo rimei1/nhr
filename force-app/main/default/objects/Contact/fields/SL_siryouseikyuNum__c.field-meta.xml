@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_siryouseikyuNum__c</fullName>
+    <label>MP資料請求フォーム_資料№</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>「MatterportCloudとは？」</fullName>
+                <default>false</default>
+                <label>「MatterportCloudとは？」</label>
+            </value>
+            <value>
+                <fullName>「Matterport使用方法紹介」</fullName>
+                <default>false</default>
+                <label>「Matterport使用方法紹介」</label>
+            </value>
+            <value>
+                <fullName>「改修現場の図面化を効率化」</fullName>
+                <default>false</default>
+                <label>「改修現場の図面化を効率化」</label>
+            </value>
+            <value>
+                <fullName>「公式アドオン機能を使いこなそう」</fullName>
+                <default>false</default>
+                <label>「公式アドオン機能を使いこなそう」</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

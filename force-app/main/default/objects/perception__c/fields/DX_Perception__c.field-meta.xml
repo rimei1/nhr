@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Perception__c</fullName>
+    <description>DX_M_AcceptAppointment__c</description>
+    <externalId>false</externalId>
+    <formula>IF(
+DX_C_TotalNumP__c,&quot;h&quot;,
+IF(
+DX_C_PropertyNames__c,&quot;g&quot;,
+IF(
+OR(DX_C_AnotherSiteManager__c, DX_C_RequestForIntroduce__c),&quot;f&quot;,
+IF(
+DX_C_ResultsReport__c,&quot;e&quot;,
+IF(
+DX_C_SpecificPropertyName__c,&quot;d&quot;,
+IF(
+OR(DX_C_RequestToManager__c, DX_C_RequestForDesign__c, DX_C_BIM_RequestForSuperiors__c, DX_C_RequestForManage__c),
+&quot;c&quot;,
+IF(
+DX_C_TaskHearing__c,&quot;b&quot;,
+IF(
+AND(DX_M_AcceptAppointment2__c, OR(DX_O_BIM__c,DX_O_BuildApp__c) ),&quot;a&quot;,
+IF(
+AND(DX_M_AcceptAppointment1__c, OR(DX_O_Inquiry1__c,DX_O_DocumentRequest1__c
+																																		,DX_O_WebinarVideoViewing__c,DX_O_WebinarJoining__c,DX_O_BoothArrive__c) ),&quot;z&quot;,
+&quot;zz&quot;
+)))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>パーセプションLV_DX</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NextTermAmount_old__c</fullName>
+    <formula>IF(
+  spot__c = TRUE,
+  0,
+  IF(
+    NOT(
+      OR(
+        AND(
+          MONTH(TODAY()) &gt;= 7,
+          OR(
+            AND(
+              YEAR(occur_revenu_month__c) = YEAR(TODAY()) + 1,
+              MONTH(occur_revenu_month__c) &gt;= 7
+            ),
+            AND(
+              YEAR(occur_revenu_month__c) = YEAR(TODAY()) + 2,
+              MONTH(occur_revenu_month__c) &lt;= 6
+            )
+          )
+        ),
+        AND(
+          MONTH(TODAY()) &lt; 7,
+          OR(
+            AND(
+              YEAR(occur_revenu_month__c) = YEAR(TODAY()),
+              MONTH(occur_revenu_month__c) &gt;= 7
+            ),
+            AND(
+              YEAR(occur_revenu_month__c) = YEAR(TODAY()) + 1,
+              MONTH(occur_revenu_month__c) &lt;= 6
+            )
+          )
+        )
+      )
+    ),
+    0,
+    Estimated_Amount__c / 12 * 0.3 / 0.8 *
+    MAX(
+      (
+        (YEAR(TODAY()) + IF(MONTH(TODAY()) &lt; 7, 1, 2)) * 12 + 6
+      ) -
+      (
+        YEAR(occur_revenu_month__c) * 12 + MONTH(occur_revenu_month__c)
+      ) + 1,
+      0
+    )
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>KPI指標金額（来期）_old</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

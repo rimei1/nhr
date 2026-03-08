@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__Service__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Service</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>docutizeb</fullName>
+                <default>true</default>
+                <label>docutizeb</label>
+            </value>
+            <value>
+                <fullName>liveffb</fullName>
+                <default>false</default>
+                <label>liveffb</label>
+            </value>
+            <value>
+                <fullName>viewframer</fullName>
+                <default>false</default>
+                <label>viewframer</label>
+            </value>
+            <value>
+                <fullName>prime</fullName>
+                <default>false</default>
+                <label>prime</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

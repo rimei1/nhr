@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_zyutyuuarariblank</fullName>
+    <active>true</active>
+    <description>A・E変更時に粗利金額入力</description>
+    <errorConditionFormula>AND(
+  OR(
+    TEXT(StageName) = &quot;A (受注)&quot;,
+    TEXT(StageName) = &quot;E (失注)&quot;,
+    TEXT(StageName) = &quot;D(見積提出)&quot;,
+    TEXT(StageName) = &quot;C（確認）&quot;
+  ),
+  ISNULL(mitsumoririekiritsu__c)
+)</errorConditionFormula>
+    <errorDisplayField>mitsumoririekiritsu__c</errorDisplayField>
+    <errorMessage>フェーズをD (見積提出)またはC (確認)またはA(受注)またはE（失注）に変更する際は見積利益率を入力してください。</errorMessage>
+</ValidationRule>

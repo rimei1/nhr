@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nohara_MODEL_HD</fullName>
+    <columns>Ka_yusen121__c</columns>
+    <columns>NAME</columns>
+    <columns>kad_toino1__c</columns>
+    <columns>ka_nxt1__c</columns>
+    <columns>marketan001__c</columns>
+    <columns>ka_nai1__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ks_pmj_base__Status__c</field>
+        <operation>notEqual</operation>
+        <value>クローズ,保留</value>
+    </filters>
+    <filters>
+        <field>ks_pmj_base__InCharge__c</field>
+        <operation>equals</operation>
+        <value>牛島さん,松井さん,野原HD様</value>
+    </filters>
+    <label>Nohara’ｓMODEL構築ー野原HD様未完了タスク</label>
+</ListView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_TargetClear__c</fullName>
+    <description>関係構築度がLv4以上の場合チェックされる</description>
+    <formula>IF(OR(TEXT( CW_RelationshipDegree__c )= &quot;Lv4&quot;,TEXT( CW_RelationshipDegree__c )= &quot;Lv5&quot;,TEXT( CW_RelationshipDegree__c )= &quot;Lv6&quot;,TEXT( CW_RelationshipDegree__c )= &quot;Lv7&quot;,TEXT( CW_RelationshipDegree__c )= &quot;Lv8&quot;),TRUE,FALSE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>*攻略クリア</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

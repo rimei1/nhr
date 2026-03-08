@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EN_check_zyutyuukakudo</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( OR(en_zyutyuukakudo__c == &apos;Cランク&apos;,en_zyutyuukakudo__c == &apos;Dランク&apos;)
+				,  ISPICKVAL(EN_zyutyuumikomi__c, &apos;受注&apos;) 
+				,RecordType.DeveloperName =&quot;en_zenekonsh&quot;)</errorConditionFormula>
+    <errorMessage>受注確度がCランク以下の場合、今月見込みを受注に変更できません。</errorMessage>
+</ValidationRule>

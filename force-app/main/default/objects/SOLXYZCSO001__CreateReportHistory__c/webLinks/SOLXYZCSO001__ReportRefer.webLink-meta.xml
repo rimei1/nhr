@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOLXYZCSO001__ReportRefer</fullName>
+    <availability>online</availability>
+    <description>帳票参照</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>帳票参照</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/SOLXYZCSO001__ShowReport?id={!SOLXYZCSO001__CreateReportHistory__c.Id}&amp;docId={!SOLXYZCSO001__CreateReportHistory__c.SOLXYZCSO001__ReportID__c}&amp;oppID={!Opportunity.Id}</url>
+</WebLink>

@@ -1,0 +1,1 @@
+@isTest global class AutoSpaceCreateRL006OpportunityTest{  static testMethod void AutoSpaceCreateRelatedListTest(){    AutoSpaceCreateRL006Opportunity.createSpace(new List<Opportunity>());  }}

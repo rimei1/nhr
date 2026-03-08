@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>gewrg</fullName>
+    <columns>NAME</columns>
+    <columns>CW_OwnerId__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>phase__c</field>
+        <operation>equals</operation>
+        <value>入力中,営業担当者確認中,承認中</value>
+    </filters>
+    <filters>
+        <field>AccrualDate__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Account__c</field>
+        <operation>notContain</operation>
+    </filters>
+    <filters>
+        <field>Creator__c</field>
+        <operation>notContain</operation>
+    </filters>
+    <filters>
+        <field>CW_OwnerId__c</field>
+        <operation>notContain</operation>
+    </filters>
+    <label>未承認</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>CSWEBCompany</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

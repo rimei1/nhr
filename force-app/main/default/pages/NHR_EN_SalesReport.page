@@ -1,0 +1,368 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_EN_SalesReportCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+            font-size:9pt;
+            }
+            .titleclass1_1{
+            font-size:18pt;
+            font-weight: bold;
+            text-align: center;
+            }
+            .titleclass1_2{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: left;
+            }
+            .titleclass1_2_border{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            border: 1px #000000 solid;
+            }
+            .titleclass1_2_center{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            }
+            .titleclass1_2_center_border{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px #000000 solid;
+            }
+            .titleclass1_2_right{
+            font-size:12pt;
+            font-weight: bold;
+            text-align: right;
+            }
+            .titleclass1_3{
+            text-align: right;
+            }
+            .titleclass1_4{
+            text-align: left;
+            }
+            .centerclass{
+            text-align: center;
+            }
+            .th1_1{
+            width :  200px;
+            }
+            .th1_2{
+            width :  80px;
+            }
+            .th1_3{
+            width :  50px;
+            }
+            .td1_1 {
+            border: 1px #000000 solid;
+            }
+
+            .td1_1_top_left {
+            border: 1px #000000 solid;
+            vertical-align: top;
+            text-align: left;
+            }
+
+            .td1_1_color {
+            border: 1px #000000 solid;
+            background: #FFFF99;
+            }
+
+            .td1_1_center {
+            border: 1px #000000 solid;
+            text-align: center;
+            background: #FFFF99;
+            }
+
+            .td1_1_center_noColor{
+            border: 1px #000000 solid;
+            text-align: center;
+            }
+
+            .td1_1_high {
+            border: 1px #000000 solid;
+            height: 40px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td class = "th1_1"></td><!--A-->
+                <td class = "th1_2"></td><!--B-->
+                <td class="th1_2"></td><!--C-->
+                <td class="th1_3"></td><!--D-->
+                <td class="th1_2"></td><!--E-->
+                <td class="th1_2"></td><!--F-->
+                <td class="th1_3"></td><!--G-->
+                <td class="th1_2"></td><!--H-->
+                <td class="th1_2"></td><!--I-->
+                <td class="th1_3"></td><!--J-->
+                <td class="th1_2"></td><!--K-->
+                <td class="th1_2"></td><!--L-->
+                <td class="th1_3"></td><!--M-->
+                <td class="th1_2"></td><!--N-->
+                <td class="th1_2"></td><!--O-->
+                <td class="th1_2"></td><!--P-->
+                <td class="th1_2"></td><!--Q-->
+                <td class="th1_3"></td><!--R-->
+                <td class="th1_2"></td><!--S-->
+                <td class="th1_2"></td><!--T-->
+                <td class="th1_3"></td><!--U-->
+                <td style = "width :  70px;"></td><!--V-->
+                <td style = "width :  70px;"></td><!--W-->
+            </tr>
+            <tr>
+                <td colspan="23" class="titleclass1_1">{!thisYear}年度（{!thisFiscalYear}期）　{!thisMonth}月営業報告書</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td colspan="14" class="titleclass1_1"></td>
+                <td colspan="4" class="titleclass1_2_border">経営本部</td>
+                <td colspan="2" class="titleclass1_2_border">部長・課長</td>
+                <td colspan="3" class="titleclass1_2_border">作成者</td>
+            </tr>
+            <tr>
+                <td colspan="14" class="titleclass1_1 td1_1_high"></td>
+                <td colspan="4" class="td1_1_high"></td>
+                <td colspan="2" class="td1_1_high"></td>
+                <td colspan="3" class="td1_1_high"></td>
+            </tr>
+            <tr>
+                <td  class="titleclass1_2_center"> 【事業所名】</td>
+                <td colspan="5" class="titleclass1_2">{!deStr}</td>
+                <td colspan="13" class="titleclass1_2"></td>
+                <td colspan="1" class="titleclass1_2_center_border">作成日</td>
+                <td colspan="3" class="titleclass1_2_center_border">{!thisDayStr}</td>
+            </tr>
+            <tr>
+                <td colspan="5" class="titleclass1_2"> １．受注計画に対する実績数値の確認</td>
+                <td colspan="15" class="titleclass1_1"></td>
+                <td colspan="3" class="titleclass1_2_right">単位:千円</td>
+            </tr>
+            <tr></tr>
+            <tr class="centerclass">
+                <td rowspan = "2"  class="td1_1">担当者別</td>
+                <td colspan="6"   class="td1_1">前月受注計画額と実績額</td>
+                <td colspan = "6"  class="td1_1">前月累計受注計画額と実績額</td>
+                <td rowspan = "2"  class="td1_1">累計受注進捗率</td>
+                <td rowspan = "2"  class="td1_1">累計粗利進捗率</td>
+                <td colspan = "6"  class="td1_1">年間受注目標と累計実績額</td>
+                <td rowspan = "2"  class="td1_1">年間受注進捗率</td>
+                <td rowspan = "2"  class="td1_1">年間粗利進捗率</td>
+            </tr>
+            <tr class="centerclass">
+                <td class="td1_1">受注計画額</td>
+                <td class="td1_1">粗利計画額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">受注実績額</td>
+                <td class="td1_1">粗利実績額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">受注計画額</td>
+                <td class="td1_1">粗利計画額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">受注実績額</td>
+                <td class="td1_1">粗利実績額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">年間受注目標</td>
+                <td class="td1_1">年間粗利目標</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">累計受注実績</td>
+                <td class="td1_1">累計粗利</td>
+                <td class="td1_1">粗利率</td>
+            </tr>
+            <!---->
+            <apex:repeat value="{!FormCreationList1_1}" var="record">
+                <tr >
+                    <td class="td1_1_center">{!record.Title1__c}</td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.B__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.C__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.P__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Q__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.R__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.S__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.T__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.U__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.V__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.W__c}" /></apex:outputText></td>
+                </tr>
+            </apex:repeat>
+            <tr></tr>
+            <tr class="centerclass">
+                <td rowspan = "2"  class="td1_1">担当者別</td>
+                <td colspan="6"   class="td1_1">前月受注見込額と実績額</td>
+                <td colspan = "3"  class="td1_1">当月受注見込額</td>
+                <td rowspan = "{!size1_2_blank}" class=""></td>
+                <td colspan = "12"  class="titleclass1_4">前月受注見込額と前月実績差異の理由</td>
+            </tr>
+            <tr class="centerclass">
+                <td class="td1_1">受注見込額</td>
+                <td class="td1_1">粗利見込額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">受注実績額</td>
+                <td class="td1_1">粗利実績額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">受注見込額</td>
+                <td class="td1_1">粗利見込額</td>
+                <td class="td1_1">粗利率</td>
+                <td colspan = "12"  rowspan = "{!size1_2}" class="td1_1_top_left"></td>
+            </tr>
+            <apex:repeat value="{!FormCreationList1_2}" var="record">
+                <tr >
+                    <td class="td1_1_center">{!record.Title1__c}</td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.B__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.C__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                </tr>
+            </apex:repeat>
+            <tr></tr>
+            <tr>
+                <td colspan="23" class="titleclass1_2"> ２．売上計画に対する実績数値の確認</td>
+            </tr>
+            <tr class="centerclass">
+                <td rowspan = "2"  class="td1_1">担当者別</td>
+                <td colspan="6"   class="td1_1">前月売上計画額と実績額</td>
+                <td colspan = "6"  class="td1_1">年間売上目標と累計実績額</td>
+                <td rowspan = "2"  class="td1_1">年間売上進捗率</td>
+                <td rowspan = "2"  class="td1_1">年間粗利進捗率</td>
+                <td rowspan = "{!size2_blank}" class=""></td>
+                <td colspan = "7"  class="titleclass1_4">売上・粗利目標と実績差異の理由</td>
+            </tr>
+            <tr class="centerclass">
+                <td class="td1_1">売上計画額</td>
+                <td class="td1_1">粗利計画額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">売上実績額</td>
+                <td class="td1_1">粗利実績額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">年間売上目標</td>
+                <td class="td1_1">年間粗利目標</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">累計売上実績</td>
+                <td class="td1_1">累計粗利</td>
+                <td class="td1_1">粗利率</td>
+                <td colspan = "7"  rowspan = "{!size2}" class="td1_1_top_left"></td>
+            </tr>
+            <apex:repeat value="{!FormCreationList2}" var="record">
+                <tr >
+                    <td class="td1_1_center">{!record.Title1__c}</td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.B__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.C__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                </tr>
+            </apex:repeat>
+            <tr></tr>
+            <tr>
+                <td colspan="23" class="titleclass1_2"> ３．売上計上後の受注残高</td>
+            </tr>
+            <tr class="centerclass">
+                <td rowspan = "2"  class="td1_1"></td>
+                <td colspan="3"   class="td1_1">期末受注残高計画</td>
+                <td colspan = "3"  class="td1_1">{!lastMonth}月末受注残高</td>
+                <td rowspan = "6" class=""></td>
+                <td colspan = "4"  class="titleclass1_2">４．第{!thisFiscalYear}期売上確定</td>
+            </tr>
+            <tr class="centerclass">
+                <td class="td1_1">受注残高</td>
+                <td class="td1_1">受注粗利額</td>
+                <td class="td1_1">粗利率</td>
+                <td class="td1_1">受注残高</td>
+                <td class="td1_1">受注粗利額</td>
+                <td class="td1_1">粗利率</td>
+
+                <td colspan="2" class="td1_1"></td>
+                <td class="td1_1">第 {!thisFiscalYear} 期目標額</td>
+                <td class="td1_1">当期確定見込</td>
+                <td class="td1_1">進捗率</td>
+            </tr>
+            <tr >
+                <td class="td1_1_center_noColor">{!FormCreationList3[0].Title1__c}</td>
+                <td class="td1_1"></td>
+                <td class="td1_1"></td>
+                <td class="td1_1_color"></td>
+                <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[0].D__c}" /></apex:outputText></td>
+                <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[0].E__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[0].F__c}" /></apex:outputText></td>
+                <td colspan="2" class="td1_1_center_noColor">{!FormCreationList4[0].Title1__c}</td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList4[0].A__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList4[0].B__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList4[0].C__c}" /></apex:outputText></td>
+            </tr>
+            <tr >
+                <td class="td1_1_center_noColor">{!FormCreationList3[1].Title1__c}</td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[1].A__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[1].B__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[1].C__c}" /></apex:outputText></td>
+                <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[1].D__c}" /></apex:outputText></td>
+                <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[1].E__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[1].F__c}" /></apex:outputText></td>
+                <td colspan="2" class="td1_1_center_noColor">{!FormCreationList4[1].Title1__c}</td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList4[1].A__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList4[1].B__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList4[1].C__c}" /></apex:outputText></td>
+            </tr>
+            <tr >
+                <td class="td1_1_center_noColor">{!FormCreationList3[2].Title1__c}</td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[2].A__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[2].B__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[2].C__c}" /></apex:outputText></td>
+                <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[2].D__c}" /></apex:outputText></td>
+                <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[2].E__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[2].F__c}" /></apex:outputText></td>
+                <td colspan="2" class="td1_1_center_noColor">{!FormCreationList4[2].Title1__c}</td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList4[2].A__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList4[2].B__c}" /></apex:outputText></td>
+                <td class="td1_1_color"></td>
+            </tr>
+            <tr >
+                <td class="td1_1_center_noColor">{!FormCreationList3[3].Title1__c}</td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[3].A__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[3].B__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[3].C__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[3].D__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!FormCreationList3[3].E__c}" /></apex:outputText></td>
+                <td class="td1_1_color"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!FormCreationList3[3].F__c}" /></apex:outputText></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td colspan="23" class="titleclass1_2"> ４．今月の行事予定</td>
+            </tr>
+            <tr class="centerclass">
+                <td rowspan = "2"  colspan = "23" class="td1_1_top_left"></td>
+            </tr>
+
+        </table>
+    </body>
+</apex:page>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dx_kensetsu</fullName>
+    <fields>dx_category1__c</fields>
+    <fields>Name</fields>
+    <fields>dx_teiankingaku__c</fields>
+    <label>建設DX</label>
+</CompactLayout>

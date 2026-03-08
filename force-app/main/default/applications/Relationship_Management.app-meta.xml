@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>relationship_management</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Build stronger customer relationships, manage renewals, and stay organized.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Relationship Management</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Contract</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
+    <tabs>standard-ContentNote</tabs>
+    <tabs>standard-Task</tabs>
+    <tabs>PrimeContractor__c</tabs>
+    <tabs>PartnerCompany__c</tabs>
+    <tabs>OrdersEstimates__c</tabs>
+    <tabs>CW_supplier__c</tabs>
+    <tabs>CW_supplier_memo__c</tabs>
+    <tabs>dx_object_phasesenni__c</tabs>
+    <tabs>property__c</tabs>
+    <tabs>property_account__c</tabs>
+    <tabs>contact_schedule__c</tabs>
+    <tabs>SolutionSalesLeadHistory__c</tabs>
+    <tabs>SupplyItem__c</tabs>
+    <tabs>Steel_delivery__c</tabs>
+    <tabs>Budget__c</tabs>
+    <tabs>BudgetSubmission__c</tabs>
+    <tabs>ST_Quote__c</tabs>
+    <tabs>ST_Quotedetails__c</tabs>
+    <tabs>NProperty__c</tabs>
+    <tabs>Opportunity_JU__c</tabs>
+    <tabs>IssueHearing2__c</tabs>
+    <tabs>test_nagashima_20250317__c</tabs>
+    <tabs>Theme__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Relationship_Management_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ju_mitsumori_teiankingaku</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ju_mitsumoriup__c = False , JU_ProposalPoints__c &gt;=0,
+ISPICKVAL (StageName , &quot;初回見積提出&quot; )
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>見積アップロードの入力がされていません</errorMessage>
+</ValidationRule>

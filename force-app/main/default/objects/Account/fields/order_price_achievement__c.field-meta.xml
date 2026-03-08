@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>order_price_achievement__c</fullName>
+    <formula>IF(
+ OR(
+  ISBLANK(ST_Orderamounttarget__c),
+  ST_Orderamounttarget__c = 0
+ ),
+ NULL,
+ ContractAmount__c / ST_Orderamounttarget__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>受注金額達成率</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

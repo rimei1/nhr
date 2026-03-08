@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyDeprtmentFlg__c</fullName>
+    <description>閲覧ユーザの部署とレコードの部署が一致する場合True</description>
+    <formula>IF( $User.Department= Department__c ,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>*私の部署Flg</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

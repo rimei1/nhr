@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>rgwerg</fullName>
+    <columns>NAME</columns>
+    <columns>From__c</columns>
+    <columns>To__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Approval__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Department__c</field>
+        <operation>equals</operation>
+        <value>日東紡マテ営業部,東京産業資材課,大阪産業資材課,名古屋産業資材課,技術開発</value>
+    </filters>
+    <label>マテコ</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>UserRole_NT</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

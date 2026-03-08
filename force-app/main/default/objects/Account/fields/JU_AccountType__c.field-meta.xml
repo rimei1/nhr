@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_AccountType__c</fullName>
+    <label>顧客種別</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>戦略ターゲット</fullName>
+                <default>false</default>
+                <label>戦略ターゲット</label>
+            </value>
+            <value>
+                <fullName>戦略ターゲット以外</fullName>
+                <default>false</default>
+                <label>戦略ターゲット以外</label>
+            </value>
+            <value>
+                <fullName>流通店等</fullName>
+                <default>false</default>
+                <label>流通店等</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

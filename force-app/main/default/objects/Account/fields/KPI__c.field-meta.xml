@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KPI__c</fullName>
+    <label>KPI</label>
+    <summarizedField>BuildApp_KPI__c.KPI__c</summarizedField>
+    <summaryForeignKey>BuildApp_KPI__c.account__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

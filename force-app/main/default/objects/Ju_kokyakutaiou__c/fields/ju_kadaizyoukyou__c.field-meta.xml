@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ju_kadaizyoukyou__c</fullName>
+    <label>課題状況</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>未着手</fullName>
+                <default>false</default>
+                <label>未着手</label>
+            </value>
+            <value>
+                <fullName>対応中</fullName>
+                <default>false</default>
+                <label>対応中</label>
+            </value>
+            <value>
+                <fullName>完了</fullName>
+                <default>false</default>
+                <label>完了</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,162 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_ST_QuantityRatioCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+                font-size:9pt;
+            }            
+            .titleclass1_1{
+                font-size:18pt;
+                font-weight: bold;
+            }
+            .titleclass1_2{
+                text-align: right;
+            }
+            .centerclass{
+                text-align: center;
+            }
+            .title1_1 {
+            font-size:12pt;
+            border-bottom: 1px #000000 solid;
+            width :  70px;
+            }
+            .td1_1 {
+                border: 1px #000000 solid;
+            }
+            .td1_2 {
+            border-left: 1px #000000 solid;
+            border-right: 1px #000000 solid;
+            border-bottom: 1px #000000 solid;
+            border-top: 1px #000000 double ;
+            }
+            .td3_1 {
+            background: #C1C2C7;
+            border: 1px #000000 solid;
+            }
+            
+            .th1_1 {
+            width :  100px;
+            font-size:14pt;
+            font-weight: bold;
+            }
+            
+            .th1_1_1 {
+            font-size:14pt;
+            font-weight: bold;
+            }
+            .th1_2 {
+                width :  70px;
+            }
+            .th2_1 {
+            background: #FFFF99;
+            border: 1px #000000 solid;
+            }
+            .th2_2 {
+            background: #CEF9DC;
+            border: 1px #000000 solid;
+            }
+            .th2_2_total {
+            background: #CEF9DC;
+            border-left: 1px #000000 solid;
+            border-right: 1px #000000 solid;
+            border-bottom: 1px #000000 solid;
+            border-top: 1px #000000 double ;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <table class="fontsetsize">
+            <tr style = "height : 10px">
+                <td class = "th1_1"></td><!--A-->
+                <td class = "th1_2"></td><!--B-->
+                <td class = "th1_2"></td><!--C-->
+                <td class = "th1_2"></td><!--D-->
+                <td class = "th1_2"></td><!--E-->
+                <td class = "th1_2"></td><!--F-->
+                <td class = "th1_2"></td><!--G-->
+                <td class = "th1_2"></td><!--H-->
+                <td class = "th1_2"></td><!--I-->
+                <td class = "th1_2"></td><!--J-->
+                <td class = "th1_2"></td><!--K-->
+                <td class = "th1_2"></td><!--L-->
+                <td class = "th1_2"></td><!--M-->
+                <td class = "th1_2"></td><!--N-->
+            </tr>
+            <tr>
+                <td colspan = "14" class = "th1_1_1">【スチール】規模別数量・件数構成比</td><!--A-->
+            </tr>
+            <tr style = "height : 10px"></tr>
+            <tr>
+                <td rowspan = "2" class = "th2_1" >規模別構成比</td><!--A-->
+                <td rowspan = "2" class = "th2_1">種別</td><!--B-->
+                <td colspan = "3" class = "th2_1">仕掛</td><!--C-->
+                <td colspan = "3" class = "th2_1">受注済</td><!--F-->
+                <td colspan = "3" class = "th2_1">追及</td><!--I-->
+                <td colspan = "3" class = "th2_1">合計</td><!--L-->
+            </tr>
+            <tr>
+                <td class = "th2_1">数</td><!--C-->
+                <td class = "th2_1">構成比</td><!--D-->
+                <td class = "th2_1">累計</td><!--E-->
+                <td class = "th2_1">数</td><!--F-->
+                <td class = "th2_1">構成比</td><!--G-->
+                <td class = "th2_1">累計</td><!--H-->
+                <td class = "th2_1">数</td><!--I-->
+                <td class = "th2_1">構成比</td><!--J-->
+                <td class = "th2_1">累計</td><!--K-->
+                <td class = "th2_1">数</td><!--L-->
+                <td class = "th2_1">構成比</td><!--M-->
+                <td class = "th2_1">累計</td><!--N-->
+            </tr>
+            <!--規模別数量・件数構成比-->
+            <apex:variable var="idx" value="{!0}" />
+            <apex:repeat value="{!FormCreationList}" var="record">
+                <tr >
+                    <apex:outputPanel rendered="{!If((mod ( idx ,2 )== 0), true, false)}">
+                        <td rowspan = "2" class="th2_2">{!record.Title1__c}</td>
+                    </apex:outputPanel>
+                    
+                    <td class="th2_2">{!record.Title2__c}</td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.C__c}" /></apex:outputText></td>
+                    <apex:outputPanel rendered="{!If((idx == 10 || idx== 11), true, false)}">
+                        <td class="td3_1"></td>
+                        <td class="td3_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If(( idx <> 10 && idx <> 11), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                    　　　　<td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                    <apex:outputPanel rendered="{!If((idx == 10 || idx== 11), true, false)}">
+                        <td class="td3_1"></td>
+                        <td class="td3_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If(( idx <> 10 && idx <> 11), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                    <apex:outputPanel rendered="{!If((idx == 10 || idx== 11), true, false)}">
+                        <td class="td3_1"></td>
+                        <td class="td3_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If(( idx <> 10 && idx <> 11), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    <apex:outputPanel rendered="{!If((idx == 10 || idx== 11), true, false)}">
+                        <td class="td3_1"></td>
+                        <td class="td3_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If(( idx <> 10 && idx <> 11), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                </tr>
+                <apex:variable var="idx" value="{!idx + 1}" />
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

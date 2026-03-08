@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_alltask</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>en_zyutyuukakudo__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>en_mitsumorikingaku__c</columns>
+    <columns>en_zyutyuumokuhyougaku__c</columns>
+    <columns>en_mokuhyouriekigaku__c</columns>
+    <columns>en_zyutyukingaku__c</columns>
+    <columns>en_zyutyuuararigoukei__c</columns>
+    <columns>en_uriagekingaku__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.en_zenekonsh</value>
+    </filters>
+    <filters>
+        <field>en_zyutyuukakudo__c</field>
+        <operation>notEqual</operation>
+        <value>失注</value>
+    </filters>
+    <filters>
+        <field>en_genbastatus__c</field>
+        <operation>notEqual</operation>
+        <value>完成</value>
+    </filters>
+    <label>野原エンジニアリング_商談一覧</label>
+    <sharedTo>
+        <role>en_osakaeigyoubu1</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_Model__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;材工&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;材工&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;1&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;材工&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;材工&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;2&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;材工&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;3&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;材工&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;4&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工事失注&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;5&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工事失注&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;6&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工事失注&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;材工&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;7&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工事失注&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;材工&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;8&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;そもそも未参入&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;9&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;そもそも未参入&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;10&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;そもそも未参入&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;材工&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;11&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;材工&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;そもそも未参入&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;材工&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;12&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;支給&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工のみ&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;13&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;支給&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工のみ&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;14&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;支給&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;そもそも未参入&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;15&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;支給&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;そもそも未参入&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;16&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;支給&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工事失注&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;選定同業&apos;))
+			, &apos;17&apos;,IF(AND(ISPICKVAL(ST_CustomerOrderForm__c, &apos;支給&apos;) ,ISPICKVAL(CompetingPatterns_Our__c, &apos;工事失注&apos;),ISPICKVAL(CompetingPatterns_Competition__c, &apos;工のみ&apos;) ,ISPICKVAL(ConflictType__c, &apos;その他&apos;))
+			, &apos;18&apos;,&apos;その他&apos;))))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>モデル</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

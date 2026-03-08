@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_C_AcceptAppointment4__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>C:提案（キーマン紹介）のアポイント承諾_DX</label>
+    <type>Checkbox</type>
+</CustomField>

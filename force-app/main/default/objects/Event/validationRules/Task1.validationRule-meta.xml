@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task1</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(AND( ISBLANK(AccountTask1__c),NOT(ISBLANK( DeadLine1__c )) ),AND( ISBLANK(DeadLine1__c),NOT(ISBLANK(AccountTask1__c )) ))</errorConditionFormula>
+    <errorMessage>得意先課題1と対応期限1は両方入力してください。</errorMessage>
+</ValidationRule>

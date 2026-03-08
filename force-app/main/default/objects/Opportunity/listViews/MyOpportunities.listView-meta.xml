@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyOpportunities</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Amount__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <label>01.私の担当商談</label>
+    <sharedTo>
+        <role>JU_Sales1</role>
+        <role>JU_Sales2</role>
+        <role>JU_Sales3</role>
+        <role>Kyusyu</role>
+        <role>NakaNihon</role>
+        <role>NishiNihonSales</role>
+    </sharedTo>
+</ListView>

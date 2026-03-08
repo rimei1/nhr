@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global"
+                controller="NHR_DX_AccOrgUpdOrderByCtrl">
+    <aura:attribute name="recordId" type="String" />
+    <div class="c-container">
+        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+            <div class="slds-media__body">
+                <h2 class="header-title-container">
+                    <span class="slds-card__header-title slds-truncate" title="" >
+                        
+                    </span>
+                </h2>
+            </div>
+        </header>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="最新組織取得" onclick="{!c.getNewOrg }"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="並び順更新" onclick="{!c.updOrderBy }"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

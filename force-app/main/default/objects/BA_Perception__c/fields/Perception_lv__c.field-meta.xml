@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Perception_lv__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(DX_PerceptionLv__c
+								, &apos;zz&apos;, 0.1
+								, &apos;z&apos;, 0.2
+								, &apos;a&apos;, 1
+								, &apos;b&apos;, 2
+								, &apos;c&apos;, 3
+								, &apos;d&apos;, 4
+								, &apos;e&apos;, 5
+								, &apos;f&apos;, 6
+								, &apos;g&apos;, 7
+								, &apos;h&apos;, 8
+								,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>パーセプション_Lv</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

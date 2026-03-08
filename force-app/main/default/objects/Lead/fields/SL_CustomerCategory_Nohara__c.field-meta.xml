@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_CustomerCategory_Nohara__c</fullName>
+    <label>SL_顧客カテゴリ_野原</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>EL_CustomerCategory_Nohara</valueSetName>
+    </valueSet>
+</CustomField>

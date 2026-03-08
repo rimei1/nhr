@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>customerDxBimInfoSubtotal__c</fullName>
+    <externalId>false</externalId>
+    <formula>dxHighLevelPolicyGoal_point__c +
+dxPolicyPriority_point__c +
+currentBimCapabilityDesignProdType_point__c +
+currentBimCapabilityConstruction_point__c +
+currentBimCapabilityDesignDept_point__c +
+currentBimCapabilityConstructionDept_poi__c +
+bimUsePhaseTemporary_point__c +
+bimUsePhaseFoundation_point__c +
+bimUsePhaseStructure_point__c +
+bimUsePhaseEquipment_point__c +
+bimUsePhaseInterior_point__c +
+bimUsePhaseExterior_point__c +
+bimUsePhaseExteriorWork_point__c +
+bimUsePhaseCompletion_point__c +
+bimUsePatternClashCheck_point__c +
+bimUsePatternConstructionSim_point__c +
+bimUsePatternConsensus_point__c +
+bimUsePatternShopDrawing_point__c +
+bimUsePatternQuantityData_point__c +
+currentBimCreationConditions_point__c +
+interiorBimModelCountRatio_point__c +
+bimPromotionIssuesCustomer_point__c +
+bimUtilizationLevelPlan_point__c +
+gcBaSimilarModelInitiatives_point__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>顧客側のDX/BIM関連情報_小計</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

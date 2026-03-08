@@ -1,0 +1,1 @@
+<apex:page standardController="Opportunity" extensions="docutizexa.OutputSheetController" recordSetVar="records" showHeader="false" standardStylesheets="false" sidebar="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false" action="{!initSkeltonAction}"><docutizexa:OutputSheetComponent records="{!recordIdList}"></docutizexa:OutputSheetComponent></apex:page>

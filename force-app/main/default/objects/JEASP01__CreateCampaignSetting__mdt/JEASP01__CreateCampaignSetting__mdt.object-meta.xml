@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>キャンペーン作成画面用の設定です。</description>
+    <label>キャンペーン作成設定</label>
+    <visibility>Public</visibility>
+</CustomObject>

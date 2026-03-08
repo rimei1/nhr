@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category2__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case(  Category__c 
+,&quot;生コン&quot; ,&quot;生コン&quot;
+,&quot;鉄筋&quot; ,&quot;鉄筋&quot;
+,&quot;構造プレカット&quot; ,&quot;構造関連&quot;
+,&quot;構造パネル&quot; , &quot;構造関連&quot;
+,&quot;床断熱材&quot; , &quot;断熱材&quot;
+,&quot;壁天断熱材&quot; , &quot;断熱材&quot;
+,&quot;床壁天断熱材&quot; , &quot;断熱材&quot;
+,&quot;石膏ボード&quot; , &quot;石膏ボード&quot;
+,&quot;軽天材&quot; , &quot;軽天材&quot;
+,&quot;外構資材&quot; , &quot;その他&quot;
+,&quot;その他&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>カテゴリ（集計単位）</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

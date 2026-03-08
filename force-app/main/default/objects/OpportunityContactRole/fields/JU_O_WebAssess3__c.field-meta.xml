@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_O_WebAssess3__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>O:Web診断実施_JU</label>
+    <type>Checkbox</type>
+</CustomField>

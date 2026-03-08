@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>2</activeVersionNumber>
+    <description>シェア①（%）、シェア②（%）、シェア③（%）の合計が１００になったら、
+「シェア確認完了日」に今日の日付を入力（上書き×）</description>
+    <masterLabel>【課題ヒアリング（見積作成/発注形態）】シェア確認日反映</masterLabel>
+</FlowDefinition>

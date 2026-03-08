@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ju_noAmount11</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.Name =&quot;住環境&quot;,
+Amount__c &lt;= 0,
+ISPICKVAL(StageName, &quot;初回見積提出&quot;))</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>提案商品に商品または金額の入力がありません。入力をお願いいたします。</errorMessage>
+</ValidationRule>

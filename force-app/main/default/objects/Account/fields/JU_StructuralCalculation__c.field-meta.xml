@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_StructuralCalculation__c</fullName>
+    <label>構造計算の方法</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>許容応力度計算</fullName>
+                <default>false</default>
+                <label>許容応力度計算</label>
+            </value>
+            <value>
+                <fullName>仕様規定※壁量計算</fullName>
+                <default>false</default>
+                <label>仕様規定※壁量計算</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

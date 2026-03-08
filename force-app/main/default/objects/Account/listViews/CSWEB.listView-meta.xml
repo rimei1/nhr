@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSWEB</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CW_target__c</columns>
+    <columns>CW_kouryaku1__c</columns>
+    <columns>CW_Department__c</columns>
+    <columns>CW_OwnerId__c</columns>
+    <columns>JU_AccountType__c</columns>
+    <columns>dx_kokyakusyubetsu__c</columns>
+    <columns>Cw_yoshin1__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CW_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>CS_顧客一覧</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>CSWEBCompany</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

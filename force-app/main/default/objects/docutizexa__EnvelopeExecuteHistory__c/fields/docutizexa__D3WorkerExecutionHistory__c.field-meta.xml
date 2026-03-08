@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__D3WorkerExecutionHistory__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Linkage History</label>
+    <referenceTo>docutizexa__D3WorkerExecutionHistory__c</referenceTo>
+    <relationshipLabel>Envelope Execute Historys</relationshipLabel>
+    <relationshipName>EnvelopeExecuteHistorys</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

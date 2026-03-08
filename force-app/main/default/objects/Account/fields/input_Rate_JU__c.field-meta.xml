@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>input_Rate_JU__c</fullName>
+    <externalId>false</externalId>
+    <formula>(
+/* テキスト（空白のみは未入力） */
+IF(LEN(TRIM(Name)) &gt; 0, 1, 0) +
+IF(LEN(TRIM(SL_daihyousya__c)) &gt; 0, 1, 0) +
+IF(LEN(TRIM(SL_HPURL__c)) &gt; 0, 1, 0) +
+IF(LEN(TRIM(JU_Score2__c)) &gt; 0, 1, 0) +
+IF(LEN(TRIM(JU_sakuzutaiseigaityusaki__c)) &gt; 0, 1, 0) +
+IF(LEN(TRIM(JU_sinseigyoumugaityusaki__c)) &gt; 0, 1, 0) +
+/* 設立年（テキスト）：&quot;0&quot; もカウント */
+IF(LEN(TRIM(dx_setsuritsunen__c)) &gt; 0, 1, 0) +
+
+/* 単一選択（None/--None--は未入力扱い） */
+IF(AND(NOT(ISBLANK(TEXT(JU_AccountType__c))), TEXT(JU_AccountType__c) &lt;&gt; &quot;None&quot;, TEXT(JU_AccountType__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_HeadquartersLocation__c))), TEXT(JU_HeadquartersLocation__c) &lt;&gt; &quot;None&quot;, TEXT(JU_HeadquartersLocation__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_TG__c))), TEXT(JU_TG__c) &lt;&gt; &quot;None&quot;, TEXT(JU_TG__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_consept__c))), TEXT(JU_consept__c) &lt;&gt; &quot;None&quot;, TEXT(JU_consept__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_ThermalInsulationPerformance__c))), TEXT(JU_ThermalInsulationPerformance__c) &lt;&gt; &quot;None&quot;, TEXT(JU_ThermalInsulationPerformance__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_PrimaryEnergyConsumption__c))), TEXT(JU_PrimaryEnergyConsumption__c) &lt;&gt; &quot;None&quot;, TEXT(JU_PrimaryEnergyConsumption__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_CAD__c))), TEXT(JU_CAD__c) &lt;&gt; &quot;None&quot;, TEXT(JU_CAD__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_sakuzutaisei__c))), TEXT(JU_sakuzutaisei__c) &lt;&gt; &quot;None&quot;, TEXT(JU_sakuzutaisei__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_sinseigyoumu__c))), TEXT(JU_sinseigyoumu__c) &lt;&gt; &quot;None&quot;, TEXT(JU_sinseigyoumu__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+IF(AND(NOT(ISBLANK(TEXT(JU_StructuralCalculation__c))), TEXT(JU_StructuralCalculation__c) &lt;&gt; &quot;None&quot;, TEXT(JU_StructuralCalculation__c) &lt;&gt; &quot;--None--&quot;),1,0) +
+
+/* 複数選択（TEXT不可。空でなければ1） */
+IF(NOT(ISBLANK(Ju_zyuutakutenkaiarea__c)),1,0) +
+IF(NOT(ISBLANK(Ju_target_area__c)),1,0) +
+
+/* 電話 */
+IF(NOT(ISBLANK(Phone)),1,0) +
+
+/* 数値／通貨／パーセント（空欄は0カウント、0は1カウント） */
+IF(NOT(ISBLANK(NumberOfEmployees)),1,0) +
+IF(NOT(ISBLANK(ClosingMonth__c)),1,0) +
+IF(NOT(ISBLANK(JU_AccountSales__c)),1,0) +
+IF(NOT(ISBLANK(Ju_yoshingendogaku__c)),1,0) +
+IF(NOT(ISBLANK(JU_NumberOfConstructionStartsPerYear__c)),1,0) +
+IF(NOT(ISBLANK(JU_NumberOfConstructionStartsInTheArea__c)),1,0) +
+IF(NOT(ISBLANK(Ju_bunjou__c)),1,0) +
+IF(NOT(ISBLANK(Ju_chuumon__c)),1,0) +
+IF(NOT(ISBLANK(Ju_chintai__c)),1,0) +
+IF(NOT(ISBLANK(JU_Contract__c)),1,0) +
+IF(NOT(ISBLANK(Ju_zairai__c)),1,0) +
+IF(NOT(ISBLANK(Ju_2_4__c)),1,0) +
+IF(NOT(ISBLANK(Ju_sdukuri__c)),1,0) +
+IF(NOT(ISBLANK(Ju_RC__c)),1,0) +
+IF(NOT(ISBLANK(JU_prefabricated__c)),1,0) +
+
+/* チェックボックス（TRUEなら1） */
+IF(JU_AccountOpening__c,1,0) +
+IF(CheckJU_CustomerFeaturesFutureEfforts__c,1,0) +
+
+/* 住所（いずれか入っていれば1） */
+IF(
+  NOT(
+    ISBLANK(BillingStreet) &amp;&amp;
+    ISBLANK(BillingCity) &amp;&amp;
+    ISBLANK(BillingState) &amp;&amp;
+    ISBLANK(BillingPostalCode) &amp;&amp;
+    ISBLANK(BillingCountry)
+  ),
+  1,0
+)
+)</formula>
+    <label>入力率</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

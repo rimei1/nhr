@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>hiroki-matsui@nohara-inc.co.jp</email>
+    <name>SL</name>
+    <queueMembers>
+        <users>
+            <user>sota-nakamura@nohara-inc.co.jp</user>
+            <user>s-kagaya@nohara-inc.co.jp</user>
+            <user>jun-harada@nohara-inc.co.jp</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

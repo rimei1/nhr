@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Contact</entityName>
+    <fieldName>en_kankeiLV_sekkei__c</fieldName>
+    <masterLabel>【取引先担当者】エンジ_設計事務所</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;名刺交換した程度&lt;/p&gt;</info>
+        <picklistValueName>LV1</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;商品説明やカタログ等の要求があり訪問した事がある&lt;/p&gt;</info>
+        <picklistValueName>LV2</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;必要な時にアポイントが取れ面会出来る&lt;/p&gt;</info>
+        <picklistValueName>LV3</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;先方より設計上の相談等の連絡が来る&lt;/p&gt;</info>
+        <picklistValueName>LV4</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;プライベート的な付合いに応じて貰える&lt;/p&gt;</info>
+        <picklistValueName>LV5</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>en_RecordType_sekkeizimusyo</recordTypeName>
+</PathAssistant>

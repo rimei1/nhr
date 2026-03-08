@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>property_12_2__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>12月_物件名_2</label>
+    <referenceTo>property__c</referenceTo>
+    <relationshipLabel>得意先担当者スケジュール (12月_物件名_2)</relationshipLabel>
+    <relationshipName>property_12_2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppotunityJukankyo</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>商談作成（住環境）</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>https://forcecom175.lightning.force.com/lightning/o/Opportunity/new?recordTypeId=0125h000000Y9ROAA0</url>
+</WebLink>

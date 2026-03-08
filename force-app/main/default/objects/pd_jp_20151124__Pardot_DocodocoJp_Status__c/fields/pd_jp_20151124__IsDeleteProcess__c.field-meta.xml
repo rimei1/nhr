@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__IsDeleteProcess__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>※バージョンアップ後、未使用</description>
+    <label>削除処理フラグ</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

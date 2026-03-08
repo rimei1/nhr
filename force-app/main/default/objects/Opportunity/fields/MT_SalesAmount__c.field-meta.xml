@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MT_SalesAmount__c</fullName>
+    <label>売上金額MT</label>
+    <summarizedField>MT_Sales__c.SalesAmount_NT__c</summarizedField>
+    <summaryFilterItems>
+        <field>MT_Sales__c.SalesDay_NT__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2025</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>MT_Sales__c.SalesDay_NT__c</field>
+        <operation>lessOrEqual</operation>
+        <value>6/30/2026</value>
+    </summaryFilterItems>
+    <summaryForeignKey>MT_Sales__c.Opportunity_NT__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,88 @@
+<apex:page standardController="ST_Quote__c" standardStylesheets="false"
+        showHeader="false" sidebar="false" showQuickActionVfHeader="false"
+        applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ViewFramer - ST_Quote_hyoushimeisaisyoukei</title>
+<apex:slds />
+</head>
+<body>
+<div class="slds-scope">
+    <div class="slds-p-vertical_x-small">
+        <h1 class="slds-text-heading_small">実行しています...</h1>
+        <p class="slds-text-body_regular">
+            <a href="#" onclick="submitAction();">自動的に開始されない場合はこのリンクをクリックしてください。</a>
+        </p>
+    </div>
+</div>
+<apex:includeScript value="/canvas/sdk/js/publisher.js" />
+<apex:includeScript value="https://s.oproarts.com/viewframer/js/viewframer-1.70.js" />
+<script type="text/javascript">
+function isMobile() { return '{!JSENCODE($User.UIThemeDisplayed)}' === 'Theme4t'; }
+function s1Version() { return isMobile() ? '49.0' : ''; }
+function submitAction() {
+    /* if (!window.confirm('実行しますか?')) { return; } */
+
+    VIEWFRAMER.action({
+        mappingNm:'ST_Quote_hyoushimeisaisyoukei',
+        fileName:'ST_Quote_hyoushimeisaisyoukei',
+         nsPrefix:'docutizexa', 
+        recordId:['{!JSENCODE(ST_Quote__c.Id)}'],
+
+        api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}',
+            '{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_400)}']
+    }).url('https://vfrest.ap.oproarts.com/xa_view_framer_rest/v3/action/salesforce').withS1(s1Version()).pdf();
+
+    VIEWFRAMER.publisherClose();
+
+    /* if (!isMobile()) { window.setTimeout(function () { window.history.back(); }, 1000); } */
+}
+VIEWFRAMER.addOnLoadHandler(function () { submitAction(); });
+</script>
+</body>
+</html>
+</apex:page><!-- END -->
+<!--
+/** 以下のコメントは削除して使用してください。 **/
+/*
+** ViewFramer Salesforce API 利用サンプル（Visualforce page）
+** 
+** apex:page要素のstandardController属性の値は、該当オブジェクトのAPI参照名に置換してください。
+** 例えば、該当オブジェクトのAPI参照名が「Opportunity」の場合、以下のように変更します。
+**     standardController="Opportunity"
+** 
+** VIEWFRAMER.action関数で作成したオブジェクトに対して、操作の関数を呼び出すと
+** 新しいウィンドウが開いて、リクエストが実行されます。リクエストの際、
+** VIEWFRAMER.action関数の引数に与えたパラメーターがViewFramerに送られます。
+** 
+** 主なパラメーターは以下です。
+** 
+** - mappingNm:
+**       ViewFramerのマッピング名です。
+** - fileName:
+**       ダウンロード時のファイル名です。マッピングでファイル名を設定している場合はそちらが優先されます。
+** - nsPrefix:
+**       OPROARTS Connector v2 を使用している場合、「nsPrefix:'oproarts1',」のコメントアウトを外して使用してください。
+** - api:
+**       連携用のパラメーターです。このパラメーターは編集しないでください。
+** 
+** ビュー定義の出力条件で指定したパラメーター名に対する値もここで指定します。
+** パラメーター名「param1」に文字列値「value1」を指定する場合、
+**         param1:'value1',
+** のように記述します。
+** 
+** 例えば、ビュー定義の出力条件で『「商談 ID」がパラメーター「recordId」と等しい』という条件を設定している場合、
+**         recordId:'{!JSENCODE(Opportunity.Id)}',
+** のように記述すると、ボタンを置いたページの「商談 ID」をパラメーターの値に指定できます。
+** 
+** また、出力条件で比較演算子に「いずれかと等しい(IN)」「いずれとも等しくない(NOT IN)」を設定している場合、
+** リストボタンで複数レコード選択用のチェックボックスを表示するようにしておけば、
+**         recordId:{!GETRECORDIDS($ObjectType.Opportunity)},
+** のように記述すると、チェックされたレコードのIDの配列を渡すことができます。
+**
+** Salesforce に関する情報は、Salesforce のヘルプ https://help.salesforce.com/ を参照してください。
+** ViewFramer に関する情報は、https://www.opro.net/support/ からご覧になれます。
+*/
+-->

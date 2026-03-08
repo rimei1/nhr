@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_OwnerId__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>得意先 所有者_CW</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>AChpFN</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,203 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_SL_SalesManagementCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+                font-size:14pt;
+            }            
+            .titleclass1_1{
+                font-size:18pt;
+                font-weight: bold;
+            }
+            .titleclass1_2{
+                text-align: right;
+            }
+            .centerclass{
+                text-align: center;
+            }
+            .td1_1 {
+                border: 1px #000000 solid;
+            }
+            
+            .td1_2 {
+                border: 1px #000000 solid;
+                background: #DDDDDD;
+            }
+            
+            .td1_3 {
+                border: 1px #000000 solid;
+                background: #FFDBC9;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td style = "width :  80px;"></td><!--A-->
+                <td style = "width :  80px;"></td><!--B-->
+                <td style = "width :  80px;"></td><!--C-->
+                <td style = "width :  110px;"></td><!--D-->
+                <td style = "width :  110px;"></td><!--E-->
+                <td style = "width :  110px;"></td><!--F-->
+                <td style = "width :  110px;"></td><!--G-->
+                <td style = "width :  110px;"></td><!--H-->
+                <td style = "width :  110px;"></td><!--I-->
+                <td style = "width :  110px;"></td><!--J-->
+                <td style = "width :  110px;"></td><!--K-->
+                <td style = "width :  110px;"></td><!--L-->
+                <td style = "width :  110px;"></td><!--M-->
+                <td style = "width :  110px;"></td><!--N-->
+                <td style = "width :  110px;"></td><!--O-->
+                <td style = "width :  110px;"></td><!--P-->
+            </tr>
+            <tr>
+                <td colspan="16" class="titleclass1_1">　売上管理表_②</td>
+            </tr>
+            <tr></tr>
+            <tr class="centerclass">
+                <td colspan="3"   class="td1_1"></td>
+                <td class="td1_1">{!theYear7}年7月</td>  
+                <td class="td1_1">{!theYear7}年8月</td>  
+                <td class="td1_1">{!theYear7}年9月</td>  
+                <td class="td1_1">{!theYear7}年10月</td>  
+                <td class="td1_1">{!theYear7}年11月</td>  
+                <td class="td1_1">{!theYear7}年12月</td>  
+                <td class="td1_1">{!theNextYear}年1月</td>  
+                <td class="td1_1">{!theNextYear}年2月</td>  
+                <td class="td1_1">{!theNextYear}年3月</td>  
+                <td class="td1_1">{!theNextYear}年4月</td>  
+                <td class="td1_1">{!theNextYear}年5月</td>  
+                <td class="td1_1">{!theNextYear}年6月</td>  
+                <td class="td1_1">合計</td>  
+            </tr>
+            <!--実績-->
+            <apex:repeat value="{!FormCreationList1}" var="record">
+                <tr >
+                    <apex:outputPanel rendered="{!If((record.Title2__c== '売上合計'), true, false)}">
+                	<td rowspan = "8" class="td1_1">{!record.Title1__c}</td>
+                    </apex:outputPanel>
+                    <td class="td1_1">{!record.Title2__c}</td>
+                    <td class="td1_1">{!record.Title3__c}</td>
+                    <apex:outputPanel rendered="{!If((record.Title2__c== '粗利率'), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.P__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((record.Title2__c== '粗利率'), false, true)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.P__c}" /></apex:outputText></td>
+                    </apex:outputPanel>                    
+                </tr>
+            </apex:repeat>
+            
+            <!--目標-->
+            <apex:repeat value="{!FormCreationList2}" var="record">
+                <tr >
+                	<apex:outputPanel rendered="{!If((record.Title2__c== '売上合計'), true, false)}">
+                	<td rowspan = "4" class="td1_1">{!record.Title1__c}</td>
+                    </apex:outputPanel>
+                    <td class="td1_1">{!record.Title2__c}</td>
+                    <td class="td1_1">{!record.Title3__c}</td>
+                    <apex:outputPanel rendered="{!If((record.Title2__c== '粗利率'), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.P__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((record.Title2__c== '粗利率'), false, true)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.P__c}" /></apex:outputText></td>
+                    </apex:outputPanel>                    
+                </tr>
+            </apex:repeat>
+            <!--販売数実績-->
+            <apex:repeat value="{!FormCreationList3}" var="record">
+                <tr >
+                	<apex:outputPanel rendered="{!If((record.Title2__c== 'Pro3販売台数'), true, false)}">
+                	<td rowspan = "5" class="td1_1">{!record.Title1__c}</td>
+                    </apex:outputPanel>
+                    <td class="td1_1">{!record.Title2__c}</td>
+                    <td class="td1_1">{!record.Title3__c}</td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.P__c}" /></apex:outputText></td>              
+                </tr>
+            </apex:repeat>
+            <!--販売数目標-->
+            <apex:repeat value="{!FormCreationList4}" var="record">
+                <tr >
+                    <apex:outputPanel rendered="{!If((record.Title2__c== 'Pro2販売台数'), true, false)}">
+                	<td rowspan = "3" class="td1_1">{!record.Title1__c}</td>
+                    </apex:outputPanel>
+                    <td class="td1_1">{!record.Title2__c}</td>
+                    <td class="td1_1">{!record.Title3__c}</td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.M__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.N__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.O__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.P__c}" /></apex:outputText></td>              
+                </tr>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

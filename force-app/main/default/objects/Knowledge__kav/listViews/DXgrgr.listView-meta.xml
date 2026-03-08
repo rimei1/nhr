@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DXgrgr</fullName>
+    <columns>News_Account__c</columns>
+    <columns>TITLE</columns>
+    <columns>PUBLISH_STATUS</columns>
+    <columns>LAST_PUBLISHED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BuildApp__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>BuildApp事業一部_ニュース記事一覧</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>role_dx</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

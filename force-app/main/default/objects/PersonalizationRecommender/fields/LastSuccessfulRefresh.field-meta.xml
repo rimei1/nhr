@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastSuccessfulRefresh</fullName>
+    <inlineHelpText>[処理中] の場合、レコメンダーは現在トレーニング中です。[完了] の場合、レコメンダーは使用準備が整っています。</inlineHelpText>
+</CustomField>

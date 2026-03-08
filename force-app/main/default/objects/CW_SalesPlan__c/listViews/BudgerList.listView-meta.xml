@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BudgerList</fullName>
+    <columns>NAME</columns>
+    <columns>BudgetActualType__c</columns>
+    <columns>YearMonth__c</columns>
+    <columns>Amount__c</columns>
+    <columns>Department__c</columns>
+    <columns>OppPhase__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>BudgetAmount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BudgetActualType__c</field>
+        <operation>equals</operation>
+        <value>計画</value>
+    </filters>
+    <label>6期計画</label>
+</ListView>

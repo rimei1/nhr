@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>minutesNotSharedWithOtherBusiness__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>minutesNotSharedWithOtherBusiness</description>
+    <label>議事録-他事業非共有flg</label>
+    <type>Checkbox</type>
+</CustomField>

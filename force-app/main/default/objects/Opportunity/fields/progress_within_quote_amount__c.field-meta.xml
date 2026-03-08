@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>progress_within_quote_amount__c</fullName>
+    <formula>IF(
+  OR(
+    ISPICKVAL(  StageName  , &quot;未着手&quot;),
+    ISPICKVAL( StageName , &quot;停滞保留中&quot;),
+    ISPICKVAL( StageName , &quot;訪問１回目&quot;),
+    ISPICKVAL( StageName, &quot;初回見積提出&quot;),
+    ISPICKVAL( StageName , &quot;購買決定者検討中&quot;),
+    ISPICKVAL( StageName , &quot;トライアル&quot;),
+    ISPICKVAL( StageName , &quot;採用一歩手前&quot;),
+    ISPICKVAL( StageName , &quot;検討保留&quot;)
+  ),
+  Amount__c,
+  NULL
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>進行中見積金額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

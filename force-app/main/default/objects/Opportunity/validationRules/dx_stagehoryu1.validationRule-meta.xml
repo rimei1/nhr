@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dx_stagehoryu1</fullName>
+    <active>false</active>
+    <description>DX　保留時の理由が空欄</description>
+    <errorConditionFormula>AND( RecordType.Name =&quot;建設DX&quot;,
+ISBLANK( dx_horyuusittyuriyu__c),
+ISPICKVAL(StageName, &quot;保留&quot;))</errorConditionFormula>
+    <errorMessage>フェーズが保留の場合は保留・失注理由を記載するようお願いいたします。</errorMessage>
+</ValidationRule>

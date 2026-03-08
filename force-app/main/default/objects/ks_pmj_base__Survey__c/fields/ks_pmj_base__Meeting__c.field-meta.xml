@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ks_pmj_base__Meeting__c</fullName>
+    <deprecated>false</deprecated>
+    <label>会議</label>
+    <referenceTo>ks_pmj_base__ks_Meeting__c</referenceTo>
+    <relationshipLabel>アンケート</relationshipLabel>
+    <relationshipName>Survey</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

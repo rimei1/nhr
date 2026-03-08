@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>取引先</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>CS_数珠繋ぎキーマン_関係構築度</relationshipLabel>
+    <relationshipName>CS_no0</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

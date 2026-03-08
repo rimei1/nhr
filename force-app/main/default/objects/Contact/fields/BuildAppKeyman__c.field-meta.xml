@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BuildAppKeyman__c</fullName>
+    <inlineHelpText>①決裁者_本社：BAサービスの採用を決裁する人物。総じて役職は高く、建築・DX部門の役職者、経営層など。
+②決裁者_現場：BAサービスの現場サイド予算を決裁する人物。総じて役職は高く、支店長、統括所長、現場所長など。
+③DX推進者：DX、BIMの利活用を推進する役割。社内及び決裁者への実現を働きかける人物。BIMマネージャー・コーディネーター、維持管理・運用BIM、生産設計BIMなど。
+④DX利活用者：BA利用時に工事店との間に立ち、BA活用を推進・作業をすすめる人物。作業所間でのインフルエンサーになりえる人物。工事長、工事担当者など。     
+⑤お友達：BAの良き理解者だが意思決定に直接関与しない人物。</inlineHelpText>
+    <label>BuildAppキーマン</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>BuildAppKeyman</valueSetName>
+    </valueSet>
+</CustomField>

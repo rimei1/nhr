@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>SupplyDate__c</columns>
+    <columns>ShippingDate__c</columns>
+    <columns>No__c</columns>
+    <columns>SerialNumber__c</columns>
+    <columns>Asset__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

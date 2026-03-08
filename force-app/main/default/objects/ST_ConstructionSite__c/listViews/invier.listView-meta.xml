@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>invier</fullName>
+    <columns>Account__c</columns>
+    <columns>NAME</columns>
+    <columns>ST_customer_code__c</columns>
+    <columns>ST_project_number__c</columns>
+    <columns>consumptionTaxRate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>対応中</value>
+    </filters>
+    <filters>
+        <field>NAME</field>
+        <operation>notContain</operation>
+        <value>test</value>
+    </filters>
+    <filters>
+        <field>Account__c</field>
+        <operation>equals</operation>
+        <value>生和コーポレーション株式会社</value>
+    </filters>
+    <label>生和コーポレーション</label>
+    <sharedTo>
+        <role>noharasteel</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_FollowDate__c</fullName>
+    <formula>IF ( AND(ISNULL(CW_MaterialDailySalesCalculation__c) ,ISNULL(CS_sittyuubi__c),ISNULL(CS_jyuttyubi__c)),  null  
+	,IF ( NOT( ISNULL(CW_MaterialDailySalesCalculation__c) )  ,CW_MaterialDailySalesCalculation__c 
+						, IF (  NOT( ISNULL(CS_sittyuubi__c) )  ,CS_sittyuubi__c 
+												,IF ( NOT( ISNULL(CS_jyuttyubi__c) )  ,CS_jyuttyubi__c ,null ))))</formula>
+    <label>フォロー日</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

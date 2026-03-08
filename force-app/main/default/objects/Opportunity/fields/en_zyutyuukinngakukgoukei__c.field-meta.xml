@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_zyutyuukinngakukgoukei__c</fullName>
+    <formula>en_zyutyukingaku__c  +  en_tsuikazyutyukingaku1__c + en_tsuikazyutyukingaku2__c + en_tsuikazyutyukingaku3__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>受注金額合計</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

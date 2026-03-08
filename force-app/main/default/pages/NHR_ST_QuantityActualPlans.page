@@ -1,0 +1,321 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_ST_QuantityActualPlansVFCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+            font-size:9pt;
+            }
+            .titleclass1_1{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            }
+            .titleclass1_2{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: left;
+            }
+            .titleclass1_3{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: left;
+            }
+            .titleclass1_2_border{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            border: 1px #000000 solid;
+            }
+            .titleclass1_2_center{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            }
+            .titleclass1_2_center_border{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px #000000 solid;
+            }
+            .titleclass1_2_right{
+            font-size:12pt;
+            font-weight: bold;
+            text-align: right;
+            }
+            .titleclass1_3{
+            text-align: right;
+            }
+            .titleclass1_4{
+            text-align: left;
+            }
+            .centerclass{
+            text-align: center;
+            }
+            .th1_1{
+            width :  150px;
+            }
+            .th1_2{
+            width :  100px;
+            }
+            .th1_3{
+            width :  200px;
+            }
+            .td1_1 {
+            border: 1px #000000 solid;
+            text-align: right;
+            }
+            
+            .titleclass1_2_center_border{
+            font-size:14pt;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px #000000 solid;
+            }
+            
+            .td1_1_center {
+            border: 1px #000000 solid;
+            text-align: center;
+            background: #FFFF99;
+            }
+            
+            .td1_1_left {
+            border: 1px #000000 solid;
+            text-align: left;
+            }
+
+            .td1_1_top_left {
+            border: 1px #000000 solid;
+            vertical-align: top;
+            text-align: left;
+            }
+
+            .td1_1_color {
+            border: 1px #000000 solid;
+            background: #FFFF99;
+            }
+
+            .td1_1_center {
+            border: 1px #000000 solid;
+            text-align: center;
+            background: #FFFF99;
+            }
+
+            .td1_1_center_noColor{
+            border: 1px #000000 solid;
+            text-align: center;
+            }
+
+            .td1_1_high {
+            border: 1px #000000 solid;
+            height: 40px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td class="th1_1"></td><!--A-->
+                <td class="th1_2"></td><!--B-->
+                <td class="th1_2"></td><!--C-->
+                <td class="th1_2"></td><!--D-->
+                <td class="th1_2"></td><!--E-->
+                <td class="th1_2"></td><!--F-->
+                <td class="th1_2"></td><!--G-->
+                <td class="th1_2"></td><!--H-->
+                <td class="th1_2"></td><!--I-->
+                <td class="th1_2"></td><!--J-->
+                <td class="th1_2"></td><!--K-->
+                <td class="th1_2"></td><!--L-->
+                <td class="th1_2"></td><!--M-->
+                <td class="th1_2"></td><!--N-->
+                <td class="th1_3"></td><!--O-->
+            </tr>
+            <tr>
+                <td colspan="3" class="titleclass1_1">【 埼玉工場 】</td>
+                <td colspan="9" class="titleclass1_1">【　{!thisYearStr}年度　加工数量実績及び予定　】</td>
+                <td colspan="3" class="titleclass1_1">{!thisDayStr}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td class="td1_1_center"></td><!--A-->
+                <td class="td1_1_center">7月</td><!--B-->
+                <td class="td1_1_center">8月</td><!--C-->
+                <td class="td1_1_center">9月</td><!--D-->
+                <td class="td1_1_center">10月</td><!--E-->
+                <td class="td1_1_center">11月</td><!--F-->
+                <td class="td1_1_center">12月</td><!--G-->
+                <td class="td1_1_center">1月</td><!--H-->
+                <td class="td1_1_center">2月</td><!--I-->
+                <td class="td1_1_center">3月</td><!--J-->
+                <td class="td1_1_center">4月</td><!--K-->
+                <td class="td1_1_center">5月</td><!--L-->
+                <td class="td1_1_center">6月</td><!--M-->
+                <td class="td1_1_center">計</td><!--N-->
+                <td class="td1_1_center">備考</td><!--O-->
+            </tr>
+            <!---->
+            <apex:variable var="idx" value="{!0}" />
+            <apex:repeat value="{!FormCreationList1}" var="record">
+                <tr >
+                    <td class="td1_1_center">{!record.X2__c}</td>
+                    <apex:outputPanel rendered="{!If((idx== 4 || idx== 5 || idx== 6 || idx== 8), true, false)}">
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((idx== 0 || idx== 1 || idx== 2 || idx== 3), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current7_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current8_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current9_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current10_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current11_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current12_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current1_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current2_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current3_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current4_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current5_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current6_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.TotalThisYear_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((idx== 7), true, false)}">
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current7_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current8_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current9_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current10_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current11_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current12_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current1_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current2_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current3_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current4_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current5_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current6_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.TotalThisYear_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"></td>
+                    </apex:outputPanel>
+                    
+                </tr>
+                <apex:variable var="idx" value="{!idx + 1}" />
+            </apex:repeat>
+            <tr></tr>
+            <tr>
+                <td colspan="3" class="titleclass1_1">【  神奈川工場 】</td>
+                <td colspan="9" class="titleclass1_1">【　{!thisYearStr}年度　加工数量実績及び予定　】</td>
+                <td colspan="3" class="titleclass1_1">{!thisDayStr}</td>
+            </tr>
+            <tr></tr>
+            <td class="td1_1_center"></td><!--A-->
+            <td class="td1_1_center">7月</td><!--B-->
+            <td class="td1_1_center">8月</td><!--C-->
+            <td class="td1_1_center">9月</td><!--D-->
+            <td class="td1_1_center">10月</td><!--E-->
+            <td class="td1_1_center">11月</td><!--F-->
+            <td class="td1_1_center">12月</td><!--G-->
+            <td class="td1_1_center">1月</td><!--H-->
+            <td class="td1_1_center">2月</td><!--I-->
+            <td class="td1_1_center">3月</td><!--J-->
+            <td class="td1_1_center">4月</td><!--K-->
+            <td class="td1_1_center">5月</td><!--L-->
+            <td class="td1_1_center">6月</td><!--M-->
+            <td class="td1_1_center">計</td><!--N-->
+            <td class="td1_1_center">備考</td><!--O-->
+            <!--神奈川工場-->
+            <apex:variable var="idx" value="{!0}" />
+            <apex:repeat value="{!FormCreationList2}" var="record">
+                <tr >
+                    <td class="td1_1_center">{!record.X2__c}</td>
+                    <apex:outputPanel rendered="{!If((idx== 5), true, false)}">
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                        <td class="td1_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((idx== 0 || idx== 1 || idx== 2 || idx== 3 || idx== 4), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current7_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current8_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current9_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current10_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current11_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current12_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current1_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current2_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current3_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current4_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current5_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current6_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.TotalThisYear_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1"></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((idx== 6), true, false)}">
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current7_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current8_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current9_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current10_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current11_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current12_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current1_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current2_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current3_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current4_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current5_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current6_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.TotalThisYear_Orig__c}" /></apex:outputText></td>
+                        <td class="td1_1_color"></td>
+                    </apex:outputPanel>
+                </tr>
+                <apex:variable var="idx" value="{!idx + 1}" />
+            </apex:repeat>
+            <tr></tr>
+            <tr>
+
+            </tr>
+            <tr></tr>
+            <!--合計-->
+            <apex:repeat value="{!FormCreationList3}" var="record">
+                <tr >
+                    <td class="td1_1_center">{!record.X2__c}</td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current7_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current8_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current9_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current10_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current11_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current12_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current1_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current2_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current3_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current4_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current5_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Current6_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.TotalThisYear_Orig__c}" /></apex:outputText></td>
+                    <td class="td1_1_color"></td>
+                </tr>
+                <tr></tr>
+            </apex:repeat>
+
+        </table>
+    </body>
+</apex:page>

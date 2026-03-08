@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOLXYZCSO001__DeliveryInfo</fullName>
+    <availability>online</availability>
+    <description>配信の詳細情報を表示</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>配信詳細</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://ecm.cloudsharedoffice.com/DeliveryInfo?sf=0&amp;id={!SOLXYZCSO001__CreateReportHistory__c.SOLXYZCSO001__DeliveryID__c}&amp;org={!$Organization.Id}&amp;sf_id={!$User.Id}</url>
+</WebLink>

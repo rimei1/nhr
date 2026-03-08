@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeiscoutCampaign__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>割引キャンペーン</label>
+    <referenceTo>DiscoutCampaign__c</referenceTo>
+    <relationshipLabel>商談商品</relationshipLabel>
+    <relationshipName>DeiscoutCampaignif5u</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_Leica_BLK360_G1__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>SL_【レンタル】Leica BLK360 G1(三脚・雲台・キャリーバッグ付き</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

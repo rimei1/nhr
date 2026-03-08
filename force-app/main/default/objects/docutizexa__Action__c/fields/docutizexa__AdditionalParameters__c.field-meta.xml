@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__AdditionalParameters__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>項目として用意されていないパラメーターはこの項目を使ってください。項目の値は、名前/値のペアからなるJSONオブジェクトの形式でなければいけません。指定を省略した場合、親レコードの同名項目の値を利用します。</inlineHelpText>
+    <label>Additional Parameters</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

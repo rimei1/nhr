@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_CurPeriodCom_ContractAmount__c</fullName>
+    <formula>IF(  EN_kanseiki__c= TEXT(CurrentPeriod__c ),
+ EN_saisyuzyutyuukingaku__c  ,
+null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>当期完成分_契約額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

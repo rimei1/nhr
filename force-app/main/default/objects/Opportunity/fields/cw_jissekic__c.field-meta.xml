@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cw_jissekic__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>売上計画の実績値に1円以上の値が入っている場合True（プロセスビルダー）</description>
+    <label>売上実績入力済</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

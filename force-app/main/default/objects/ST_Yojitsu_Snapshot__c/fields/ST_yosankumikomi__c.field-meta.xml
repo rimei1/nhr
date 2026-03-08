@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_yosankumikomi__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(Opportunity__r.ST_yosankumikomi__c)</formula>
+    <label>予算組み込み（削除予定)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

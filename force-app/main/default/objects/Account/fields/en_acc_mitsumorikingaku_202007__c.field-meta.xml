@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_acc_mitsumorikingaku_202007__c</fullName>
+    <label>見積金額_2020年7月</label>
+    <summarizedField>Opportunity.en_mitsumorikingaku__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.en_opp_nengetsu_mitsumoribi__c</field>
+        <operation>equals</operation>
+        <value>2020年7月</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

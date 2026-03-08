@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NextExpectedforthistermRevenu__c</fullName>
+    <formula>IF(
+OR(SalesPeriod__c - ThisPeriod__c = 1)
+,IF (spot__c
+,EstimatedAmount__c
+,IF (Month(occur_revenu_month__c) &lt; 7 , EstimatedAmount__c * (7- Month(occur_revenu_month__c)) /12 , EstimatedAmount__c * (19- Month(occur_revenu_month__c)) /12))
+,IF (spot__c,0,EstimatedAmount__c)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>来期売上想定額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

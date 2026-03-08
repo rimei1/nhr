@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JEASP01__IsExternalData__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>外部データである場合チェックを入れます。</inlineHelpText>
+    <label>(外部データ)外部データであるか</label>
+    <type>Checkbox</type>
+</CustomField>

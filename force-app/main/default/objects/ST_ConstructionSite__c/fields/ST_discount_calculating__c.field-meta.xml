@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_discount_calculating__c</fullName>
+    <label>割引計算パターン</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>下2桁カット</fullName>
+                <default>false</default>
+                <label>下2桁カット</label>
+            </value>
+            <value>
+                <fullName>下3桁カット</fullName>
+                <default>false</default>
+                <label>下3桁カット</label>
+            </value>
+            <value>
+                <fullName>下4桁カット</fullName>
+                <default>false</default>
+                <label>下4桁カット</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

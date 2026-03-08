@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>OBJECT_ID</columns>
+    <columns>Property_Unique_ID__c</columns>
+    <columns>Account_ID__c</columns>
+    <columns>TgtGC_Owner_ID_BA__c</columns>
+    <columns>NAME</columns>
+    <columns>Opportunity_ID_BA__c</columns>
+    <columns>GC_Progress_Status_BA__c</columns>
+    <columns>GC_Progress_Status_EN__c</columns>
+    <columns>GC_Progress_Status_ST__c</columns>
+    <columns>GC_Progress_Status_CE__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

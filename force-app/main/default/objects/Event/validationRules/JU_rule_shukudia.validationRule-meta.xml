@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_rule_shukudia</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF ( AND(text( JU_shyukudai__c )=&quot;宿題有り&quot;, ISBLANK( AccountTask1__c ) ) , true, false)</errorConditionFormula>
+    <errorDisplayField>AccountTask1__c</errorDisplayField>
+    <errorMessage>宿題が入力されていません。宿題を入力してください。</errorMessage>
+</ValidationRule>

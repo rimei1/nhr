@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>ST_field_name__c</columns>
+    <columns>ST_item__c</columns>
+    <columns>ST_item_converted__c</columns>
+    <columns>ST_item_pecification__c</columns>
+    <columns>BillingDate__c</columns>
+    <columns>sortOrder__c</columns>
+    <columns>primarySortOrder__c</columns>
+    <columns>ST_unit_price_wao__c</columns>
+    <columns>unitDiscountAmount__c</columns>
+    <columns>ST_unit_price__c</columns>
+    <columns>MakerCode__c</columns>
+    <columns>isBulkProcess__c</columns>
+    <columns>isOutOfContract__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ST_field_name__c</field>
+        <operation>contains</operation>
+        <value>永楽</value>
+    </filters>
+    <label>すべて選択</label>
+</ListView>

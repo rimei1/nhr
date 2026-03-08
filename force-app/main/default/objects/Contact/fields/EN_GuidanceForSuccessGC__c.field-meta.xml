@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EN_GuidanceForSuccessGC__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( en_kankeiLV__c ,
+&apos;LV1&apos;,
+&apos;LV１　仕事上の連絡が取れる（電話・メール等）&apos; + BR() + &apos;LV２　必要な時にアポイントが取れて面会出来る​&apos; ,
+&apos;LV2&apos;,
+&apos;LV２　必要な時にアポイントが取れて面会出来る&apos; + BR() + &apos;LV３　面会に関して当社の都合にある程度合わせて頂ける​&apos; ,
+&apos;LV3&apos;,
+&apos;LV３　面会に関して当社の都合にある程度合わせて頂ける&apos; + BR() + &apos;LV４　全ての物件のネゴに応じてもらえる​&apos; ,
+&apos;LV4&apos;,
+&apos;LV４　全ての物件のネゴに応じてもらえる&apos; + BR() + &apos;LV５　競合他社や社内情報を提供してくれる（当社にとって有利な情報や不利な情報も教えてくれる）&apos; ,
+&apos;LV5&apos;,
+&apos;LV５　競合他社や社内情報を提供してくれる（当社にとって有利な情報や不利な情報も教えてくれる）&apos; + BR() + &apos;LV６　会食に応じてくれる（公私ともにお付き合いいただけるレベル）&apos; ,
+&apos;LV6&apos;,
+&apos;LV６　会食に応じてくれる（公私ともにお付き合いいただけるレベル）&apos; + BR() + &apos;LV７　定期的な会食が出来る（当社への発注量の調整を検討して頂けるレベル）&apos; ,
+&apos;LV7&apos;,
+&apos;LV７　定期的な会食が出来る（当社への発注量の調整を検討して頂けるレベル）&apos; ,
+&apos;&apos;,
+&apos;LV１　仕事上の連絡が取れる（電話・メール等）&apos; ,
+&apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>成功へのガイダンスGC_EN</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

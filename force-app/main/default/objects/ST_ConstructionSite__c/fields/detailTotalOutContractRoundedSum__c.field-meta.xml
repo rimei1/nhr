@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>detailTotalOutContractRoundedSum__c</fullName>
+    <formula>detailTotalOutContractRounded__c +  detailTotalOutContractRoundedTax__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>⑪明細集計_契約外_ROUND（四捨五入）_合計</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

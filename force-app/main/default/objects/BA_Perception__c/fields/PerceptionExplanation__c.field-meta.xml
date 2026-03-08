@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PerceptionExplanation__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(  Contact__r.BuildAppKeyman__c 
+							,&apos;DX推進者&apos; ,CASE(  DX_PerceptionLvText__c 
+							  , &apos;zz&apos;, &apos;サービス名/社名未認知&apos;
+							  , &apos;z&apos;, &apos;サービス名/社名認知&apos;
+							  , &apos;a&apos;, &apos;BuildAppは自社にも関係のあるサービスのようだ&apos;
+							  , &apos;b&apos;, &apos;BuildAppのサービスは有益かもしれない&apos;
+							  , &apos;c&apos;, &apos;施工BIMにも早めに取り組んだほうが良いのかもしれない&apos;
+							  , &apos;d&apos;, &apos;BuildAppだと本当に成果に結びつくかもしれない&apos;
+							  , &apos;e&apos;, &apos;内装BIMに取り組みたい&apos;
+							  , &apos;f&apos;, &apos;自社の課題解決に役立ちそうだ&apos;
+							  , &apos;g&apos;, &apos;課題解決に繋がるかもしれない&apos;
+							  , &apos;h&apos;, &apos;なにかあったら野原に相談しよう&apos;
+							  , &apos;i&apos;, &apos;頼れるDXパートナー&apos;
+							  ,&apos;&apos;) 
+							,&apos;決裁者_現場&apos; ,CASE(  DX_PerceptionLvText__c 
+							  , &apos;zz&apos;, &apos;サービス名／社名未認知、DXネガ&apos;
+							  , &apos;z&apos;, &apos;DXフラット&apos;
+							  , &apos;a&apos;, &apos;サービス名／社名認知&apos;
+							  , &apos;b&apos;, &apos;自分の物件で導入しても良いかも&apos;
+							  , &apos;c&apos;, &apos;自分の物件で成果を期待したい&apos;
+							  , &apos;d&apos;, &apos;施工の課題解決に繋がるかもしれない&apos;
+							  , &apos;e&apos;, &apos;BuildAppだったら、今後も自分の物件で利用しても良い&apos;
+							  ,&apos;&apos;) 
+							,&apos;決裁者_本社&apos; ,CASE(  DX_PerceptionLvText__c 
+							  , &apos;zz&apos;, &apos;サービス名／社名未認知、DXネガ&apos;
+							  , &apos;z&apos;, &apos;DXフラット&apos;
+							  , &apos;a&apos;, &apos;サービス名／社名認知&apos;
+							  , &apos;b&apos;, &apos;BuildAppが施工工程のDXで継続的な生産性向上に向かえる&apos;
+							  , &apos;c&apos;, &apos;DXパートナーとして信頼できる&apos;
+							  ,&apos;&apos;) 
+							,&apos;&apos;)</formula>
+    <label>パーセプションの説明</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

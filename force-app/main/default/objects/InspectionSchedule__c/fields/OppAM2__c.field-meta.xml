@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppAM2__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>2日_AM</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>検査予定 (2日_AM)</relationshipLabel>
+    <relationshipName>OppAM2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

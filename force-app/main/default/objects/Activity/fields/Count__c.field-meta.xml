@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    OR(
+      TEXT( CS__c ) = &quot;訪問&quot;,
+      TEXT( CS__c ) = &quot;WEB面談&quot;
+    ),
+     Subject  &lt;&gt; &quot;目標&quot;,
+     Subject &lt;&gt; &quot;訪問目標&quot;
+  ),
+  1,
+  0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>実績カウント</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReceivedAmountInclTax__c</fullName>
+    <label>⑬入金済金額_税込</label>
+    <summarizedField>ST_DeliveryRecord__c.Paid_Amount_Tax_Included__c</summarizedField>
+    <summaryForeignKey>ST_DeliveryRecord__c.ST_field_name__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

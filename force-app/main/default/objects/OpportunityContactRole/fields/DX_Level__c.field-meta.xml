@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Level__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+DX_C_AcceptNextSuggestion6__c=true,&quot;ｆ&quot;,
+IF(
+DX_C_AcceptSuggestion5__c=true,&quot;e&quot;,
+IF(
+OR(DX_C_AcceptAppointment4__c=true, DX_C_RequestSuggestion4__c= true),&quot;ｄ&quot;,
+IF(
+OR(DX_C_SalesStaffCall3__c=true,DX_C_SpecificTask3__c=true,
+DX_M_AcceptAppointment3__c =true &amp;&amp; OR(DX_O_ListenBIM3__c =true, DX_O_WebColumnBrowse3__c =true)),
+&quot;ｃ&quot;,
+IF(
+DX_M_ListenIntroduction2__c =true &amp;&amp; DX_O_AcceptAppointment2__c =true,
+&quot;ｂ&quot;,
+IF(
+OR(DX_C_AcceptAppointment1__c=true, DX_C_DocumentRequest1__c=true, DX_C_Inquiry1__c=true, DX_C_Webinar1__c=true, DX_C_BoothArrive1__c=true),
+&quot;ａ&quot;,
+&quot;z&quot;
+))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>レベル_DX</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

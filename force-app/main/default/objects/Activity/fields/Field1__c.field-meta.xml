@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field1__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT ( YEAR (ActivityDate) ) &amp; &quot;年&quot; &amp; TEXT ( MONTH (ActivityDate)) &amp; &quot;月&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>行動月</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

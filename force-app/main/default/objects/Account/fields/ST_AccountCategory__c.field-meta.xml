@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_AccountCategory__c</fullName>
+    <label>顧客種別_ST</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>メーカー</fullName>
+                <default>false</default>
+                <label>メーカー</label>
+            </value>
+            <value>
+                <fullName>選定同業者</fullName>
+                <default>false</default>
+                <label>選定同業者</label>
+            </value>
+            <value>
+                <fullName>協力業者</fullName>
+                <default>false</default>
+                <label>協力業者</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

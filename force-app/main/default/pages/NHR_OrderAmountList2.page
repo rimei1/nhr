@@ -1,0 +1,136 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_EN_OrderAmountListCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+                font-size:14pt;
+            }            
+            .titleclass1_1{
+                font-size:18pt;
+                font-weight: bold;
+            }
+            .titleclass1_2{
+                text-align: right;
+            }
+            .centerclass{
+                text-align: center;
+            }
+            .td1_1 {
+                border: 1px #000000 solid;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td style = "width :  10px !important; "></td><!--A-->
+                <td style = "width :  40px !important;"></td><!--B-->
+                <td style = "width :  40px !important;"></td><!--C-->
+                <td style = "width :  110px !important;"></td><!--D-->
+                <td style = "width :  110px !important;"></td><!--E-->
+                <td style = "width :  110px !important;"></td><!--F-->
+                <td style = "width :  110px !important;"></td><!--G-->
+                <td style = "width :  110px !important;"></td><!--H-->
+                <td style = "width :  110px !important;"></td><!--I-->
+                <td style = "width :  110px !important;"></td><!--J-->
+                <td style = "width :  110px !important;"></td><!--K-->
+                <td style = "width :  110px !important;"></td><!--L-->
+                <td style = "width :  360px !important;"></td><!--M-->            
+            </tr>
+            <tr>
+                <td colspan="7" class="titleclass1_1">2024年6月期　受注・追求金額一覧表</td>
+                <td class="titleclass1_1">11</td>
+                <td class="titleclass1_1">月</td>
+                <td class="titleclass1_1"></td>
+                <td class="titleclass1_1"></td>
+                <td class="titleclass1_1"></td>
+                <td class="titleclass1_2">営業部</td>
+            </tr>
+            <tr>
+                <td colspan="12"></td>
+                <td class="titleclass1_2">（単位：千円）</td>
+            </tr>
+            <tr></tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td colspan="3"  rowspan = "3"  class="td1_1"></td>
+                <td colspan="8"   class="td1_1">当月迄　累計</td>
+                <td rowspan = "3"  class="td1_1">当月個社別戦略</td>
+            </tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td colspan="2"   class="td1_1">2024年6月期</td>
+                <td colspan="2"   class="td1_1">2025年6月期</td>
+                <td colspan="2"   class="td1_1">2026年6月期以降</td>
+                <td colspan="2"   class="td1_1">合計</td>
+            </tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+            </tr>
+            <!--大阪営業部-->
+            <tr >
+                <td ></td>
+                <td rowspan = "8" class="td1_1">大阪営業部（　%）</td>
+                <td rowspan = "4" class="td1_1">受注</td>
+                <td class="td1_1">年間計画</td>
+                <td colspan="8" rowspan = "40" class="td1_1">
+                    
+                    <table >
+                        <apex:repeat value="{!FormCreationList}" var="record">
+                            <tr>
+                                <td class="td1_1"></td>
+                                <td class="td1_1"></td>
+                                <td class="td1_1"></td>
+                                <td  class="td1_1"></td>
+                                <td class="td1_1"></td>
+                                <td  class="td1_1"></td>
+                                <td class="td1_1"></td>
+                                <td class="td1_1"></td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+
+                </td>
+                <td rowspan = "8" class="td1_1"></td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td class="td1_1">累計実績</td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td class="td1_1">進捗率</td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td class="td1_1">不足額</td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td rowspan = "4" class="td1_1">追求</td>
+                <td class="td1_1">合計</td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td class="td1_1">A</td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td class="td1_1">B</td>
+            </tr>
+            <tr >
+                <td ></td>
+                <td class="td1_1">C</td>
+            </tr>
+        </table>
+    </body>
+</apex:page>

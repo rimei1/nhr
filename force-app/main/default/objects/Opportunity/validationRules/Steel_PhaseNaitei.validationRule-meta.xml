@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Steel_PhaseNaitei</fullName>
+    <active>false</active>
+    <description>スチール_フェーズ内定変更時の規則</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName, &quot;内定&quot;),
+    ISBLANK(transtionDateToPhaseJuchuST__c ), 
+    ISBLANK( ContractQuantity__c ), 
+    ISBLANK( ContractAmount__c ) 
+)</errorConditionFormula>
+    <errorMessage>フェーズを『内定』に変更する場合、内定日、契約数量、契約金額の入力が必須です。</errorMessage>
+</ValidationRule>

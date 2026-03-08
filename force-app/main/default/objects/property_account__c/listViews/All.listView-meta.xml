@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>genbatantousya__c</columns>
+    <columns>genbatantousya2__c</columns>
+    <columns>targetDateNextProperty__c</columns>
+    <columns>nextProperty__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>genbatantousya__c</field>
+        <operation>contains</operation>
+        <value>テスト</value>
+    </filters>
+    <label>すべて選択</label>
+</ListView>

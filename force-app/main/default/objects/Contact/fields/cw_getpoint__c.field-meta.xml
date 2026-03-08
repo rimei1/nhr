@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cw_getpoint__c</fullName>
+    <externalId>false</externalId>
+    <formula>if( isblank( cw_Lv6_hanteibi__c )
+	,if( isblank( cw_Lv5_hanteibi__c )
+		,if( isblank( cw_Lv4_hanteibi__c )
+			,if( isblank( cw_Lv3_hanteibi__c )
+				,if( isblank( cw_Lv2_hanteibi__c )
+					,if( isblank( cw_Lv1_hanteibi__c )
+						,0
+						,1
+						)
+					,if( cw_Lv2_hanteibi__c = cw_Lv1_hanteibi__c
+						,if( isblank( cw_Lv1_hanteibi__c )
+							,0
+							,2
+							)
+						,1
+						)
+					)
+				,if( cw_Lv3_hanteibi__c = cw_Lv2_hanteibi__c
+					,if( cw_Lv3_hanteibi__c = cw_Lv1_hanteibi__c
+							,if( isblank( cw_Lv1_hanteibi__c )
+							,0
+							,3
+							)
+						,2
+						)
+					,1
+					)
+				)
+			,if( cw_Lv4_hanteibi__c = cw_Lv3_hanteibi__c
+				,if( cw_Lv4_hanteibi__c = cw_Lv2_hanteibi__c
+					,if( cw_Lv4_hanteibi__c = cw_Lv1_hanteibi__c
+						,if( isblank( cw_Lv1_hanteibi__c )
+							,0
+							,4
+							)
+						,3
+						)
+					,2
+					)
+				,1
+				)
+			)
+		,if( cw_Lv5_hanteibi__c = cw_Lv4_hanteibi__c
+			,if( cw_Lv5_hanteibi__c = cw_Lv3_hanteibi__c
+				,if( cw_Lv5_hanteibi__c = cw_Lv2_hanteibi__c
+					,if( cw_Lv5_hanteibi__c = cw_Lv1_hanteibi__c
+						,if( isblank( cw_Lv1_hanteibi__c )
+							,0
+							,5
+							)
+						,4
+						)
+					,3
+					)
+				,2
+				)
+			,1
+			)
+		)
+	,if( cw_Lv6_hanteibi__c = cw_Lv5_hanteibi__c
+		,if( cw_Lv6_hanteibi__c = cw_Lv4_hanteibi__c
+			,if( cw_Lv6_hanteibi__c = cw_Lv3_hanteibi__c
+				,if( cw_Lv6_hanteibi__c = cw_Lv2_hanteibi__c
+					,if( cw_Lv6_hanteibi__c = cw_Lv1_hanteibi__c
+						,if( isblank( cw_Lv1_hanteibi__c )
+							,0
+							,6
+							)
+						,5
+						)
+					,4
+					)
+				,3
+				)
+			,2
+			)
+		,1
+		)
+	)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>最新獲得ポイント</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

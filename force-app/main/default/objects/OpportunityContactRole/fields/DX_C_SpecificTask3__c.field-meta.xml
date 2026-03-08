@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_C_SpecificTask3__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>C:具体的な課題の共有_DX</label>
+    <type>Checkbox</type>
+</CustomField>

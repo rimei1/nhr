@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ObtainRecords__c</fullName>
+    <label>調書入手</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>入手済</fullName>
+                <default>false</default>
+                <label>入手済</label>
+            </value>
+            <value>
+                <fullName>未入手</fullName>
+                <default>false</default>
+                <label>未入手</label>
+            </value>
+            <value>
+                <fullName>入手不可</fullName>
+                <default>false</default>
+                <label>入手不可</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

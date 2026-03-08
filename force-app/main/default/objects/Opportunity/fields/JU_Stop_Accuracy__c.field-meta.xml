@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_Stop_Accuracy__c</fullName>
+    <formula>IF( ISPICKVAL(StageName, &apos;採用（受注）&apos;),1
+	,CASE(TEXT(JU_teitaimeisai__c )
+						, &apos;資料入手待ち&apos;, 0.2
+						, &apos;次のアポが取れない&apos;, 0
+						, &apos;得意先社内確認中&apos;, 0.5
+						, &apos;野原社内要検討&apos;, 0.05
+						, &apos;仕入先打合せ中&apos;, 0.3
+						, &apos;他部署再提案中&apos;, 0.5
+						, &apos;訪問1回目停滞中&apos;, 0.05
+						, &apos;見積提出停滞中&apos;, 0.1
+						, &apos;購買決定者検討停滞中&apos;, 0.5
+						, &apos;トライアル停滞中&apos;, 0.58
+						, &apos;採用一歩手前停滞中&apos;, 0.8
+						, &apos;提案内容再検討&apos;, 0.3
+						, &apos;仕入先交渉中&apos;, 1
+						, &apos;仕入先へ見積依頼&apos;, 1
+						, &apos;野原社内調整&apos;, 0.6
+						, &apos;競合調査&apos;, 0.6
+						, &apos;先方社内調整中&apos;, 1
+						, &apos;得意先仕組検討中&apos;, 1
+						, &apos;検討後結果報告待ち&apos;, 1
+						, &apos;検討後追加要望&apos;, 1
+						, &apos;野原からの回答待ち&apos;, 1
+						, &apos;工期確認中&apos;, 1
+						, &apos;最終仕様検討中&apos;, 1
+						, &apos;進行中&apos;, 1
+						, &apos;物件選定中&apos;, 1
+						, &apos;問題発生&apos;, 0.4
+						, &apos;設計折り込み待ち&apos;, 1
+						, &apos;納入開始時期の検討&apos;, 1
+						, 0) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>状況確度</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

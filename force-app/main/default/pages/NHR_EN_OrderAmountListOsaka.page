@@ -1,0 +1,140 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_EN_OrderAmountListCtrlOsaka">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+            font-size:14pt;
+            }            
+            .titleclass1_1{
+            font-size:18pt;
+            font-weight: bold;
+            }
+            .titleclass1_2{
+            text-align: right;
+            }
+            .centerclass{
+            text-align: center;
+            }
+            .td1_1 {
+            border: 1px #000000 solid;
+            width :  80px;
+            }
+            .td1_2 {
+                border: 1px #000000 solid;
+                background: #DDDDDD;
+            }
+            
+            .td1_3 {
+                border: 1px #000000 solid;
+                background: #FFDBC9;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td style = "width :  10px;"></td><!--A-->
+                <td style = "width :  40px;"></td><!--B-->
+                <td style = "width :  80px;"></td><!--C-->
+                <td colspan="{!colNum}"></td><!--D-->     
+            </tr>
+            <tr>
+                <td colspan="{!colNum}" class="titleclass1_1">{!thisFiscalYear}　受注・追求金額一覧表</td>
+            </tr>
+            <tr></tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td colspan="{!colNum}"  class="td1_1">{!thisFiscalYear}</td>
+            </tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td colspan="3" class="td1_1">{!recordList[0].Title1__c}</td>
+                </apex:repeat>
+            </tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1">件数</td>
+                    <td class="td1_1">受注額</td>
+                    <td class="td1_1">粗利</td>
+                </apex:repeat>
+            </tr>
+            <!--大阪営業部-->
+            <tr >
+                <td rowspan = "8" ></td>
+                <td rowspan = "4" class="td1_1">受注</td>
+                <td class="td1_1">年間計画</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[0].D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[0].E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[0].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td class="td1_1">累計実績</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[1].D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[1].E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[1].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td class="td1_1">進捗率</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1"></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!recordList[2].E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!recordList[2].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td class="td1_2">不足額</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_2"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[3].D__c}" /></apex:outputText></td>
+                    <td class="td1_2"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[3].E__c}" /></apex:outputText></td>
+                    <td class="td1_2"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[3].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td rowspan = "4" class="td1_1">追求</td>
+                <td class="td1_3">合計</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_3"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[4].D__c}" /></apex:outputText></td>
+                    <td class="td1_3"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[4].E__c}" /></apex:outputText></td>
+                    <td class="td1_3"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[4].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td class="td1_1">A</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[5].D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[5].E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[5].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td class="td1_1">B</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[6].D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[6].E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[6].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+            <tr >
+                <td class="td1_1">C</td>
+                <apex:repeat value="{!FormCreationList}" var="recordList">
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[7].D__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[7].E__c}" /></apex:outputText></td>
+                    <td class="td1_1"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!recordList[7].F__c}" /></apex:outputText></td>
+                </apex:repeat>
+            </tr>
+        </table>
+    </body>
+</apex:page>

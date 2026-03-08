@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_PerceptionLv__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Contact__r.BuildAppKeyman__c)
+,&apos;DX推進者&apos;,
+IF(DX_Suishin_9__c,&apos;h&apos;
+,IF(DX_Suishin_8__c,&apos;g&apos;
+,IF(DX_Suishin_7__c,&apos;f&apos;
+,IF(DX_Suishin_6__c,&apos;e&apos;
+,IF(DX_Suishin_5__c,&apos;d&apos;
+,IF(DX_Suishin_4__c,&apos;c&apos;
+,IF(DX_Suishin_3__c,&apos;b&apos;
+,IF(DX_Suishin_2__c,&apos;a&apos;
+,IF(DX_Suishin_1__c,&apos;z&apos;
+,&apos;zz&apos;)))))))))
+,&apos;決裁者_現場&apos;
+,IF(DX_Genba_5__c,&apos;e&apos;
+,IF(DX_Genba_4__c,&apos;d&apos;
+,IF(DX_Genba_31__c,&apos;c&apos;
+,IF(DX_Genba_3__c,&apos;b&apos;
+,IF(DX_Genba_2__c,&apos;a&apos;
+,IF(DX_Genba_1__c,&apos;z&apos;
+,&apos;zz&apos;))))))
+,&apos;決裁者_本社&apos;
+,IF(DX_Honsha_5__c,&apos;c&apos;
+,IF(DX_Honsha_4__c,&apos;b&apos;
+,IF(DX_Honsha_2__c,&apos;a&apos;
+,IF(DX_Honsha_1__c,&apos;z&apos;
+,&apos;zz&apos;))))
+,&apos;&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>パーセプションLV_DX</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

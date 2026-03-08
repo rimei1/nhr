@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_target__c</fullName>
+    <label>CSWEBターゲット顧客</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>戦略既存店</fullName>
+                <default>false</default>
+                <label>戦略既存店</label>
+            </value>
+            <value>
+                <fullName>戦略希薄店</fullName>
+                <default>false</default>
+                <label>戦略希薄店</label>
+            </value>
+            <value>
+                <fullName>戦略休眠・新規</fullName>
+                <default>false</default>
+                <label>戦略休眠・新規</label>
+            </value>
+            <value>
+                <fullName>主要店</fullName>
+                <default>false</default>
+                <label>主要店</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

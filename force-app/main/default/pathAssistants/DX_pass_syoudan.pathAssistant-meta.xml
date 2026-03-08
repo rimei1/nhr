@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>【商談】建設DX</masterLabel>
+    <recordTypeName>RecordType_syoudan_dx</recordTypeName>
+</PathAssistant>

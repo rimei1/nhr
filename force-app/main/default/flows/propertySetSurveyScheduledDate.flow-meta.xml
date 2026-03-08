@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <formulas>
+        <name>surveyScheduledDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate}
+/*
+{!$Flow.CurrentDate}+30
+*/</expression>
+    </formulas>
+    <interviewLabel>【CS物件】 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【CS物件】アンケート配信予定日記入</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>updSurveyScheduledDate_zyouhouteikyousya</name>
+        <label>updSurveyScheduledDate_zyouhouteikyousya</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>surveyScheduledDate__c</field>
+            <value>
+                <elementReference>surveyScheduledDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.zyouhouteikyousya__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>updSurveyScheduledDate_zyouhouteikyousya</targetReference>
+        </connector>
+        <filterFormula>(({!$Record__Prior.Kawakami__c} == FALSE) 
+    &amp;&amp; ({!$Record.Kawakami__c} == TRUE) 
+    &amp;&amp; NOT(ISBLANK({!$Record.zyouhouteikyousya__c}))) 
+|| 
+(({!$Record.Kawakami__c} == TRUE) 
+    &amp;&amp; ISBLANK({!$Record__Prior.zyouhouteikyousya__c}) 
+    &amp;&amp; NOT(ISBLANK({!$Record.zyouhouteikyousya__c})))</filterFormula>
+        <object>property__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

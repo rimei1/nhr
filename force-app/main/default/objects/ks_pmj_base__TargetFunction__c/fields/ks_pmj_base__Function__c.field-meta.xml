@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ks_pmj_base__Function__c</fullName>
+    <deprecated>false</deprecated>
+    <label>機能</label>
+    <referenceTo>ks_pmj_base__Function__c</referenceTo>
+    <relationshipLabel>対象機能</relationshipLabel>
+    <relationshipName>TargetFunction</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

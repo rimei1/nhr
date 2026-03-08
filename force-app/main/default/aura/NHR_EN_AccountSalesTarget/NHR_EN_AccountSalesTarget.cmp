@@ -1,0 +1,46 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global"
+                controller="NHR_EN_CreateExcelCtrl">
+    <div class="c-container">
+        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+            <div class="slds-media__body">
+                <h2 class="header-title-container">
+                    <span class="slds-card__header-title slds-truncate" title="" >
+                        得意先別売上目標(部署別)
+                    </span>
+                </h2>
+            </div>
+        </header>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="全社" onclick="{!c.Sales_All }"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="東京" onclick="{!c.Sales_Tokyo }"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="大阪" onclick="{!c.Sales_Osaka }"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+            <div class="slds-media__body">
+                <h2 class="header-title-container">
+                    <span class="slds-card__header-title slds-truncate" title="" >
+                        得意先別売上目標(個人_得意先別)
+                    </span>
+                </h2>
+            </div>
+        </header>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="東京" onclick="{!c.Sales_Tokyo3 }"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="大阪" onclick="{!c.Sales_Osaka3 }"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <lightning:button class="slds-button slds-button_brand" label="私の営業報告書" onclick="{!c.Sales4}"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

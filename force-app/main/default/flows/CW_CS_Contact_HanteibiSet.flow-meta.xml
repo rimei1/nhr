@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <formulas>
+        <name>cw_Lv1_hanteibi</name>
+        <dataType>Date</dataType>
+        <expression>IF( ISNULL({!$Record.cw_Lv1_hanteibi__c} ) , TODAY() ,{!$Record.cw_Lv1_hanteibi__c})</expression>
+    </formulas>
+    <formulas>
+        <name>cw_Lv2_hanteibi</name>
+        <dataType>Date</dataType>
+        <expression>IF ( OR( ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv2&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv3&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv4&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv5&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv6&apos;))
+,IF( ISNULL({!$Record.cw_Lv2_hanteibi__c}) , TODAY() ,{!$Record.cw_Lv2_hanteibi__c})
+,NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <name>cw_Lv3_hanteibi</name>
+        <dataType>Date</dataType>
+        <expression>IF ( OR( ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv3&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv4&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv5&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv6&apos;))
+,IF( ISNULL({!$Record.cw_Lv3_hanteibi__c}) , TODAY() ,{!$Record.cw_Lv3_hanteibi__c})
+,NULL
+)</expression>
+    </formulas>
+    <formulas>
+        <name>cw_Lv4_hanteibi</name>
+        <dataType>Date</dataType>
+        <expression>IF(  ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv4&apos;) 
+, TODAY()
+, IF ( OR( ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv5&apos;)
+,ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv6&apos;))
+,IF( ISNULL({!$Record.cw_Lv4_hanteibi__c}) , TODAY() ,{!$Record.cw_Lv4_hanteibi__c})
+,NULL ))</expression>
+    </formulas>
+    <formulas>
+        <name>cw_Lv5_hanteibi</name>
+        <dataType>Date</dataType>
+        <expression>IF(  ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv5&apos;) 
+, TODAY()
+, IF ( ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv6&apos;)
+,IF( ISNULL({!$Record.cw_Lv5_hanteibi__c}) , TODAY() ,{!$Record.cw_Lv5_hanteibi__c})
+,NULL ))</expression>
+    </formulas>
+    <formulas>
+        <name>cw_Lv6_hanteibi</name>
+        <dataType>Date</dataType>
+        <expression>IF(  ISPICKVAL({!$Record.CW_RelationshipDegree__c} ,&apos;Lv6&apos;) 
+, TODAY()
+, NULL)</expression>
+    </formulas>
+    <interviewLabel>【取引先担当者】管理者宛メール送付 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【取引先担当者】CS_関係構築判定日</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Lv_Hanteibi_Set</name>
+        <label>Lv判定日設定</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>cw_Lv1_hanteibi__c</field>
+            <value>
+                <elementReference>cw_Lv1_hanteibi</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cw_Lv2_hanteibi__c</field>
+            <value>
+                <elementReference>cw_Lv2_hanteibi</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cw_Lv3_hanteibi__c</field>
+            <value>
+                <elementReference>cw_Lv3_hanteibi</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cw_Lv4_hanteibi__c</field>
+            <value>
+                <elementReference>cw_Lv4_hanteibi</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cw_Lv5_hanteibi__c</field>
+            <value>
+                <elementReference>cw_Lv5_hanteibi</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>cw_Lv6_hanteibi__c</field>
+            <value>
+                <elementReference>cw_Lv6_hanteibi</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Lv_Hanteibi_Set</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CW_RelationshipDegree__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_LossReasonBlank</fullName>
+    <active>true</active>
+    <description>CSWEB_失注時、失注理由を選択していない場合</description>
+    <errorConditionFormula>AND( TEXT(StageName) =&quot;E (失注)&quot;,  TEXT( CW_LossReason__c )=&quot;&quot;  , RecordType.DeveloperName =&quot;CSWEB&quot;)</errorConditionFormula>
+    <errorDisplayField>CW_LossReason__c</errorDisplayField>
+    <errorMessage>失注にする場合は先に失注理由を選択してください。</errorMessage>
+</ValidationRule>

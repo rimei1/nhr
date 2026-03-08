@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_tokuisakitantousya_oosakaeigyoubu_listview</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>KeyMan__c</columns>
+    <columns>en_kankeiLV__c</columns>
+    <columns>EN_OwnerId__c</columns>
+    <columns>en_saisyuhoumonbi__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>EN_Department__c</field>
+        <operation>equals</operation>
+        <value>大阪営業部</value>
+    </filters>
+    <label>野原エンジニアリング_大阪営業部</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>en_nohara</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

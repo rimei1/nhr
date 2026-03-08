@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>all_busyocategoli</fullName>
+    <columns>NAME</columns>
+    <columns>DepCategoryMaster_LU__c</columns>
+    <columns>DX_No__c</columns>
+    <columns>JU_No__c</columns>
+    <columns>Account_LU__c</columns>
+    <columns>BuildAppTacTarget__c</columns>
+    <columns>JuTacTarget__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>全ての部署カテゴリ</label>
+</ListView>

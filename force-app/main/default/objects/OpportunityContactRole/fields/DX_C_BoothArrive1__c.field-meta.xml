@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_C_BoothArrive1__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>C:展示会ブース来場_DX</label>
+    <type>Checkbox</type>
+</CustomField>

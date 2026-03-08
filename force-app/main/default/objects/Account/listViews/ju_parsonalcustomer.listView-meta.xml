@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ju_parsonalcustomer</fullName>
+    <booleanFilter>(1 AND 2)</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>JU_OwnerId__c</columns>
+    <columns>JU_Department__c</columns>
+    <columns>JU_AccountType__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>JU_MyChargeFlg__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>ju_kouzasakuzyozumi__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>01.私の担当先</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Jyukankyo</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

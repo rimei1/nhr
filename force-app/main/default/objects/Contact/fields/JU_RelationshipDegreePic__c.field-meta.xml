@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_RelationshipDegreePic__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(  JU_RelationshipDegree__c ,
+&apos;初期レベル&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746841000/RelationshipDegreeJU_Lv1?&quot;, &quot;&quot;,38, 690) ,
+&apos;中期レベル&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746859000/RelationshipDegreeJU_Lv2?&quot;, &quot;&quot;,38, 690) ,
+&apos;後期レベル&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746880000/RelationshipDegreeJU_Lv3?&quot;, &quot;&quot;,38, 690) ,
+&apos;&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746817000/RelationshipDegreeJU_Lv0?&quot;, &quot;&quot;,38, 690) ,
+&apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>関係構築度画像_JU</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

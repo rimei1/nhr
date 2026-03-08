@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__checkDuplicateNameRule</fullName>
+    <active>true</active>
+    <description>レコード新規作成・更新時にNameが重複する場合はエラーとする</description>
+    <errorConditionFormula>(Name = VLOOKUP(
+    $ObjectType.docutizexa__Report__c.Fields.Name,
+    $ObjectType.docutizexa__Report__c.Fields.Name,
+    Name
+) &amp;&amp; ( ISNEW()  ||  ISCHANGED(Name) ))</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Duplicate report name. Change report name, and, save it again.</errorMessage>
+</ValidationRule>

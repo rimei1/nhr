@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_Check_teitaimeisai</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				 RecordType.DeveloperName = &apos;Jukankyo&apos;
+				, ISCHANGED(StageName) 
+				,(
+ISPICKVAL( StageName , &quot;訪問1回目&quot;) || 
+ISPICKVAL( StageName , &quot;初回見積提出&quot;) || 
+ISPICKVAL( StageName , &quot;得意先検討中&quot;) || 
+ISPICKVAL( StageName , &quot;トライアル&quot;)
+) 
+ ,(  ISPICKVAL(JU_teitaimeisai__c ,&quot;&quot; ))
+				)</errorConditionFormula>
+    <errorDisplayField>JU_teitaimeisai__c</errorDisplayField>
+    <errorMessage>状況明細の入力をお願いします</errorMessage>
+</ValidationRule>

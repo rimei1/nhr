@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOLXYZCSO001__CSOGroupMemberCount__c</fullName>
+    <deprecated>false</deprecated>
+    <description>最後に同期した時点のグループのメンバー数を保管する</description>
+    <externalId>false</externalId>
+    <label>同期グループメンバー数</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

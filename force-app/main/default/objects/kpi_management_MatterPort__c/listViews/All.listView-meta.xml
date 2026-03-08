@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>target_month__c</columns>
+    <columns>opp__c</columns>
+    <columns>order_from_web__c</columns>
+    <columns>estimate__c</columns>
+    <columns>order__c</columns>
+    <columns>order_from_nonweb__c</columns>
+    <columns>lead_cvr__c</columns>
+    <columns>ar_lead_cvr__c</columns>
+    <columns>target_lead_cvr__c</columns>
+    <columns>session__c</columns>
+    <columns>target_session__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべてのレコード</label>
+</ListView>

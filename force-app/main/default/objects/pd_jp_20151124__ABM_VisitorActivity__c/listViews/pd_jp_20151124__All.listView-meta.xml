@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__All</fullName>
+    <columns>pd_jp_20151124__Id__c</columns>
+    <columns>NAME</columns>
+    <columns>pd_jp_20151124__Pardot_DocodocoJp__c</columns>
+    <columns>pd_jp_20151124__AC_Prospect__c</columns>
+    <columns>pd_jp_20151124__type__c</columns>
+    <columns>pd_jp_20151124__activity_name__c</columns>
+    <columns>pd_jp_20151124__Email_Title__c</columns>
+    <columns>pd_jp_20151124__type_name__c</columns>
+    <columns>pd_jp_20151124__created_at__c</columns>
+    <columns>pd_jp_20151124__Email_Sent_At__c</columns>
+    <columns>pd_jp_20151124__email_id__c</columns>
+    <columns>pd_jp_20151124__email_template_id__c</columns>
+    <columns>pd_jp_20151124__list_email_id__c</columns>
+    <columns>relatedAccountId__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

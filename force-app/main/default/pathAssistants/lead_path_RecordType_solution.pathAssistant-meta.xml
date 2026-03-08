@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Lead</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>ソリューション営業部</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>priority__c</fieldNames>
+        <picklistValueName>対象外</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>priority__c</fieldNames>
+        <picklistValueName>新規</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>priority__c</fieldNames>
+        <picklistValueName>育成</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>priority__c</fieldNames>
+        <picklistValueName>評価中</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>RecordType_slution</recordTypeName>
+</PathAssistant>

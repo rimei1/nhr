@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_tpkuisaki_mitsumorikingaku__c</fullName>
+    <label>今期見積金額</label>
+    <summarizedField>Opportunity.en_mitsumorikingaku__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.en_mitsumoribi__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2023</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.en_mitsumoribi__c</field>
+        <operation>lessOrEqual</operation>
+        <value>6/30/2024</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

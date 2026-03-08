@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SolutionSalesCompactLayout</fullName>
+    <fields>SL_Achievementsofseminarmovie__c</fields>
+    <fields>SL_TermDate__c</fields>
+    <fields>SL_photograph_edit_support__c</fields>
+    <fields>SL_PhotographyCompany__c</fields>
+    <fields>SL_ShootingDate__c</fields>
+    <fields>SL_FirstQuateDate__c</fields>
+    <fields>SL_BillingDate__c</fields>
+    <fields>SL_QuestionClassification__c</fields>
+    <label>ソリューション営業リード履歴コンパクトレイアウト</label>
+</CompactLayout>

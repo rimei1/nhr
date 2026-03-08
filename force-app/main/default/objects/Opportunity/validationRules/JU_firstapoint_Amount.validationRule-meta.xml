@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_firstapoint_Amount</fullName>
+    <active>false</active>
+    <description>初回訪問フェーズ変更時金額入力</description>
+    <errorConditionFormula>AND(
+Amount__c &lt;= 0,
+ISPICKVAL (StageName , &quot;訪問1回目&quot; )
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>金額の入力がされていません。
+提案商品タブから入力をお願いいたします。</errorMessage>
+</ValidationRule>

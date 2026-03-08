@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ToDo</fullName>
+    <columns>DUE_DATE</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>Ju_hyoji1__c</columns>
+    <columns>PRIORITY</columns>
+    <columns>STATUS</columns>
+    <filterScope>Mine</filterScope>
+    <label>私のすべてのToDo</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Jyukankyo</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

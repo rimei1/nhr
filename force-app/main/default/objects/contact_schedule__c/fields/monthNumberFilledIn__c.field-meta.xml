@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>monthNumberFilledIn__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(
+AND(property_6_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_6_1__c))),
+AND(property_6_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_6_2__c))),
+AND(property_6_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_6_3__c)))
+), 6, 
+IF(
+OR(
+AND(property_5_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_5_1__c))),
+AND(property_5_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_5_2__c))),
+AND(property_5_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_5_3__c)))
+), 5, 
+IF(
+OR(
+AND(property_4_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_4_1__c))),
+AND(property_4_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_4_2__c))),
+AND(property_4_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_4_3__c)))
+), 4, 
+IF(
+OR(
+AND(property_3_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_3_1__c))),
+AND(property_3_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_3_2__c))),
+AND(property_3_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_3_3__c)))
+), 3, 
+IF(
+OR(
+AND(property_2_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_2_1__c))),
+AND(property_2_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_2_2__c))),
+AND(property_2_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_2_3__c)))
+), 2, 
+IF(
+OR(
+AND(property_1_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_1_1__c))),
+AND(property_1_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_1_2__c))),
+AND(property_1_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_1_3__c)))
+), 1, 
+IF(
+OR(
+AND(property_12_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_12_1__c))),
+AND(property_12_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_12_2__c))),
+AND(property_12_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_12_3__c)))
+), 12, 
+IF(
+OR(
+AND(property_11_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_11_1__c))),
+AND(property_11_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_11_2__c))),
+AND(property_11_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_11_3__c)))
+), 11, 
+IF(
+OR(
+AND(property_10_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_10_1__c))),
+AND(property_10_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_10_2__c))),
+AND(property_10_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_10_3__c)))
+), 10, 
+IF(
+OR(
+AND(property_9_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_9_1__c))),
+AND(property_9_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_9_2__c))),
+AND(property_9_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_9_3__c)))
+), 9, 
+IF(
+OR(
+AND(property_8_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_8_1__c))),
+AND(property_8_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_8_2__c))),
+AND(property_8_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_8_3__c)))
+), 8, 
+IF(
+OR(
+AND(property_7_1__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_7_1__c))),
+AND(property_7_2__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_7_2__c))),
+AND(property_7_3__c != &quot;a0mRC000000QceL&quot;, NOT(ISBLANK(property_7_3__c)))
+), 7, 0))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>記入済-月番号</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

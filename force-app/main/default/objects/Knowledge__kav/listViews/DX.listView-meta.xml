@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX</fullName>
+    <columns>TITLE</columns>
+    <columns>PUBLISH_STATUS</columns>
+    <columns>LAST_PUBLISHED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>TITLE</field>
+        <operation>contains</operation>
+        <value>DX</value>
+    </filters>
+    <label>建設DX_ニュース記事一覧</label>
+</ListView>

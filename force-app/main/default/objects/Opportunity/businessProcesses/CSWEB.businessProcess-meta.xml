@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSWEB</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>A %28受注%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>C%EF%BC%88確認%EF%BC%89</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>D%28見積提出%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>E %28失注%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>V%28見積作成中%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>W%28仕入見積依頼%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Z%28新規問合%29</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

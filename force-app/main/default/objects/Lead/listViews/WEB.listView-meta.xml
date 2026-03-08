@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WEB</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>SL_Department_2__c</columns>
+    <columns>LEAD.TITLE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>SL_siryouseikyuNum__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LAST_UPDATE</columns>
+    <columns>SL_WebContact__c</columns>
+    <columns>firstCpnInterest__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SL_WebContact__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>LEAD.EMAIL</field>
+        <operation>notContain</operation>
+        <value>@nohara-inc.co.jp</value>
+    </filters>
+    <label>ソリューション営業部_WEB問い合わせ</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>UserRole_Solution</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

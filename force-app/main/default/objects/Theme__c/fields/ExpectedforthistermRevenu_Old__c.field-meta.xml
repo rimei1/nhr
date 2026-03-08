@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpectedforthistermRevenu_Old__c</fullName>
+    <formula>IF(
+  OR(
+    (MONTH(TODAY()) &gt;= 7 &amp;&amp; 
+     NOT(AND(
+       YEAR(occur_revenu_month__c) = YEAR(TODAY()),
+       MONTH(occur_revenu_month__c) &gt;= 7
+     ))),
+    (MONTH(TODAY()) &lt; 7 &amp;&amp;
+     NOT(AND(
+       YEAR(occur_revenu_month__c) = YEAR(TODAY()) - 1,
+       MONTH(occur_revenu_month__c) &gt;= 7
+     )) &amp;&amp;
+     NOT(AND(
+       YEAR(occur_revenu_month__c) = YEAR(TODAY()),
+       MONTH(occur_revenu_month__c) &lt; 7
+     )))
+  ),
+  0,
+  IF(
+    spot__c = TRUE,
+    Estimated_Amount__c,
+    IF(
+      MONTH(occur_revenu_month__c) &gt;= 7,
+      Estimated_Amount__c / 12 * (13 - MONTH(occur_revenu_month__c)),
+      Estimated_Amount__c / 12 * (7 - MONTH(occur_revenu_month__c))
+    )
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>今期売上想定額_Old</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_report__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case(  tantoubusyo__c 
+,&quot;営業一部&quot; ,&quot;01.営業一部&quot;
+,&quot;営業二部&quot; ,&quot;02.営業二部&quot;
+,&quot;営業三部&quot; ,&quot;03.営業三部&quot;
+,&quot;中日本営業部&quot;,&quot;04.中日本営業部&quot;
+,&quot;西日本営業部&quot;,&quot;05.西日本営業部&quot;
+,&quot;広島営業所&quot;,&quot;06.広島営業所&quot;
+,&quot;九州営業所&quot;,&quot;07.九州営業所&quot;
+,&quot;東日本営業部&quot;,&quot;08.東日本営業部&quot;
+,&quot;その他&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>JU_担当部署_report</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

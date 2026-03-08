@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_shyukudai__c</fullName>
+    <label>宿題の有無</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>宿題有り</fullName>
+                <default>true</default>
+                <label>宿題有り</label>
+            </value>
+            <value>
+                <fullName>宿題無し</fullName>
+                <default>false</default>
+                <label>宿題無し</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

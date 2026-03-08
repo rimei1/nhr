@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_listview_tokuisaki_aoki</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>en_kouryakutaisyou__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>EN_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>EN_Department__c</field>
+        <operation>equals</operation>
+        <value>大阪営業部</value>
+    </filters>
+    <filters>
+        <field>EN_OwnerId__c</field>
+        <operation>contains</operation>
+        <value>青木</value>
+    </filters>
+    <label>野原エンジニアリング_青木</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>en_nohara</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

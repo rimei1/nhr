@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__fs_IsBackgroundProcessingEventTgrActive__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Falseの場合、左記Apexトリガーが非起動となります。</inlineHelpText>
+    <label>ActiveBgProcessingEventTgrofDocutizeXa</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

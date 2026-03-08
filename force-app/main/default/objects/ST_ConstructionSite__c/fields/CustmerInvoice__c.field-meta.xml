@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustmerInvoice__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  LEN(TRIM(Custmer__c)) &gt; 0,
+  &quot;ご担当　&quot; &amp; TRIM(Custmer__c) &amp; &quot;　様&quot;,
+  &quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>請求用_担当者名</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

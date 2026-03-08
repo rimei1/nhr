@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>ReportType__c</columns>
+    <columns>ReportType2__c</columns>
+    <columns>X1__c</columns>
+    <columns>X2__c</columns>
+    <columns>X3__c</columns>
+    <columns>Current1__c</columns>
+    <columns>Current1_Orig__c</columns>
+    <columns>Current2__c</columns>
+    <columns>Current2_Orig__c</columns>
+    <columns>Current3__c</columns>
+    <columns>Current3_Orig__c</columns>
+    <columns>Current4__c</columns>
+    <columns>Current4_Orig__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

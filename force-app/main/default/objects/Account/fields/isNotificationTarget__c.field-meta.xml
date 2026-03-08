@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isNotificationTarget__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>非BuildApp部門管理の取引先への通知対象flg</description>
+    <label>非BuildApp部門管理の取引先への通知対象flg</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

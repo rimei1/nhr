@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>【商談】CS_値上げ提案</masterLabel>
+    <recordTypeName>CS_neageteian</recordTypeName>
+</PathAssistant>

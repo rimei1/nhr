@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SupplyItem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>仕入商品</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>SupplyItem__c.isDeadStock__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </filterItems>
+        <filterItems>
+            <field>SupplyItem__c.ProductItem__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Product2Id</valueField>
+        </filterItems>
+        <filterItems>
+            <field>SupplyItem__c.SelectedAsset__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>SupplyItem__c</referenceTo>
+    <relationshipLabel>納入商品 (仕入商品)</relationshipLabel>
+    <relationshipName>SupplyItem2of3</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

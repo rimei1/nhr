@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>totalquantity__c</fullName>
+    <label>合計数量</label>
+    <summarizedField>ST_Quotedetails__c.quantity__c</summarizedField>
+    <summaryFilterItems>
+        <field>ST_Quotedetails__c.unit__c</field>
+        <operation>equals</operation>
+        <value>t</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ST_Quotedetails__c.ST_Estimate__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

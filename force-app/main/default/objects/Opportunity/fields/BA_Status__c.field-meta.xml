@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BA_Status__c</fullName>
+    <label>ステータス</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>追求（TGTのみ）</fullName>
+                <default>false</default>
+                <label>追求（TGTのみ）</label>
+            </value>
+            <value>
+                <fullName>追求（協議中）</fullName>
+                <default>false</default>
+                <label>追求（協議中）</label>
+            </value>
+            <value>
+                <fullName>内定済</fullName>
+                <default>false</default>
+                <label>内定済</label>
+            </value>
+            <value>
+                <fullName>失注</fullName>
+                <default>false</default>
+                <label>失注</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <formulas>
+        <name>SL_Contents_aboutAxis</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;Axisについて&quot;), &quot;- Axisについて&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>SL_Contents_aboutCloud</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;クラウド契約について&quot;), &quot;- クラウド契約について&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>SL_Contents_aboutDemo</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;実機デモ会希望（新宿本社にて開催）&quot;), &quot;- 実機デモ会希望（新宿本社にて開催）&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>SL_Contents_aboutOther</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;その他&quot;), &quot;- その他&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>SL_Contents_aboutPro2</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;Pro2カメラについて&quot;), &quot;- Pro2カメラについて&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>SL_Contents_aboutPro3</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;Pro3カメラについて&quot;), &quot;- Pro3カメラについて&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>SL_Contents_aboutScanToBim</name>
+        <dataType>String</dataType>
+        <expression>IF( INCLUDES({!$Record.SL_Contents__c}, &quot;Scan to BIM/Stages/SIM-ONについて&quot;), &quot;- Scan to BIM/Stages/SIM-ONについて&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>【リード】thxメール配信準備 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【リード】thxメール配信準備</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>setValThxMailDisplayText</name>
+        <label>setValThxMailDisplayText</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>thxMailDisplayText__c</field>
+            <value>
+                <elementReference>thxMailDisplayText_tmpl</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>setValThxMailDisplayText</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>isThxMailTarget__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>thxMailDisplayText_tmpl</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!SL_Contents_aboutPro2}
+{!SL_Contents_aboutPro3}
+{!SL_Contents_aboutScanToBim}
+{!SL_Contents_aboutAxis}
+{!SL_Contents_aboutCloud}
+{!SL_Contents_aboutDemo}
+{!SL_Contents_aboutOther}</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChangeFromExistingToNew</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OR(TEXT( CW_NewOrExisting__c) =&quot;新規&quot;,TEXT( CW_NewOrExisting__c) =&quot;&quot;),
+ISCHANGED( CW_NewOrExisting__c ))</errorConditionFormula>
+    <errorDisplayField>CW_NewOrExisting__c</errorDisplayField>
+    <errorMessage>既存になった顧客は変更することはできません。</errorMessage>
+</ValidationRule>

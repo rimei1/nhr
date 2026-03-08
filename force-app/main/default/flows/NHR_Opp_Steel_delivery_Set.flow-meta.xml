@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>NHR_ST_OppSteelDeliveryCtrl</name>
+        <label>ST_着工/竣工日間の「月数分」で、数量を月次t数として均等割当したい</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>NHR_ST_OppSteelDeliveryCtrl</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>NHR_ST_OppSteelDeliveryCtrl</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>【商談】 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【商談】スチール_納品トン数自動設定</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>NHR_ST_OppSteelDeliveryCtrl</targetReference>
+        </connector>
+        <filterFormula>AND({!$Record.RecordType.DeveloperName} == &apos;RecordType_SteelCons&apos;
+,NOT(ISBLANK({!$Record.ST_chakkou__c}))
+,NOT(ISBLANK({!$Record.ST_syukou__c}))
+,NOT(ISBLANK({!$Record.ST_suryou__c}))
+,OR(ISNEW()
+,ISCHANGED({!$Record.ST_chakkou__c})
+,ISCHANGED({!$Record.ST_syukou__c})
+,ISCHANGED({!$Record.ST_suryou__c})
+))</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

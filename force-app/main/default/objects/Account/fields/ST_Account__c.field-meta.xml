@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_Account__c</fullName>
+    <formula>OR (   CASESAFEID(ST_OwnerId_bo__c)   = CASESAFEID($User.Id)
+			,CASESAFEID(ST_OwnerId_ko__c)   = CASESAFEID($User.Id)
+			,CASESAFEID(ST_OwnerId_se__c)   = CASESAFEID($User.Id))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>*私の取引先_ST</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

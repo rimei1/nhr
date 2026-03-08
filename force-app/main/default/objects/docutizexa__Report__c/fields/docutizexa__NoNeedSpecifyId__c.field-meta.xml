@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__NoNeedSpecifyId__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>trueかつ一覧型の場合、出力時のId指定を不要にする。
+当項目がtrueかつ抽出条件が空の場合、全レコードを抽出対象となる。</description>
+    <label>No Need Specify Id</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

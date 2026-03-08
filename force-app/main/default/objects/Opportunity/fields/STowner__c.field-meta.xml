@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STowner__c</fullName>
+    <label>ST所有者</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>藤川 雄二</fullName>
+                <default>false</default>
+                <label>藤川 雄二</label>
+            </value>
+            <value>
+                <fullName>北山 光晴</fullName>
+                <default>false</default>
+                <label>北山 光晴</label>
+            </value>
+            <value>
+                <fullName>横山 康志</fullName>
+                <default>false</default>
+                <label>横山 康志</label>
+            </value>
+            <value>
+                <fullName>羽入田 岳司</fullName>
+                <default>false</default>
+                <label>羽入田 岳司</label>
+            </value>
+            <value>
+                <fullName>加島 幸二</fullName>
+                <default>false</default>
+                <label>加島 幸二</label>
+            </value>
+            <value>
+                <fullName>荒木 智彦</fullName>
+                <default>false</default>
+                <label>荒木 智彦</label>
+            </value>
+            <value>
+                <fullName>芝﨑 渉</fullName>
+                <default>false</default>
+                <label>芝﨑 渉</label>
+            </value>
+            <value>
+                <fullName>川﨑 由丈</fullName>
+                <default>false</default>
+                <label>川﨑 由丈</label>
+            </value>
+            <value>
+                <fullName>青木 萌</fullName>
+                <default>false</default>
+                <label>青木 萌</label>
+            </value>
+            <value>
+                <fullName>南部 柊弥</fullName>
+                <default>false</default>
+                <label>南部 柊弥</label>
+            </value>
+            <value>
+                <fullName>髙橋 和也</fullName>
+                <default>false</default>
+                <label>髙橋 和也</label>
+            </value>
+            <value>
+                <fullName>早坂 潤</fullName>
+                <default>false</default>
+                <label>早坂 潤</label>
+            </value>
+            <value>
+                <fullName>祝田 眞琴</fullName>
+                <default>false</default>
+                <label>祝田 眞琴</label>
+            </value>
+            <value>
+                <fullName>連記 毅</fullName>
+                <default>false</default>
+                <label>連記 毅</label>
+            </value>
+            <value>
+                <fullName>小林 良夫</fullName>
+                <default>false</default>
+                <label>小林 良夫</label>
+            </value>
+            <value>
+                <fullName>山本 健斗</fullName>
+                <default>false</default>
+                <label>山本 健斗</label>
+            </value>
+            <value>
+                <fullName>杉原 秀明</fullName>
+                <default>false</default>
+                <label>杉原 秀明</label>
+            </value>
+            <value>
+                <fullName>本谷 順司</fullName>
+                <default>false</default>
+                <label>本谷 順司</label>
+            </value>
+            <value>
+                <fullName>盛 大行</fullName>
+                <default>false</default>
+                <label>盛 大行</label>
+            </value>
+            <value>
+                <fullName>徳光 善行</fullName>
+                <default>false</default>
+                <label>徳光 善行</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

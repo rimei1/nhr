@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_NextPeriodCom_ContractGrossProfit__c</fullName>
+    <formula>IF( VALUE(EN_kanseiki__c) &gt; CurrentPeriod__c,
+EN_saisyuzyutyukingaku__c ,
+null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>来期以降完成分_粗利額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>property_12__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;# 1:&quot;&amp;HYPERLINK(&quot;https://forcecom175.lightning.force.com/lightning/r/contact_schedule__c/&quot;&amp;  property_12_1__c &amp;&quot;/view&quot;,  property_12_1_name__c )&amp;BR()
+&amp;&quot;# 2:&quot;&amp;HYPERLINK(&quot;https://forcecom175.lightning.force.com/lightning/r/contact_schedule__c/&quot;&amp;  property_12_2__c &amp;&quot;/view&quot;, property_12_2_name__c)&amp;BR()
+&amp;&quot;# 3:&quot;&amp;HYPERLINK(&quot;https://forcecom175.lightning.force.com/lightning/r/contact_schedule__c/&quot;&amp;  property_12_3__c &amp;&quot;/view&quot;, property_12_3_name__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>12月_物件名(*レポート用)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

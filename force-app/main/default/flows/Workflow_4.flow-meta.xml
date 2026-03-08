@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>移行元: 【行動】作成・編集時 ワークフロールール
+ワークフロールールの説明: &quot;</description>
+    <formulas>
+        <name>UpdateJU_VisitCountFormula</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+AND(
+OR(
+MONTH(today())&gt;=7 &amp;&amp;
+YEAR($Record.ActivityDate)= YEAR(today()) &amp;&amp; MONTH($Record.ActivityDate)&gt;=7,
+MONTH(today())&gt;=7 &amp;&amp;
+YEAR($Record.ActivityDate)=YEAR(today())+1  &amp;&amp; MONTH($Record.ActivityDate)&lt;=6,
+MONTH(today())&lt;=6 &amp;&amp;
+YEAR($Record.ActivityDate)=YEAR(today())-1 &amp;&amp; MONTH($Record.ActivityDate)&gt;=7,
+MONTH(today())&lt;=6 &amp;&amp;
+YEAR($Record.ActivityDate)=YEAR(today()),MONTH($Record.ActivityDate)&lt;=6
+),
+OR(TEXT( $Record.Type )=&quot;WEB面談&quot;,TEXT( $Record.Type )=&quot;訪問&quot;)),
+1,0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <label>【行動】作成・編集時_4</label>
+    <migratedFromWorkflowRuleName>【行動】作成・編集時</migratedFromWorkflowRuleName>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>種別がWEB面談・訪問の場合はカウント1をセット</description>
+        <name>mainUpdate</name>
+        <label>mainUpdate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>JU_VisitCount__c</field>
+            <value>
+                <elementReference>UpdateJU_VisitCountFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>mainUpdate</targetReference>
+        </connector>
+        <object>Event</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

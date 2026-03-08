@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_MyChargeFlg__c</fullName>
+    <formula>IF( $User.Id = DX_OwnerId__r.Id ,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>*私の担当先Flg_DX</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

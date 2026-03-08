@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__IsError__c</fullName>
+    <deprecated>false</deprecated>
+    <formula>pd_jp_20151124__TotalErrors__c &gt; 0</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>エラー判定</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

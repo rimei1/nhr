@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ka_taisyo11__c</fullName>
+    <label>対象オブジェクト</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>得意先</fullName>
+                <default>false</default>
+                <label>得意先</label>
+            </value>
+            <value>
+                <fullName>得意先担当者</fullName>
+                <default>false</default>
+                <label>得意先担当者</label>
+            </value>
+            <value>
+                <fullName>商談</fullName>
+                <default>false</default>
+                <label>商談</label>
+            </value>
+            <value>
+                <fullName>その他カスタム</fullName>
+                <default>false</default>
+                <label>その他カスタム</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoharaG__c</fullName>
+    <label>野原G</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

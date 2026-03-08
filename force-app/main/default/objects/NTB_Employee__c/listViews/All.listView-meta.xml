@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Field715__c</columns>
+    <columns>Field956__c</columns>
+    <columns>Field534__c</columns>
+    <columns>Field856__c</columns>
+    <columns>Field439__c</columns>
+    <columns>Field271__c</columns>
+    <columns>Field612__c</columns>
+    <columns>Field490__c</columns>
+    <columns>X2__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべてのレコード</label>
+</ListView>

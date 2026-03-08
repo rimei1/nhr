@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>mateco_phaseclose</fullName>
+    <active>true</active>
+    <description>受注に変更する際に「利益率」の入力を必須にする</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName, &quot;受注.&quot;),
+    ISBLANK(  CW_ProfitRate__c  )
+)</errorConditionFormula>
+    <errorMessage>利益率を入力してからフェーズを変更してください。</errorMessage>
+</ValidationRule>

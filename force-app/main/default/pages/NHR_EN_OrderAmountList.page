@@ -1,0 +1,131 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_EN_OrderAmountListCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+                font-size:14pt;
+            }            
+            .titleclass1_1{
+                font-size:18pt;
+                font-weight: bold;
+            }
+            .titleclass1_2{
+                text-align: right;
+            }
+            .centerclass{
+                text-align: center;
+            }
+            .td1_1 {
+                border: 1px #000000 solid;
+            }
+            
+            .td1_2 {
+                border: 1px #000000 solid;
+                background: #DDDDDD;
+            }
+            
+            .td1_3 {
+                border: 1px #000000 solid;
+                background: #FFDBC9;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td style = "width :  10px;"></td><!--A-->
+                <td style = "width :  40px;"></td><!--B-->
+                <td style = "width :  40px;"></td><!--C-->
+                <td style = "width :  110px;"></td><!--D-->
+                <td style = "width :  110px;"></td><!--E-->
+                <td style = "width :  110px;"></td><!--F-->
+                <td style = "width :  110px;"></td><!--G-->
+                <td style = "width :  110px;"></td><!--H-->
+                <td style = "width :  110px;"></td><!--I-->
+                <td style = "width :  110px;"></td><!--J-->
+                <td style = "width :  110px;"></td><!--K-->
+                <td style = "width :  110px;"></td><!--L-->
+                <td style = "width :  360px;"></td><!--M-->            
+            </tr>
+            <tr>
+                <td colspan="7" class="titleclass1_1">{!thisFiscalYear}　受注・追求金額一覧表</td>
+                <td class="titleclass1_1">{!thisMonth}</td>
+                <td class="titleclass1_1">月</td>
+                <td class="titleclass1_1"></td>
+                <td class="titleclass1_1"></td>
+                <td class="titleclass1_1"></td>
+                <td class="titleclass1_2">{!deStr}</td>
+            </tr>
+            <tr>
+                <td colspan="12"></td>
+                <td class="titleclass1_2">（単位：千円）</td>
+            </tr>
+            <tr></tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td colspan="3"  rowspan = "3"  class="td1_1"></td>
+                <td colspan="8"   class="td1_1">当月迄　累計</td>
+                <td rowspan = "3"  class="td1_1">当月個社別戦略</td>
+            </tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td colspan="2"   class="td1_1">{!thisFiscalYear}</td>
+                <td colspan="2"   class="td1_1">{!nextFiscalYear}</td>
+                <td colspan="2"   class="td1_1">{!next2FiscalYear}以降</td>
+                <td colspan="2"   class="td1_1">合計</td>
+            </tr>
+            <tr class="centerclass">
+                <td ></td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+                <td class="td1_1">売上</td>
+                <td  class="td1_1">利益</td>
+            </tr>
+            <!--大阪営業部-->
+            <apex:variable var="idx" value="{!0}" />
+            <apex:repeat value="{!FormCreationList}" var="record">
+                <tr >
+                	<td ></td>
+                    <apex:outputPanel rendered="{!If((mod ( idx ,8 )== 0), true, false)}">
+                        <td rowspan = "8" class="td1_1">{!record.Title1__c}（　%）</td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((mod ( idx ,4 )== 0), true, false)}">
+                        <td rowspan = "4" class="td1_1">{!record.Title2__c}</td>
+                    </apex:outputPanel>
+                    <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}">{!record.Title3__c}</td>
+                    <apex:outputPanel rendered="{!If((record.Title3__c== '進捗率'), true, false)}">
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="td1_1"><apex:outputText value="{0, number, ##.#}%"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!If((record.Title3__c== '進捗率'), false, true)}">
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="{!If((record.Title3__c== '不足額'), 'td1_2', If((record.Title3__c== '合計'), 'td1_3', 'td1_1'))}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel rendered="{!If((mod ( idx ,8 )== 0), true, false)}">
+                        <td rowspan = "8" class="td1_1"></td>
+                    </apex:outputPanel>
+                    
+                </tr>
+                <apex:variable var="idx" value="{!idx + 1}" />
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

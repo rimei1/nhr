@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_Competitors__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>競合他社</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>得意先 (競合他社)</relationshipLabel>
+    <relationshipName>ST_Competitors</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

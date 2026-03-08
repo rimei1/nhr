@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>checkIsUpdTarget</name>
+        <label>checkIsUpdTarget</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>caseTruecheckIsUpdTarget</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isUpdTarget</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>updUnitDiscountAmount</targetReference>
+            </connector>
+            <label>caseTrueCheckIsUpdTarget</label>
+        </rules>
+    </decisions>
+    <description>現場objの「対象請求締日」（targetBillingCloseDate）の値と作成したレコードの「請求締日」（BillingDate__c）の値が一致した場合にトリガーされるように調整した</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>isUpdTarget</name>
+        <dataType>Boolean</dataType>
+        <expression>NOT(
+  CONTAINS(
+    {!$Record.ST_item__c},
+    {!itemNameExcluded}
+  )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>itemNameExcluded</name>
+        <dataType>String</dataType>
+        <expression>&quot;値引&quot;</expression>
+    </formulas>
+    <interviewLabel>【納入実績】新規作成時の単価値引き額の適用 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【納入実績】新規作成時の単価値引き額の適用</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>updUnitDiscountAmount</name>
+        <label>updUnitDiscountAmount</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>unitDiscountAmount__c</field>
+            <value>
+                <elementReference>$Record.ST_field_name__r.AdjustmentMoney__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>checkIsUpdTarget</targetReference>
+        </connector>
+        <filterFormula>AND(
+  /* (1 OR 2) */
+  OR(
+    AND(
+      ISNEW(),
+      NOT(ISBLANK({!$Record.ST_field_name__c}))                  /* 新規で現場に値がある */
+    ),
+    AND(
+      NOT(ISNEW()),
+      OR(
+        AND(
+          ISCHANGED({!$Record.ST_field_name__c}),                    /* 既存で現場が更新され */
+          ISBLANK({!$Record__Prior.ST_field_name__c}),
+          NOT(ISBLANK({!$Record.ST_field_name__c}))                  /* かつ新しく値が入った */
+        ),
+        ISBLANK({!$Record.unitDiscountAmount__c})
+      )
+    )
+  ),
+  /* 3: 請求日が紐づく現場の「請求締め日」に一致*/
+  {!$Record.BillingDate__c} == {!$Record.ST_field_name__r.targetBillingCloseDate__c}
+)</filterFormula>
+        <object>ST_DeliveryRecord__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

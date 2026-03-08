@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>mateco_mitsumoriUp</fullName>
+    <active>true</active>
+    <description>レコードタイプIDが「012RC0000015RevYAE」の商談の場合、チェックボックス項目「ju_mitsumoriup__c」がTRUEでないと、「見積提出」「受注.」「完了」「検討保留」「失注」フェーズに変更できない</description>
+    <errorConditionFormula>AND(
+  RecordTypeId = &quot;012RC0000015Rev&quot;,
+  NOT(ju_mitsumoriup__c),
+  OR(
+    ISPICKVAL(StageName, &quot;見積提出&quot;),
+    ISPICKVAL(StageName, &quot;受注.&quot;),
+    ISPICKVAL(StageName, &quot;完了&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>フェーズを更新する前に見積を商談にアップロードし、「見積アップロード」にチェックをいれください。</errorMessage>
+</ValidationRule>

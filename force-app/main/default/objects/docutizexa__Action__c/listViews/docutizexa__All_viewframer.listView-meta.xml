@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__All_viewframer</fullName>
+    <columns>NAME</columns>
+    <columns>docutizexa__OutputSetting__c</columns>
+    <columns>docutizexa__IsActive__c</columns>
+    <columns>docutizexa__Status__c</columns>
+    <columns>docutizexa__Operation__c</columns>
+    <columns>docutizexa__Mapping__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>docutizexa__Action__c.docutizexa__viewframer</value>
+    </filters>
+    <label>All ViewFramer</label>
+    <language>en_US</language>
+</ListView>

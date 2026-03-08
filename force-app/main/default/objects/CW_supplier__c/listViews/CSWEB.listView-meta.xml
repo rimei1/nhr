@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSWEB</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>LAST_ACTIVITY</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>CW_supplier__c.RecordType_siiresaki_CSWEB</value>
+    </filters>
+    <label>CSWEB_仕入先一覧</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>CSWEBCompany</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

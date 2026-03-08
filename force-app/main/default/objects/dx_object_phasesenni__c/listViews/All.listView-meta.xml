@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>dx_oppsname__c</columns>
+    <columns>dx_phase_yuusendo__c</columns>
+    <columns>dx_phasesenni_phase__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>dx_object_phasesenni_syoudan__c</columns>
+    <columns>dx_snapshotbi__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

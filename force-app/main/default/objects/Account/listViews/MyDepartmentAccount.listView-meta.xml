@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyDepartmentAccount</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CW_OwnerId__c</columns>
+    <columns>CW_Department__c</columns>
+    <columns>JU_AccountType__c</columns>
+    <columns>targetChatterCollaborationGroupId__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>私の部署得意先</label>
+    <sharedTo>
+        <role>CSWEBCompany</role>
+    </sharedTo>
+</ListView>

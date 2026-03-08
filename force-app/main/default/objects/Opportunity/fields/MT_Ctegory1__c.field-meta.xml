@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MT_Ctegory1__c</fullName>
+    <label>大カテゴリ</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>成形品</fullName>
+                <default>false</default>
+                <label>成形品</label>
+            </value>
+            <value>
+                <fullName>加工品</fullName>
+                <default>false</default>
+                <label>加工品</label>
+            </value>
+            <value>
+                <fullName>原料系</fullName>
+                <default>false</default>
+                <label>原料系</label>
+            </value>
+            <value>
+                <fullName>建材系</fullName>
+                <default>false</default>
+                <label>建材系</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

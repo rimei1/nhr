@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_M_BPOIntroduction2__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>M:合理化サービス（作図積算BPO）紹介_JU</label>
+    <type>Checkbox</type>
+</CustomField>

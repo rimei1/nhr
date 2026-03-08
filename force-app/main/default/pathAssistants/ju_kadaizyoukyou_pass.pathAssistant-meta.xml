@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Ju_kokyakutaiou__c</entityName>
+    <fieldName>ju_kadaizyoukyou__c</fieldName>
+    <masterLabel>【得意先課題】課題状況</masterLabel>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

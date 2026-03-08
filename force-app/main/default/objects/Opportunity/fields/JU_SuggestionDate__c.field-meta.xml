@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_SuggestionDate__c</fullName>
+    <description>住環境の見積提出日、売上計画の完了予定日を提案日として対比するレポート用項目</description>
+    <formula>IF (  RecordType.DeveloperName =&quot;Jukankyo&quot;,  FirstEstimates__c ,  CloseDate )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>*提案日</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

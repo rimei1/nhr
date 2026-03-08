@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActualList</fullName>
+    <columns>NAME</columns>
+    <columns>Cw_tok__c</columns>
+    <columns>Oppotunity__c</columns>
+    <columns>BudgetActualType__c</columns>
+    <columns>OppPhase__c</columns>
+    <columns>YearMonth__c</columns>
+    <columns>Amount__c</columns>
+    <columns>cw_arariyosan__c</columns>
+    <columns>arari0__c</columns>
+    <columns>CW_tocash__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Department__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BudgetActualType__c</field>
+        <operation>equals</operation>
+        <value>実績</value>
+    </filters>
+    <filters>
+        <field>Department__c</field>
+        <operation>contains</operation>
+        <value>カスタマーサクセス</value>
+    </filters>
+    <label>実績</label>
+</ListView>

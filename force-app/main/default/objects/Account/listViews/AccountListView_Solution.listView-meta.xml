@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountListView_Solution</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>SL_Industy__c</columns>
+    <columns>SL_Category__c</columns>
+    <columns>SL_Other__c</columns>
+    <columns>SL_CustomerCategory_Nohara__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SL_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>ソリューション営業部_得意先一覧</label>
+    <sharedTo>
+        <role>UserRole_Solution</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StageStagnantDaysChkNum__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( StageName  ,&apos;訪問1回目&apos;, 30, &apos;初回見積提出&apos;, 30, &apos;得意先検討中&apos;,30 ,&apos;トライアル&apos;, 60,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>滞在数チェック用</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

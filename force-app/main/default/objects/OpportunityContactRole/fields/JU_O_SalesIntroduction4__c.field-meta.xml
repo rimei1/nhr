@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_O_SalesIntroduction4__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>O:営業からの事例紹介_JU</label>
+    <type>Checkbox</type>
+</CustomField>

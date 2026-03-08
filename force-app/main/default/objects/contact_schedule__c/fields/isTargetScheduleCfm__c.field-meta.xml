@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isTargetScheduleCfm__c</fullName>
+    <formula>OR(lastMonthFilledIn__c &lt;= DATE(YEAR(today()), MONTH(today()), 1), ISBLANK(lastMonthFilledIn__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>要スケジュール確認flg</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

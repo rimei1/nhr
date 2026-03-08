@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_GuidanceForSuccess__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( CW_RelationshipDegree__c,
+&apos;Lv1&apos;,
+&apos;Lv１　名刺交換&apos; + BR() + &apos;Lv２　強み説明&apos; ,
+&apos;Lv2&apos;,
+&apos;Lv２　強み説明&apos; + BR() + &apos;Lv３&apos; + BR() + &apos;発注権限者（中流）：初回見積もり依頼&apos; + BR() + &apos;デザイナー（川上）：初回サンプル依頼・問い合わせ・建材選定依頼の獲得&apos; + BR() + &apos;管理者・購買：案件情報・問い合わせを獲得した&apos; ,
+&apos;Lv3&apos;,
+&apos;Lv３&apos; + BR() + &apos;発注権限者（中流）：初回見積もり依頼&apos; + BR() + &apos;デザイナー（川上）：初回サンプル依頼・問い合わせ・建材選定依頼の獲得&apos; + BR() + &apos;管理者・購買：案件情報・問い合わせを獲得した&apos; + BR() + &apos;Lv４&apos; + BR() + &apos;発注権限者（中流）：初回受注&apos; + BR() + &apos;デザイナー（川上）：初回刈り取りに繋がる案件の獲得&apos; + BR() + &apos;管理者・購買：物件担当者を紹介して貰えた&apos; ,
+&apos;Lv4&apos;,
+&apos;Lv４&apos; + BR() + &apos;発注権限者（中流）：初回受注&apos; + BR() + &apos;デザイナー（川上）：初回刈り取りに繋がる案件の獲得&apos; + BR() + &apos;管理者・購買：物件担当者を紹介して貰えた&apos; + BR() + &apos;Lv５&apos; + BR() + &apos;発注権限者（中流）：物件のリピートオーダーを貰えている（期中）&apos; + BR() + &apos;デザイナー（川上）：建材選定依頼を継続的に獲得できている（期中）&apos; + BR() + &apos;管理者・購買：継続的に有益な情報を獲得出来ている&apos; ,
+&apos;Lv5&apos;,
+&apos;Lv５&apos; + BR() + &apos;発注権限者（中流）：物件のリピートオーダーを貰えている（期中）&apos; + BR() + &apos;デザイナー（川上）：建材選定依頼を継続的に獲得できている（期中）&apos; + BR() + &apos;管理者・購買：継続的に有益な情報を獲得出来ている&apos; + BR() + &apos;Lv６&apos; + BR() + &apos;発注権限者（中流）：物件受注が年間を通して繋がっている（期中）&apos; + BR() + &apos;デザイナー（川上）：建材選定依頼が年間を通して繋がっている&apos; + BR() + &apos;管理者・購買：当社からの提案を社内に広く発信・周知して頂けている&apos; ,
+&apos;Lv6&apos;,
+&apos;Lv６&apos; + BR() + &apos;発注権限者（中流）：物件受注が年間を通して繋がっている（期中）&apos; + BR() + &apos;デザイナー（川上）：建材選定依頼が年間を通して繋がっている&apos; + BR() + &apos;管理者・購買：当社からの提案を社内に広く発信・周知して頂けている&apos; ,
+&apos;&apos;,
+&apos;Lv１　名刺交換&apos; ,
+&apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>成功へのガイダンス_CW</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

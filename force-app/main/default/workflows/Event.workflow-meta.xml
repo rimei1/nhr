@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ActionEmail</fullName>
+        <description>メールアラート</description>
+        <protected>false</protected>
+        <recipients>
+            <field>tuchisakimail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/AccountTaskDeadline</template>
+    </alerts>
+    <alerts>
+        <fullName>Ju_3days</fullName>
+        <description>【住環境】3日前通知</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/AccountTaskDeadline</template>
+    </alerts>
+    <alerts>
+        <fullName>Juju_ActionEmail</fullName>
+        <description>【通知】メールアラート</description>
+        <protected>false</protected>
+        <recipients>
+            <field>tuchisakimail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>test_mt111/ju_tuuchitemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>dx_action11</fullName>
+        <description>【DX】アクションアラート</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>test_mt111/dx3days_k1</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>UpdateJU_VisitCount</fullName>
+        <description>種別がWEB面談・訪問の場合はカウント1をセット</description>
+        <field>JU_VisitCount__c</field>
+        <formula>IF(
+AND(
+OR(
+MONTH(today())&gt;=7 &amp;&amp;
+YEAR(ActivityDate)= YEAR(today()) &amp;&amp; MONTH(ActivityDate)&gt;=7,
+MONTH(today())&gt;=7 &amp;&amp;
+YEAR(ActivityDate)=YEAR(today())+1  &amp;&amp; MONTH(ActivityDate)&lt;=6,
+MONTH(today())&lt;=6 &amp;&amp;
+YEAR(ActivityDate)=YEAR(today())-1 &amp;&amp; MONTH(ActivityDate)&gt;=7,
+MONTH(today())&lt;=6 &amp;&amp;
+YEAR(ActivityDate)=YEAR(today()),MONTH(ActivityDate)&lt;=6
+),
+OR(TEXT( Type )=&quot;WEB面談&quot;,TEXT( Type )=&quot;訪問&quot;)),
+1,0)</formula>
+        <name>【行動】訪問カウント</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>%E3%80%90行動%E3%80%91作成%E3%83%BB編集時</fullName>
+        <actions>
+            <name>UpdateJU_VisitCount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

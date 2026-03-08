@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cpnType__c</fullName>
+    <label>CPNタイプ</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ソース</fullName>
+                <default>false</default>
+                <label>ソース</label>
+            </value>
+            <value>
+                <fullName>関心</fullName>
+                <default>false</default>
+                <label>関心</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_steel_OrderDate_ContractAmount</fullName>
+    <active>false</active>
+    <description>■レコードタイプ：スチール_工事
+フェーズを「受注ST」に変更する際に「受注日_スチール」/「契約金額（ContractAmount__c）」の入力を必須にする</description>
+    <errorConditionFormula>AND(
+  $RecordType.Name = &quot;スチール_工事&quot;,
+  ISPICKVAL(  StageName , &quot;受注ST&quot;),
+  OR(
+    ISBLANK( steel_OrderDate__c ),
+    ISBLANK( ContractAmount__c )
+  )
+)</errorConditionFormula>
+    <errorMessage>「受注日_スチール」/「契約金額」の入力が必須です</errorMessage>
+</ValidationRule>

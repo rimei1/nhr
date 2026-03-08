@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StageStagnantDays__c</fullName>
+    <description>TODAY() - if(   ISBLANK(LastStageChangeDate)   
+													, DATEVALUE(CreatedDate)
+													, DATEVALUE(LastStageChangeDate) )</description>
+    <externalId>false</externalId>
+    <formula>TODAY() - if(   ISBLANK(LastStageChangeDate)   
+													, DATEVALUE(CreatedDate)
+													, DATEVALUE(LastStageChangeDate) )</formula>
+    <label>フェーズ停滞日数</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

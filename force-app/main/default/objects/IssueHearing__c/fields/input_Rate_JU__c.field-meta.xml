@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>input_Rate_JU__c</fullName>
+    <externalId>false</externalId>
+    <formula>(
+/* 選択リスト（None/--None--も未入力扱い） */
+IF( AND( NOT(ISBLANK(TEXT(SalesDepartment__c))),
+         TEXT(SalesDepartment__c) &lt;&gt; &quot;None&quot;,
+         TEXT(SalesDepartment__c) &lt;&gt; &quot;--None--&quot;), 1, 0) +
+IF( AND( NOT(ISBLANK(TEXT(PurchasingDepartment__c))),
+         TEXT(PurchasingDepartment__c) &lt;&gt; &quot;None&quot;,
+         TEXT(PurchasingDepartment__c) &lt;&gt; &quot;--None--&quot;), 1, 0) +
+IF( AND( NOT(ISBLANK(TEXT(ConstructionDivision__c))),
+         TEXT(ConstructionDivision__c) &lt;&gt; &quot;None&quot;,
+         TEXT(ConstructionDivision__c) &lt;&gt; &quot;--None--&quot;), 1, 0) +
+IF( AND( NOT(ISBLANK(TEXT(SDGsDepartment__c))),
+         TEXT(SDGsDepartment__c) &lt;&gt; &quot;None&quot;,
+         TEXT(SDGsDepartment__c) &lt;&gt; &quot;--None--&quot;), 1, 0) +
+
+/* テキスト（空白のみを未入力扱い） */
+IF( LEN(TRIM(wasteMaterial__c)) &gt; 0, 1, 0 ) +
+IF( LEN(TRIM(wasteMaterial1__c)) &gt; 0, 1, 0 ) +
+IF( LEN(TRIM(wasteMaterial2__c)) &gt; 0, 1, 0 ) +
+IF( LEN(TRIM(wasteMaterial3__c)) &gt; 0, 1, 0 ) +
+IF( LEN(TRIM(wasteMaterialCarrier__c)) &gt; 0, 1, 0 ) +
+
+/* 通貨（0 を未入力扱いにするなら &lt;&gt; 0 を追加） */
+IF( AND( NOT(ISBLANK(wasteMaterialYen__c)),
+         wasteMaterialYen__c &lt;&gt; 0), 1, 0 )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>入力率</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

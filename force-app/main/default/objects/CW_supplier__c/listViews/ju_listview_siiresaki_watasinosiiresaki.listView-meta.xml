@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ju_listview_siiresaki_watasinosiiresaki</fullName>
+    <columns>NAME</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>CW_supplier__c.siiresaki_zyuukannkyo_recordtype</value>
+    </filters>
+    <label>住環境_私の仕入先</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Jyukankyo</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

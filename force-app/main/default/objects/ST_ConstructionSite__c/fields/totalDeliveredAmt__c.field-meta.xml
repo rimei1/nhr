@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>totalDeliveredAmt__c</fullName>
+    <label>納入済み契約金額合計</label>
+    <summarizedField>ST_DeliveryRecord__c.ShippingAmount_rep__c</summarizedField>
+    <summaryFilterItems>
+        <field>ST_DeliveryRecord__c.isSkipBillingDataSync__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ST_DeliveryRecord__c.ST_field_name__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

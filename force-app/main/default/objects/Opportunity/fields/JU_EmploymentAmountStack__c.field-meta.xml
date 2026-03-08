@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_EmploymentAmountStack__c</fullName>
+    <description>提案商品オブジェクトの採用金額を積上げ</description>
+    <label>採用金額（積上げ）</label>
+    <summarizedField>JU_ProposedProduct__c.EmploymentAmount__c</summarizedField>
+    <summaryForeignKey>JU_ProposedProduct__c.Oppotunity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

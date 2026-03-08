@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__VisitorActivity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <label>MAPlusAC VisitorActivity</label>
+    <referenceTo>pd_jp_20151124__ABM_VisitorActivity__c</referenceTo>
+    <relationshipLabel>MAPlusAC VisitorPageView</relationshipLabel>
+    <relationshipName>VisitorPageView</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

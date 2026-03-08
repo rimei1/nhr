@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>notifyToUsers_st</name>
+        <label>プロファイル「ノハラスチール」のユーザーにカスタム通知</label>
+        <locationX>578</locationX>
+        <locationY>1655</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>getCustomeNotify.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>targetUsersCollectionToCustomNotify_st</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <elementReference>$Record.Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <elementReference>postTxt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>postChatter</name>
+        <label>chatter投稿</label>
+        <locationX>358</locationX>
+        <locationY>2039</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <connector>
+            <targetReference>branchIsTargetPostingToTeams</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>postTxt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>accountId_RelChatter</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>postTeams</name>
+        <label>Teamsへのメール送信</label>
+        <locationX>226</locationX>
+        <locationY>2255</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>targetTeamsMail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>hiroki-matsui@nohara-inc.co.jp</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>$Record.Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>postTxt</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>postTeams_AccRecordType_012BV0000004HqwYAE</name>
+        <label>[取引先(建設DX)]Teamsへのメール送信</label>
+        <locationX>50</locationX>
+        <locationY>1031</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>targetTeamsMail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>hiroki-matsui@nohara-inc.co.jp</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>subjectTxt_012BV0000004HqwYAE</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>postTxt_012BV0000004HqwYAE</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>setTargetUsersCollectionToCustomNotify_st</name>
+        <label>setTargetUsersCollectionToCustomNotify_st</label>
+        <locationX>666</locationX>
+        <locationY>1463</locationY>
+        <assignmentItems>
+            <assignToReference>targetUsersCollectionToCustomNotify_st</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>loopNotifyUsers_st.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>loopNotifyUsers_st</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <description>https://forcecom175.lightning.force.com/lightning/setup/EnhancedProfiles/page?address=%2F00eRC000000mJ6n</description>
+        <name>ProfileId_st</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>00eRC000000mJ6n</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>branchIsTargetPostingOrisTargetToShareInfo</name>
+        <label>分岐：投稿対象判定</label>
+        <locationX>358</locationX>
+        <locationY>923</locationY>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>caseTrueIsTargetPostingOrIsTargetToShareInfo</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>isTargetPosting</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isTargetToShareInfo</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isTargetEventRecordType_012BV0000004HuFYAU</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isTargetEventRecordType_012RC000000HzezYAC</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>postChatter</targetReference>
+            </connector>
+            <label>chatter投稿対象の場合</label>
+        </rules>
+        <rules>
+            <name>isTargetAccRecordType_012BV0000004HqwYAE_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isTargetEventRecordType_012BV0000004HuFYAU</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isTargetPostingToTeams</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>postTeams_AccRecordType_012BV0000004HqwYAE</targetReference>
+            </connector>
+            <label>建設DX-取引先：isTargetAccRecordType_012BV0000004HqwYAE == true</label>
+        </rules>
+        <rules>
+            <name>isTargetAccRecordType_012RC000000HzezYAC_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isTargetEventRecordType_012RC000000HzezYAC</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>checkTargetChatterCollaborationGroupId</targetReference>
+            </connector>
+            <label>スチール-取引先：isTargetAccRecordType_012RC000000HzezYAC == true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>branchIsTargetPostingToTeams</name>
+        <label>分岐：Teams投稿</label>
+        <locationX>358</locationX>
+        <locationY>2147</locationY>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>caseTrueIsTargetPostingToTeams</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isTargetPostingToTeams</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>postTeams</targetReference>
+            </connector>
+            <label>「Teamsメールアドレス」が存在するか？</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>branchTargetWhatId</name>
+        <label>分岐：関連先オブジェクト種別の判定</label>
+        <locationX>358</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>isRelAccount_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isRelAccount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getTargetAccount</targetReference>
+            </connector>
+            <label>isRelAccount == true</label>
+        </rules>
+        <rules>
+            <name>isRelOpp_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isRelOpp</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getTargetAccountViaOpp</targetReference>
+            </connector>
+            <label>isRelOpp == true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>branchTargetWhoId</name>
+        <label>分岐：WhoIdの対象取得</label>
+        <locationX>358</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>branchIsTargetPostingOrisTargetToShareInfo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>isRelLead_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isRelLead</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getTargetLead</targetReference>
+            </connector>
+            <label>isRelLead == true</label>
+        </rules>
+        <rules>
+            <name>isRelContact_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isRelContact</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getTargetContact</targetReference>
+            </connector>
+            <label>isRelContact == true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>checkTargetChatterCollaborationGroupId</name>
+        <label>分岐：投稿先ChatterグループIDの入力有無</label>
+        <locationX>446</locationX>
+        <locationY>1031</locationY>
+        <defaultConnector>
+            <targetReference>getCustomeNotify</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>targetChatterCollaborationGroupId_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>targetChatterCollaborationGroupId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>postChatter</targetReference>
+            </connector>
+            <label>targetChatterCollaborationGroupId_true</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>accountId_RelChatter</name>
+        <dataType>String</dataType>
+        <expression>if({!isRelOpp}, {!getTargetAccountViaOpp.Account.Id}, {!getTargetAccount.Id})</expression>
+    </formulas>
+    <formulas>
+        <description>https://goravseth.com/manipulating-text-in-flows</description>
+        <name>emptyStr</name>
+        <dataType>String</dataType>
+        <expression>&quot;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>isRelAccount</name>
+        <dataType>Boolean</dataType>
+        <expression>left({!WhatId}, 3) == &quot;001&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>isRelContact</name>
+        <dataType>Boolean</dataType>
+        <expression>left({!$Record.WhoId}, 3) == &quot;003&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>isRelLead</name>
+        <dataType>Boolean</dataType>
+        <expression>left({!$Record.WhoId}, 3) == &quot;00Q&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>isRelOpp</name>
+        <dataType>Boolean</dataType>
+        <expression>left({!WhatId}, 3) == &quot;006&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>isTargetEventRecordType_012BV0000004HuFYAU</name>
+        <dataType>Boolean</dataType>
+        <expression>AND({!$Record.RecordTypeId} == &quot;012BV0000004HuFYAU&quot;, {!isRelAccount})</expression>
+    </formulas>
+    <formulas>
+        <name>isTargetEventRecordType_012RC000000HzezYAC</name>
+        <dataType>Boolean</dataType>
+        <expression>AND({!$Record.RecordTypeId} == &quot;012RC000000HzezYAC&quot;, {!isRelAccount})</expression>
+    </formulas>
+    <formulas>
+        <name>isTargetPosting</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    AND({!isRelAccount}, NOT(ISBLANK({!getTargetAccount.targetChatterCollaborationGroupId__c}))),
+    AND({!isRelOpp}, NOT(ISBLANK( {!getTargetAccountViaOpp.Account.targetChatterCollaborationGroupId__c} )))
+)</expression>
+    </formulas>
+    <formulas>
+        <name>isTargetPostingToTeams</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    AND({!isRelAccount}, NOT(ISBLANK({!getTargetAccount.targetTeamsMail__c}))),
+    AND({!isRelOpp}, NOT(ISBLANK( {!getTargetAccountViaOpp.Account.targetTeamsMail__c} )))
+)</expression>
+    </formulas>
+    <formulas>
+        <name>isTargetTest</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record.WhatId} = &quot;001RC00000RsXDxYAN&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>isTargetToShareInfo</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    AND({!isRelAccount}, {!getTargetAccount.isTargetToShareInfo__c}),
+    AND({!isRelOpp}, {!getTargetAccountViaOpp.Account.isTargetToShareInfo__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>0F9RC0000000Cu10AE</description>
+        <name>mentionText_senryaku</name>
+        <dataType>String</dataType>
+        <expression>IF({!isTargetPosting}, &quot;@[0F9RC0000000Cu10AE]&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>mentionText_sonota</name>
+        <dataType>String</dataType>
+        <expression>if({!isTargetToShareInfo}, &quot;@[0F9RC0000000FWv0AM]&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>mentionText_targetChatterCollaborationGroupId</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISBLANK({!targetChatterCollaborationGroupId}), 
+&quot;&quot;, 
+&quot;@[&quot;&amp;{!targetChatterCollaborationGroupId}&amp;&quot;]&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>targetChatterCollaborationGroupId</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    {!isRelAccount_true}, {!getTargetAccount.targetChatterCollaborationGroupId__c}, 
+    IF({!isRelOpp_true}, {!getTargetAccountViaOpp.Account.targetChatterCollaborationGroupId__c}, &quot;&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>targetOppUrl</name>
+        <dataType>String</dataType>
+        <expression>IF({!isRelOpp}, 
+&quot;https://forcecom175.lightning.force.com/lightning/r/Opportunity/&quot;+{!getTargetAccountViaOpp.Id}+&quot;/view&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>targetRecordOwner</name>
+        <dataType>String</dataType>
+        <expression>IF({!isRelAccount}, 
+{!getTargetAccount.Owner.LastName}+{!getTargetAccount.Owner.FirstName}, 
+{!getTargetAccountViaOpp.Owner.LastName}+{!getTargetAccountViaOpp.Owner.FirstName}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>targetTeamsMail</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    {!isRelAccount_true}, {!getTargetAccount.targetTeamsMail__c}, 
+    IF({!isRelOpp_true}, {!getTargetAccountViaOpp.Account.targetTeamsMail__c}, &quot;&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>targetWhoIdName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    {!isRelLead}, 
+    {!getTargetLead.Name}, 
+    IF({!isRelContact}, 
+        {!getTargetContact.Name}, 
+        &quot;&quot;
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>WhatId</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.WhatId}</expression>
+    </formulas>
+    <interviewLabel>【行動】メール・Chatterへの投稿フロー {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【行動】メール・Chatterへの投稿</label>
+    <loops>
+        <name>loopNotifyUsers_st</name>
+        <label>loopNotifyUsers_st</label>
+        <locationX>578</locationX>
+        <locationY>1355</locationY>
+        <collectionReference>getProfileSteelUsers</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>setTargetUsersCollectionToCustomNotify_st</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>notifyToUsers_st</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>getCustomeNotify</name>
+        <label>getCustomeNotify</label>
+        <locationX>578</locationX>
+        <locationY>1139</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>getProfileSteelUsers</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>targetCustomNotifTypeName_st</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getProfileSteelUsers</name>
+        <label>getProfileSteelUsers</label>
+        <locationX>578</locationX>
+        <locationY>1247</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>loopNotifyUsers_st</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProfileId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ProfileId_st</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getTargetAccount</name>
+        <label>対象取引先レコードの取得</label>
+        <locationX>94</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>branchTargetWhoId</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>WhatId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getTargetAccountViaOpp</name>
+        <label>対象得意先レコードの取得（商談経由）</label>
+        <locationX>358</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>branchTargetWhoId</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>WhatId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getTargetContact</name>
+        <label>対象取引先責任者を取得</label>
+        <locationX>358</locationX>
+        <locationY>731</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>branchIsTargetPostingOrisTargetToShareInfo</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WhoId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getTargetLead</name>
+        <label>対象リードを取得</label>
+        <locationX>94</locationX>
+        <locationY>731</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>branchIsTargetPostingOrisTargetToShareInfo</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WhoId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>232</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>branchTargetWhatId</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2) AND 3</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>006</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>WhatId</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>001</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>012RC000000k0JZ</stringValue>
+            </value>
+        </filters>
+        <object>Event</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>postTxt</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>行動作成者：{!targetRecordOwner}
+
+得意先：{!$Record.Account.Name}
+&gt; https://forcecom175.lightning.force.com/lightning/r/Account/{!$Record.AccountId}/view
+
+商談：{!getTargetAccountViaOpp.Name}
+&gt; {!targetOppUrl}
+
+# 件名
+{!$Record.Subject}
+
+# 開始日時
+{!$Record.StartDateTime}
+
+# 訪問先
+{!$Record.targetClient__c} 
+
+# 訪問目的
+{!$Record.ST_houmonmokuteki2__c}
+
+# 説明
+{!$Record.Description}
+
+# 次回への課題・アクション
+{!$Record.nextChallengesOrActions__c}
+
+# 所感
+{!$Record.ST_syokan__c}
+
+{!mentionText_sonota}
+{!mentionText_senryaku}
+{!mentionText_targetChatterCollaborationGroupId}
+
+【本通知に関するお問い合わせ先】
+マーケティング統括　マーケティングPF推進部
+松井 大樹
+hiroki-matsui@nohara-inc.co.jp
+※TEAMSでご連絡をお願いいたします。</text>
+    </textTemplates>
+    <textTemplates>
+        <name>postTxt_012BV0000004HqwYAE</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text># 件名
+{!$Record.Subject}
+
+# 日付
+{!$Record.CreatedDate}
+
+# 名前
+{!targetWhoIdName}
+
+# 協働者
+{!$Record.Collaborator__c}
+
+# 野原G
+{!$Record.NoharaG__c}
+
+# 参考データ
+{!$Record.URL__c}
+
+# 目的
+{!$Record.dx_katsudou_mokuteki__c}
+
+# 決定事項１
+{!$Record.dx_ketteizikou1__c}
+
+# 決定事項２
+{!$Record.dx_ketteizikou2__c}
+
+# 決定事項３
+{!$Record.dx_ketteizikou3__c}
+
+# 決定事項４
+{!$Record.dx_ketteizikou14__c}
+
+# 決定事項５
+{!$Record.dx_ketteizikou15__c}
+
+# NextAction
+{!$Record.dx_AccountTask1__c}
+
+# NextAction期限１
+{!$Record.dx_deadline1__c}
+
+# NextAction２
+{!$Record.dx_AccountTask2__c}
+
+# NextAction期限２
+{!$Record.dx_deadline2__c}
+
+# NextAction３
+{!$Record.dx_AccountTask3__c}
+
+# NextAction期限３
+{!$Record.dx_deadline3__c}
+
+# NextAction４
+{!$Record.dx_AccountTask4__c}
+
+# NextAction期限４
+{!$Record.dx_deadline4__c}
+
+# 説明
+{!$Record.Description}
+
+# FAQ依頼
+{!$Record.FAQ__c}
+
+# 個人の見解・仮説・展望
+{!$Record.OpinioOpinion__c}
+
+# 訪問後打合せ
+{!$Record.Postvisitmeeting__c}
+
+# タスク進捗
+{!$Record.TaskProgress__c}
+
+【本通知に関するお問い合わせ先】
+マーケティング統括　マーケティングPF推進部
+松井 大樹
+hiroki-matsui@nohara-inc.co.jp
+※TEAMSでご連絡をお願いいたします。</text>
+    </textTemplates>
+    <textTemplates>
+        <name>subjectTxt_012BV0000004HqwYAE</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>【{!getTargetAccount.Name}】で行動が作成されました</text>
+    </textTemplates>
+    <variables>
+        <name>targetCustomNotifTypeName_st</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Notify_ProfileSteelUsers</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>targetUsersCollectionToCustomNotify_st</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BuildApp_KPI__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>BuildApp営業KPI</label>
+    <referenceTo>BuildApp_KPI__c</referenceTo>
+    <relationshipLabel>取引先</relationshipLabel>
+    <relationshipName>AccountBuildApp_KPI</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COM_OppNameLink__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&apos;https://forcecom175.lightning.force.com/lightning/r/Opportunity/&apos; + Opp_ID_18__c + &apos;/view&apos; , Name ,&apos;_blank&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>商談名(Link)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

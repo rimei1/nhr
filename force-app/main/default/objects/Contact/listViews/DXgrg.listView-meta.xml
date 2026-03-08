@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DXgrg</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>BuildAppKeyman__c</columns>
+    <columns>DX_PerceptionLv__c</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>DX_OwnerId__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DX_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Account.DX_category__c</field>
+        <operation>equals</operation>
+        <value>BA-plusナーチャリング対象,調査・ナーチャリング対象</value>
+    </filters>
+    <label>建設DX_BA-Plus/調査ナーチャリング対象</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>role_dx</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

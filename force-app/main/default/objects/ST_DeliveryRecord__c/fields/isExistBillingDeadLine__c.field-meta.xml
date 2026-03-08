@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isExistBillingDeadLine__c</fullName>
+    <formula>NOT(ISBLANK( BillingDate__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>請求締日記入済flg</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

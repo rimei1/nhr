@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BPO__c</fullName>
+    <label>作図積算BPO</label>
+    <summaryFilterItems>
+        <field>JU_ProposedProduct__c.Category__c</field>
+        <operation>equals</operation>
+        <value>作図積算BPO</value>
+    </summaryFilterItems>
+    <summaryForeignKey>JU_ProposedProduct__c.Oppotunity__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

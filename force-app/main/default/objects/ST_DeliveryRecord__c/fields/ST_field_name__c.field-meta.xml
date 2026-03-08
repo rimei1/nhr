@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_field_name__c</fullName>
+    <label>現場名</label>
+    <referenceTo>ST_ConstructionSite__c</referenceTo>
+    <relationshipLabel>納入実績</relationshipLabel>
+    <relationshipName>ST_field_ST_ConstructionSite</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

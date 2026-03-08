@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_kouzakaisetsu__c</fullName>
+    <formula>Ju_kat210922__r.JU_AccountOpening__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>口座開設</label>
+    <type>Checkbox</type>
+</CustomField>

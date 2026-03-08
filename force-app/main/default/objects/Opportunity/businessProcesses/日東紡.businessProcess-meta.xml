@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>日東紡</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>受注%2E</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>失注</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>完了</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>案件化</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>検討保留</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>見積提出</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

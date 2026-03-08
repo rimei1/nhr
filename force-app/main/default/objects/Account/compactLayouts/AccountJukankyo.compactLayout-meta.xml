@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountJukankyo</fullName>
+    <fields>Name</fields>
+    <fields>JU_AccountType__c</fields>
+    <fields>JU_TargetArea__c</fields>
+    <fields>Department__c</fields>
+    <label>住環境</label>
+</CompactLayout>

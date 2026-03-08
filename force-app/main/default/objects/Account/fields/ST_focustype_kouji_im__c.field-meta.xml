@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_focustype_kouji_im__c</fullName>
+    <formula>IF (
+				OR(
+								OR( ISPICKVAL(ST_focustype_kouji__c, &apos;積極拡大&apos;)
+           ,ISPICKVAL(ST_focustype_kouji__c, &apos;重要な維持①&apos;)) 
+        ,OR( ISPICKVAL(ST_focustype_boukoubu__c, &apos;積極拡大&apos;)
+        ,ISPICKVAL(ST_focustype_boukoubu__c, &apos;重要な維持①&apos;))
+				)
+,true
+,false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>重点フラグ_工事_重要対象</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

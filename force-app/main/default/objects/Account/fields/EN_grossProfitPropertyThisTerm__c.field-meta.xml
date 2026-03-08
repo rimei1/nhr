@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EN_grossProfitPropertyThisTerm__c</fullName>
+    <label>今期受注物件_受注粗利金額</label>
+    <summarizedField>Opportunity.en_zyutyuararigaku__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.isOrderInCurrentPeriodForTotal__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

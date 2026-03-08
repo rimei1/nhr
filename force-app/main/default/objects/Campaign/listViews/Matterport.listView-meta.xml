@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Matterport</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>CAMPAIGN.ACTIVE</columns>
+    <columns>SL_kanritaisyou__c</columns>
+    <columns>CAMPAIGN.LAST_UPDATE</columns>
+    <columns>CAMPAIGN.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SL_kanritaisyou__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Matterportキャンペーン</label>
+</ListView>

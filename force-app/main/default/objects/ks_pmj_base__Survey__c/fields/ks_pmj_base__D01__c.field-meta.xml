@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ks_pmj_base__D01__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>理解が不足していた内容や追加で説明が必要な事項をご記載ください</inlineHelpText>
+    <label>理解が不足していた内容</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

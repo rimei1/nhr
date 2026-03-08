@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__DocodocoJpItems__c</fullName>
+    <deprecated>false</deprecated>
+    <label>企業情報項目名リスト</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>大陸　コード</fullName>
+                <default>false</default>
+                <label>大陸　コード</label>
+            </value>
+            <value>
+                <fullName>国　コード</fullName>
+                <default>false</default>
+                <label>国　コード</label>
+            </value>
+            <value>
+                <fullName>国　英語表記</fullName>
+                <default>false</default>
+                <label>国　英語表記</label>
+            </value>
+            <value>
+                <fullName>国　日本語表記</fullName>
+                <default>false</default>
+                <label>国　日本語表記</label>
+            </value>
+            <value>
+                <fullName>都道府県　コード</fullName>
+                <default>false</default>
+                <label>都道府県　コード</label>
+            </value>
+            <value>
+                <fullName>地方　コード</fullName>
+                <default>false</default>
+                <label>地方　コード</label>
+            </value>
+            <value>
+                <fullName>都道府県　ローマ字表記</fullName>
+                <default>false</default>
+                <label>都道府県　ローマ字表記</label>
+            </value>
+            <value>
+                <fullName>都道府県　日本語表記</fullName>
+                <default>false</default>
+                <label>都道府県　日本語表記</label>
+            </value>
+            <value>
+                <fullName>都道府県　緯度</fullName>
+                <default>false</default>
+                <label>都道府県　緯度</label>
+            </value>
+            <value>
+                <fullName>都道府県　経度</fullName>
+                <default>false</default>
+                <label>都道府県　経度</label>
+            </value>
+            <value>
+                <fullName>都道府県　判定値</fullName>
+                <default>false</default>
+                <label>都道府県　判定値</label>
+            </value>
+            <value>
+                <fullName>市区町村　コード</fullName>
+                <default>false</default>
+                <label>市区町村　コード</label>
+            </value>
+            <value>
+                <fullName>市区町村　ローマ字表記</fullName>
+                <default>false</default>
+                <label>市区町村　ローマ字表記</label>
+            </value>
+            <value>
+                <fullName>市区町村　日本語表記</fullName>
+                <default>false</default>
+                <label>市区町村　日本語表記</label>
+            </value>
+            <value>
+                <fullName>市区町村　緯度</fullName>
+                <default>false</default>
+                <label>市区町村　緯度</label>
+            </value>
+            <value>
+                <fullName>市区町村　経度</fullName>
+                <default>false</default>
+                <label>市区町村　経度</label>
+            </value>
+            <value>
+                <fullName>市区町村　判定値</fullName>
+                <default>false</default>
+                <label>市区町村　判定値</label>
+            </value>
+            <value>
+                <fullName>組織　企業フラグ</fullName>
+                <default>false</default>
+                <label>組織　企業フラグ</label>
+            </value>
+            <value>
+                <fullName>組織　コード</fullName>
+                <default>false</default>
+                <label>組織　コード</label>
+            </value>
+            <value>
+                <fullName>組織　本支店フラグ</fullName>
+                <default>false</default>
+                <label>組織　本支店フラグ</label>
+            </value>
+            <value>
+                <fullName>組織　自営業フラグ</fullName>
+                <default>false</default>
+                <label>組織　自営業フラグ</label>
+            </value>
+            <value>
+                <fullName>企業名</fullName>
+                <default>false</default>
+                <label>企業名</label>
+            </value>
+            <value>
+                <fullName>組織　都道府県コード</fullName>
+                <default>false</default>
+                <label>組織　都道府県コード</label>
+            </value>
+            <value>
+                <fullName>組織　市区町村コード</fullName>
+                <default>false</default>
+                <label>組織　市区町村コード</label>
+            </value>
+            <value>
+                <fullName>組織　郵便番号</fullName>
+                <default>false</default>
+                <label>組織　郵便番号</label>
+            </value>
+            <value>
+                <fullName>組織　住所</fullName>
+                <default>false</default>
+                <label>組織　住所</label>
+            </value>
+            <value>
+                <fullName>組織　電話番号</fullName>
+                <default>false</default>
+                <label>組織　電話番号</label>
+            </value>
+            <value>
+                <fullName>組織　FAX番号</fullName>
+                <default>false</default>
+                <label>組織　FAX番号</label>
+            </value>
+            <value>
+                <fullName>組織　上場区分フラグ</fullName>
+                <default>false</default>
+                <label>組織　上場区分フラグ</label>
+            </value>
+            <value>
+                <fullName>組織　設立年月日</fullName>
+                <default>false</default>
+                <label>組織　設立年月日</label>
+            </value>
+            <value>
+                <fullName>組織　資本金コード</fullName>
+                <default>false</default>
+                <label>組織　資本金コード</label>
+            </value>
+            <value>
+                <fullName>組織　従業員数コード</fullName>
+                <default>false</default>
+                <label>組織　従業員数コード</label>
+            </value>
+            <value>
+                <fullName>組織　売上高コード</fullName>
+                <default>false</default>
+                <label>組織　売上高コード</label>
+            </value>
+            <value>
+                <fullName>組織　代表者名</fullName>
+                <default>false</default>
+                <label>組織　代表者名</label>
+            </value>
+            <value>
+                <fullName>組織　業種大分類</fullName>
+                <default>false</default>
+                <label>組織　業種大分類</label>
+            </value>
+            <value>
+                <fullName>組織　業種中分類</fullName>
+                <default>false</default>
+                <label>組織　業種中分類</label>
+            </value>
+            <value>
+                <fullName>組織　業種小分類</fullName>
+                <default>false</default>
+                <label>組織　業種小分類</label>
+            </value>
+            <value>
+                <fullName>組織　業種細分類</fullName>
+                <default>false</default>
+                <label>組織　業種細分類</label>
+            </value>
+            <value>
+                <fullName>組織　ドメイン名（組織データに基づく）</fullName>
+                <default>false</default>
+                <label>組織　ドメイン名（組織データに基づく）</label>
+            </value>
+            <value>
+                <fullName>組織　ドメイン種別（組織データに基づく）</fullName>
+                <default>false</default>
+                <label>組織　ドメイン種別（組織データに基づく）</label>
+            </value>
+            <value>
+                <fullName>組織　WEBサイトアドレス</fullName>
+                <default>false</default>
+                <label>組織　WEBサイトアドレス</label>
+            </value>
+            <value>
+                <fullName>組織　緯度</fullName>
+                <default>false</default>
+                <label>組織　緯度</label>
+            </value>
+            <value>
+                <fullName>組織　経度</fullName>
+                <default>false</default>
+                <label>組織　経度</label>
+            </value>
+            <value>
+                <fullName>組織　社名・屋号英語表記</fullName>
+                <default>false</default>
+                <label>組織　社名・屋号英語表記</label>
+            </value>
+            <value>
+                <fullName>組織　住所英語表記</fullName>
+                <default>false</default>
+                <label>組織　住所英語表記</label>
+            </value>
+            <value>
+                <fullName>回線　コード</fullName>
+                <default>false</default>
+                <label>回線　コード</label>
+            </value>
+            <value>
+                <fullName>回線　日本語表記</fullName>
+                <default>false</default>
+                <label>回線　日本語表記</label>
+            </value>
+            <value>
+                <fullName>回線　判定値</fullName>
+                <default>false</default>
+                <label>回線　判定値</label>
+            </value>
+            <value>
+                <fullName>タイムゾーン</fullName>
+                <default>false</default>
+                <label>タイムゾーン</label>
+            </value>
+            <value>
+                <fullName>Proxyフラグ</fullName>
+                <default>false</default>
+                <label>Proxyフラグ</label>
+            </value>
+            <value>
+                <fullName>市外局番（組織データに基づく）</fullName>
+                <default>false</default>
+                <label>市外局番（組織データに基づく）</label>
+            </value>
+            <value>
+                <fullName>証券コード</fullName>
+                <default>false</default>
+                <label>証券コード</label>
+            </value>
+            <value>
+                <fullName>ドメイン名（IPに基づく）</fullName>
+                <default>false</default>
+                <label>ドメイン名（IPに基づく）</label>
+            </value>
+            <value>
+                <fullName>ドメイン種別（IPに基づく）</fullName>
+                <default>false</default>
+                <label>ドメイン種別（IPに基づく）</label>
+            </value>
+            <value>
+                <fullName>企業情報取得済み</fullName>
+                <default>false</default>
+                <label>企業情報取得済み</label>
+            </value>
+            <value>
+                <fullName>法人番号</fullName>
+                <default>false</default>
+                <label>法人番号</label>
+            </value>
+            <value>
+                <fullName>LBC（事業所コード）</fullName>
+                <default>false</default>
+                <label>LBC（事業所コード）</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

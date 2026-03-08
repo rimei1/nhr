@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyDailyReport</fullName>
+    <columns>NAME</columns>
+    <columns>From__c</columns>
+    <columns>To__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Department__c</columns>
+    <columns>Approval__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>01.私の日報</label>
+</ListView>

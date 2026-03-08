@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dx_jiyukinyu</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( RecordType.Name =&quot;建設DX&quot;,
+INCLUDES(dx_horyuusittyuriyu__c, &quot;その他&quot;),
+ISBLANK( dx_horyuusittyuriyu_kinyuu__c ))</errorConditionFormula>
+    <errorMessage>その他が含まれている場合は理由を記載ください。</errorMessage>
+</ValidationRule>

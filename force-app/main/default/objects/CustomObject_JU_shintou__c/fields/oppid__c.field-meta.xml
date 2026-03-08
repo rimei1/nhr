@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>oppid__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>商談ID</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>住環境浸透確認用</relationshipLabel>
+    <relationshipName>oppid</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

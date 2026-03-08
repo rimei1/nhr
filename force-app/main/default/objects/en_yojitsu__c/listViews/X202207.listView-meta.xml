@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X202207</fullName>
+    <columns>NAME</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>en_tokuisaki_s__c</columns>
+    <columns>Yeaemonth__c</columns>
+    <columns>en_kousyuy12__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>en_yojitu2__c</field>
+        <operation>equals</operation>
+        <value>予算</value>
+    </filters>
+    <filters>
+        <field>Yeaemonth__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2022</value>
+    </filters>
+    <label>予算_202207~</label>
+</ListView>

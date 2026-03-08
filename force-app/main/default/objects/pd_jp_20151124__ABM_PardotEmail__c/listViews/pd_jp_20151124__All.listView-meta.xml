@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__All</fullName>
+    <columns>NAME</columns>
+    <columns>pd_jp_20151124__id__c</columns>
+    <columns>pd_jp_20151124__email_name__c</columns>
+    <columns>pd_jp_20151124__subject__c</columns>
+    <columns>pd_jp_20151124__created_at__c</columns>
+    <columns>pd_jp_20151124__crm_fid__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>pd_jp_20151124__send_type__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

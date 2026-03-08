@@ -1,0 +1,1 @@
+global class AutoSpaceCreateRL006Opportunity{  @InvocableMethod   global static void createSpace(List<Opportunity> obj){    solxyzcso001.AutoSpaceCreateRelatedList.createSpace(obj);  }}

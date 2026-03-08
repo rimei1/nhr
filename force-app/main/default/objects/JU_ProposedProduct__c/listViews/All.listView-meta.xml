@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>AmountPerBuilding__c</columns>
+    <columns>Maker__c</columns>
+    <columns>Category__c</columns>
+    <columns>EmploymentAmount__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Oppotunity__c</columns>
+    <columns>JU_shoExternalKey__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>すべて選択</label>
+</ListView>

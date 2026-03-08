@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOLXYZCSO001__EndDateBeforeCurrentDateValidation</fullName>
+    <active>false</active>
+    <errorConditionFormula>(DATEVALUE(TEXT(SOLXYZCSO001__ActiveEndDate__c))  &lt; DATEVALUE(TEXT(NOW())))</errorConditionFormula>
+    <errorDisplayField>SOLXYZCSO001__ActiveEndDate__c</errorDisplayField>
+    <errorMessage>利用終了日時は、現在よりも後の日時を設定してください。</errorMessage>
+</ValidationRule>

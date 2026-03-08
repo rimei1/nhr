@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>en_sekkeizimusyo_listview</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>EN_OwnerId__c</columns>
+    <columns>En_lank1__c</columns>
+    <columns>EN_LastModifiedDate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>EN_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>野原エンジニアリング_得意先一覧</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>en_nohara</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

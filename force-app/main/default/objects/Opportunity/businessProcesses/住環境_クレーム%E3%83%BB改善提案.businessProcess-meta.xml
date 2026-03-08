@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>住環境_クレーム%E3%83%BB改善提案</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>初回接触</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>完了</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

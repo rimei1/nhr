@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppListView_Solution</fullName>
+    <columns>SL_inquirydate__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>tName__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Amount__c</columns>
+    <columns>SL_saiyoukingaku__c</columns>
+    <columns>SL_remarks__c</columns>
+    <columns>SL_Pro2__c</columns>
+    <columns>SL_Pro3__c</columns>
+    <columns>SL_undai__c</columns>
+    <columns>SL_sankyaku__c</columns>
+    <columns>SL_carry__c</columns>
+    <columns>SL_cloud__c</columns>
+    <columns>SL_AXCIS__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.RecordType_slution</value>
+    </filters>
+    <label>ソリューション営業部_商談一覧</label>
+    <sharedTo>
+        <role>UserRole_Solution</role>
+    </sharedTo>
+</ListView>

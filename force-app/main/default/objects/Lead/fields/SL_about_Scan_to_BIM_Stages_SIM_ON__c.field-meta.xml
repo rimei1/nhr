@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_about_Scan_to_BIM_Stages_SIM_ON__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Account Engagement連携項目</description>
+    <label>SL_Scan to BIM/Stages/SIM-ONについて(非表示)</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

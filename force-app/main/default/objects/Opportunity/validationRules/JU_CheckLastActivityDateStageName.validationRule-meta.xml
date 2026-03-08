@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_CheckLastActivityDateStageName</fullName>
+    <active>true</active>
+    <description>住環境の商談で、「最終活動日」がブランクの場合はフェーズを更新できないようにする</description>
+    <errorConditionFormula>AND (RecordType.DeveloperName =&quot;Jukankyo&quot;
+				 ,ISBLANK(LastActivityDate) 
+					,ISCHANGED(StageName) 
+				 ,NOT(ISPICKVAL(StageName, &apos;不採用&apos;)) 
+				 ,NOT(ISPICKVAL(StageName, &apos;停滞保留中&apos;))
+				 ,NOT(ISPICKVAL(StageName, &apos;検討保留&apos;)))</errorConditionFormula>
+    <errorMessage>住環境の商談で、「最終活動日」がブランクの場合はフェーズを更新できません。</errorMessage>
+</ValidationRule>

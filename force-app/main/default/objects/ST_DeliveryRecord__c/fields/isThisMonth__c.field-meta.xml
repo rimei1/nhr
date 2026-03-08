@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isThisMonth__c</fullName>
+    <formula>AND(
+    YEAR( BillingDate__c ) = YEAR(TODAY()),
+    MONTH( BillingDate__c ) = MONTH(TODAY())
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>当月flg</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ThisMonthComplete2__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>*今月完了予定日フラグ(ThisMonthComplete__c)の値をワークフローにてセットする項目。
+得意先の獲得ポイントを積み上げ集計する際に使用</description>
+    <label>今月完了予定日フラグ</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

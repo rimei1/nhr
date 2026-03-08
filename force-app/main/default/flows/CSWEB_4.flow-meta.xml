@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>移行元: CSWEBターゲット顧客の内戦略既存店を選ぶ ワークフロールール
+ワークフロールールの説明: &quot;</description>
+    <label>CSWEBターゲット顧客の内戦略既存店を選ぶ_4</label>
+    <migratedFromWorkflowRuleName>CSWEBターゲット顧客の内戦略既存店を選ぶ</migratedFromWorkflowRuleName>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>mainUpdate</name>
+        <label>mainUpdate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>CW_NewOrExisting__c</field>
+            <value>
+                <stringValue>既存</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>mainUpdate</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2)</filterLogic>
+        <filters>
+            <field>CW_target__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>戦略既存店</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CW_target__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>戦略希薄店</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

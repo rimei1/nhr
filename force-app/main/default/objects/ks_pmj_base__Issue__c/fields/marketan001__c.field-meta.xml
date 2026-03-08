@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>marketan001__c</fullName>
+    <label>マーケ担当者</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>牛島大介</fullName>
+                <default>false</default>
+                <label>牛島大介</label>
+            </value>
+            <value>
+                <fullName>小池元洋</fullName>
+                <default>false</default>
+                <label>小池元洋</label>
+            </value>
+            <value>
+                <fullName>松井大樹</fullName>
+                <default>false</default>
+                <label>松井大樹</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

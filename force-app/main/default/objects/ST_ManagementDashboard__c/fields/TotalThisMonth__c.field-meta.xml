@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalThisMonth__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( X3__c != &apos;3_達成率&apos;
+, IF( FLOOR( TotalThisMonth_Orig__c / ( 10^15 ) ) &gt; 0 , TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^15 ) ) ) , &quot;&quot; )
++ IF( FLOOR( TotalThisMonth_Orig__c / ( 10^15 ) ) &gt; 0 , &quot;,&quot; + LPAD( TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^12 ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^15 ) ) * ( 10^3  )) , 3 , &quot;0&quot; ) , IF( FLOOR( TotalThisMonth_Orig__c / ( 10^12 ) ) &gt; 0 , TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^12 ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^15 ) ) * ( 10^3  )) , &quot;&quot; ) )
++ IF( FLOOR( TotalThisMonth_Orig__c / ( 10^12 ) ) &gt; 0 , &quot;,&quot; + LPAD( TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^9  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^12 ) ) * ( 10^3  )) , 3 , &quot;0&quot; ) , IF( FLOOR( TotalThisMonth_Orig__c / ( 10^9  ) ) &gt; 0 , TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^9  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^12 ) ) * ( 10^3  )) , &quot;&quot; ) )
++ IF( FLOOR( TotalThisMonth_Orig__c / ( 10^9  ) ) &gt; 0 , &quot;,&quot; + LPAD( TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^6  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^9  ) ) * ( 10^3  )) , 3 , &quot;0&quot; ) , IF( FLOOR( TotalThisMonth_Orig__c / ( 10^6  ) ) &gt; 0 , TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^6  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^9  ) ) * ( 10^3  )) , &quot;&quot; ) )
++ IF( FLOOR( TotalThisMonth_Orig__c / ( 10^6  ) ) &gt; 0 , &quot;,&quot; + LPAD( TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^3  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^6  ) ) * ( 10^3  )) , 3 , &quot;0&quot; ) , IF( FLOOR( TotalThisMonth_Orig__c / ( 10^3  ) ) &gt; 0 , TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^3  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^6  ) ) * ( 10^3  )) , &quot;&quot; ) )
++ IF( FLOOR( TotalThisMonth_Orig__c / ( 10^3  ) ) &gt; 0 , &quot;,&quot; + LPAD( TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^0  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^3  ) ) * ( 10^3  )) , 3 , &quot;0&quot; ) , IF( FLOOR( TotalThisMonth_Orig__c / ( 10^0  ) ) &gt; 0 , TEXT( FLOOR( TotalThisMonth_Orig__c / ( 10^0  ) ) - FLOOR( TotalThisMonth_Orig__c / ( 10^3  ) ) * ( 10^3  )) , &quot;0&quot; ) )
+, TEXT(ROUND(TotalThisMonth_Orig__c,4) * 100) &amp; &apos;%&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>当月累計</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

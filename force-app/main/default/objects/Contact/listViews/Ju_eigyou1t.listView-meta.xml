@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ju_eigyou1t</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.DEPARTMENT</columns>
+    <columns>JU_OwnerId__c</columns>
+    <columns>Ju_teitai__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>KeyMan__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>JU_Department__c</field>
+        <operation>contains</operation>
+        <value>営業一部</value>
+    </filters>
+    <label>02.営業一部担当</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>JU_Sales1</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>JU_Sales2</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>JU_Sales3</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Kyusyu</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NakaNihon</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NishiNihonSales</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

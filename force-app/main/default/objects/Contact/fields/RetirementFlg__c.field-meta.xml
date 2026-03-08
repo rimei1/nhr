@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RetirementFlg__c</fullName>
+    <label>退職フラグ</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>異動</fullName>
+                <default>false</default>
+                <label>異動</label>
+            </value>
+            <value>
+                <fullName>退職</fullName>
+                <default>false</default>
+                <label>退職</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

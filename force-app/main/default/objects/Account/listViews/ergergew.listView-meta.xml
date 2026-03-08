@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ergergew</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ST_focustype_kouji__c</columns>
+    <columns>ST_focustype_boukoubu__c</columns>
+    <columns>ST_Propertylist__c</columns>
+    <columns>ST_yoshinrank__c</columns>
+    <columns>ST_creditlimit__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ST_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CommonRecordType</value>
+    </filters>
+    <label>ノハラスチール_得意先一覧</label>
+    <sharedTo>
+        <group>markeall</group>
+        <roleAndSubordinatesInternal>noharasteel</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

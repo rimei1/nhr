@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractAmount__c</fullName>
+    <label>契約金額</label>
+    <summarizedField>Opportunity.ContractAmount__c</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.steel_OrderDate__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/1/2025</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.steel_OrderDate__c</field>
+        <operation>lessOrEqual</operation>
+        <value>6/30/2026</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>スチール_工事, ノハラスチール_工事_目標</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>内定, 受注ST, 仕掛, 完成</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

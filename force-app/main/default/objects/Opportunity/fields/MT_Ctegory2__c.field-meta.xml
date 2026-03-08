@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MT_Ctegory2__c</fullName>
+    <description>・ロール⇒ロール
+・成形品（Ｐ研含む）⇒成形品
+・設備・型等⇒型等設備
+・ＧＦ加工品⇒GFを加工した製品
+・建材加工品⇒建材製品で加工した製品
+・複材加工品⇒その他加工品
+・ＧＦ日東紡原繊⇒日東紡原繊
+・ＧＦ原繊他⇒日東紡以外の原繊
+・ＧＦ日東紡産資⇒日東紡産資
+・ＧＦ産資他⇒日東紡以外の産資
+・ＦＲＰ用樹脂⇒FRP用樹脂
+・ＦＲＰ成形材料⇒FRP成形材料
+・ＦＲＰ副資材⇒FRP用副資材
+・シリカ⇒シリカ
+・ＮＧＦ⇒日本グラスファイバー工業製品
+・雑品⇒原料系で上記以外
+・断熱材⇒断熱材
+・ポリカ⇒ポリカ
+・建築資材⇒断熱材・ポリカ以外</description>
+    <label>中カテゴリ</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>MT_Ctegory1__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ロール</fullName>
+                <default>false</default>
+                <label>ロール</label>
+            </value>
+            <value>
+                <fullName>成形品（Ｐ研含む）</fullName>
+                <default>false</default>
+                <label>成形品（Ｐ研含む）</label>
+            </value>
+            <value>
+                <fullName>設備・型等</fullName>
+                <default>false</default>
+                <label>設備・型等</label>
+            </value>
+            <value>
+                <fullName>ＧＦ加工品</fullName>
+                <default>false</default>
+                <label>ＧＦ加工品</label>
+            </value>
+            <value>
+                <fullName>建材加工品</fullName>
+                <default>false</default>
+                <label>建材加工品</label>
+            </value>
+            <value>
+                <fullName>複材加工品</fullName>
+                <default>false</default>
+                <label>複材加工品</label>
+            </value>
+            <value>
+                <fullName>ＧＦ日東紡原繊</fullName>
+                <default>false</default>
+                <label>ＧＦ日東紡原繊</label>
+            </value>
+            <value>
+                <fullName>ＧＦ原繊他</fullName>
+                <default>false</default>
+                <label>ＧＦ原繊他</label>
+            </value>
+            <value>
+                <fullName>ＧＦ日東紡産資</fullName>
+                <default>false</default>
+                <label>ＧＦ日東紡産資</label>
+            </value>
+            <value>
+                <fullName>ＧＦ産資他</fullName>
+                <default>false</default>
+                <label>ＧＦ産資他</label>
+            </value>
+            <value>
+                <fullName>ＦＲＰ用樹脂</fullName>
+                <default>false</default>
+                <label>ＦＲＰ用樹脂</label>
+            </value>
+            <value>
+                <fullName>ＦＲＰ成形材料</fullName>
+                <default>false</default>
+                <label>ＦＲＰ成形材料</label>
+            </value>
+            <value>
+                <fullName>ＦＲＰ副資材</fullName>
+                <default>false</default>
+                <label>ＦＲＰ副資材</label>
+            </value>
+            <value>
+                <fullName>シリカ</fullName>
+                <default>false</default>
+                <label>シリカ</label>
+            </value>
+            <value>
+                <fullName>ＮＧＦ</fullName>
+                <default>false</default>
+                <label>ＮＧＦ</label>
+            </value>
+            <value>
+                <fullName>雑品</fullName>
+                <default>false</default>
+                <label>雑品</label>
+            </value>
+            <value>
+                <fullName>断熱材</fullName>
+                <default>false</default>
+                <label>断熱材</label>
+            </value>
+            <value>
+                <fullName>ポリカ</fullName>
+                <default>false</default>
+                <label>ポリカ</label>
+            </value>
+            <value>
+                <fullName>建築資材</fullName>
+                <default>false</default>
+                <label>建築資材</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>成形品</controllingFieldValue>
+            <valueName>ロール</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>成形品</controllingFieldValue>
+            <valueName>成形品（Ｐ研含む）</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>加工品</controllingFieldValue>
+            <valueName>設備・型等</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>加工品</controllingFieldValue>
+            <valueName>ＧＦ加工品</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>加工品</controllingFieldValue>
+            <valueName>建材加工品</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>加工品</controllingFieldValue>
+            <valueName>複材加工品</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＧＦ日東紡原繊</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＧＦ原繊他</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＧＦ日東紡産資</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＧＦ産資他</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＦＲＰ用樹脂</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＦＲＰ成形材料</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＦＲＰ副資材</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>シリカ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>ＮＧＦ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>原料系</controllingFieldValue>
+            <valueName>雑品</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>建材系</controllingFieldValue>
+            <valueName>断熱材</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>建材系</controllingFieldValue>
+            <valueName>ポリカ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>建材系</controllingFieldValue>
+            <valueName>建築資材</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

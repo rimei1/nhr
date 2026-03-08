@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ju_syoudannyuuryokukisoku_kenntouhoryuu</fullName>
+    <active>true</active>
+    <description>検討保留時理由記載</description>
+    <errorConditionFormula>AND( RecordType.Name =&quot;住環境&quot;,
+ISBLANK( JU_ReasonForClose__c),
+ISPICKVAL(StageName, &quot;検討保留&quot;))</errorConditionFormula>
+    <errorDisplayField>JU_ReasonForClose__c</errorDisplayField>
+    <errorMessage>フェーズが「検討保留」の場合は、検討保留理由を記入してください。
+「今回は〇〇の理由から採用(検討)に至らなかったが、△ヶ月後には再度提案の価値あり」</errorMessage>
+</ValidationRule>

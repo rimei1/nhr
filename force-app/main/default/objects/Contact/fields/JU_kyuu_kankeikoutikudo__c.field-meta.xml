@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_kyuu_kankeikoutikudo__c</fullName>
+    <label>旧関係構築度_JU</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>初期レベル</fullName>
+                <default>false</default>
+                <label>初期レベル</label>
+            </value>
+            <value>
+                <fullName>中期レベル</fullName>
+                <default>false</default>
+                <label>中期レベル</label>
+            </value>
+            <value>
+                <fullName>後期レベル</fullName>
+                <default>false</default>
+                <label>後期レベル</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

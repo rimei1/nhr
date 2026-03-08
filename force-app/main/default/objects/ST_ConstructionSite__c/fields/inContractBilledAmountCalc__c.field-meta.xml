@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>inContractBilledAmountCalc__c</fullName>
+    <label>契約内請求済み金額（計算用）</label>
+    <summarizedField>ST_DeliveryRecord__c.ShippingAmountALL__c</summarizedField>
+    <summaryFilterItems>
+        <field>ST_DeliveryRecord__c.isExistBillingDeadLine__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ST_DeliveryRecord__c.isOutOfContract__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ST_DeliveryRecord__c.Excludedfrombilling_summary__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ST_DeliveryRecord__c.ST_field_name__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

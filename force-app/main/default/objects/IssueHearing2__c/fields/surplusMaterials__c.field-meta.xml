@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>surplusMaterials__c</fullName>
+    <label>余材対応</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>施工業者引取</fullName>
+                <default>false</default>
+                <label>施工業者引取</label>
+            </value>
+            <value>
+                <fullName>納材業者引取</fullName>
+                <default>false</default>
+                <label>納材業者引取</label>
+            </value>
+            <value>
+                <fullName>現場廃棄</fullName>
+                <default>false</default>
+                <label>現場廃棄</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

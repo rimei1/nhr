@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EN_Check__c</fullName>
+    <formula>OR(
+    AND(
+         en_ankenkubun__c  = &quot;小工事&quot;,
+        CONTAINS( en_koujihinsyu__c , &quot;床&quot;)
+    ),
+    en_koujihinsyu__c  = &quot;内装仕上工事&quot;
+)</formula>
+    <label>除外判定EN</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

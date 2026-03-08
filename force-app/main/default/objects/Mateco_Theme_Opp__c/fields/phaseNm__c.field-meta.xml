@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>phaseNm__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+   TEXT(Phase__c),
+   &quot;受注.&quot;, &quot;01_商談_受注&quot;,
+   &quot;見積提出&quot;, &quot;02_商談_見積提出&quot;,
+   &quot;案件化&quot;, &quot;03_商談_案件化&quot;,
+   &quot;テーマ_一部案件化&quot;, &quot;04_テーマ_一部案件化&quot;,
+   &quot;テーマ_追及中&quot;, &quot;05_テーマ_追求中&quot;,
+    &quot;06_その他&quot;
+)</formula>
+    <label>phase</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

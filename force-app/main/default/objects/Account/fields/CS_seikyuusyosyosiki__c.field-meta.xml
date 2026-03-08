@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_seikyuusyosyosiki__c</fullName>
+    <label>請求書書式</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>野原書式</fullName>
+                <default>false</default>
+                <label>野原書式</label>
+            </value>
+            <value>
+                <fullName>専用請求書</fullName>
+                <default>false</default>
+                <label>専用請求書</label>
+            </value>
+            <value>
+                <fullName>WEB</fullName>
+                <default>false</default>
+                <label>WEB</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

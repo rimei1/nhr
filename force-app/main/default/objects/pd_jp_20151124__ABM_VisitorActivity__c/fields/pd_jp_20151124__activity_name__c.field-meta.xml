@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__activity_name__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>case(pd_jp_20151124__type__c, 
+&quot;1&quot;, &quot;クリック&quot;, 
+&quot;2&quot;, &quot;閲覧&quot;, 
+&quot;3&quot;, &quot;登録エラー&quot;, 
+&quot;4&quot;, &quot;登録成功&quot;, 
+&quot;5&quot;, &quot;セッション&quot;, 
+&quot;6&quot;, &quot;メール送信&quot;, 
+&quot;7&quot;, &quot;検索&quot;, 
+&quot;8&quot;, &quot;新規商談登録&quot;, 
+&quot;9&quot;, &quot;商談が成立&quot;, 
+&quot;10&quot;, &quot;商談が不成立&quot;, 
+&quot;11&quot;, &quot;メール開封&quot;, 
+&quot;12&quot;, &quot;メール登録解除&quot;, 
+&quot;13&quot;, &quot;バウンスメール&quot;, 
+&quot;14&quot;, &quot;スパムメール&quot;, 
+&quot;15&quot;, &quot;メールプリファレンスページ&quot;, 
+&quot;16&quot;, &quot;メール再講読&quot;, 
+&quot;17&quot;, &quot;クリック（サードパーティ）&quot;, 
+&quot;18&quot;, &quot;商談が再開&quot;, 
+&quot;19&quot;, &quot;関連付けられた商談&quot;, 
+&quot;20&quot;, &quot;サイト訪問&quot;, 
+&quot;21&quot;, &quot;カスタムURLをクリック&quot;, 
+&quot;22&quot;, &quot;Olarkチャット&quot;, 
+&quot;23&quot;, &quot;Webセミナーへ招待&quot;, 
+&quot;24&quot;, &quot;Webセミナーへ出席&quot;, 
+&quot;25&quot;, &quot;Webセミナーへ登録&quot;, 
+&quot;26&quot;, &quot;ソーシャル投稿をクリック&quot;, 
+&quot;27&quot;, &quot;ビデオビュー&quot;, 
+&quot;28&quot;, &quot;イベント登録&quot;, 
+&quot;29&quot;, &quot;イベントチェックイン&quot;, 
+&quot;30&quot;, &quot;ビデオ変換&quot;, 
+&quot;31&quot;, &quot;ユーザーボイスの提案&quot;, 
+&quot;32&quot;, &quot;ユーザーボイスコメント&quot;, 
+&quot;33&quot;, &quot;ユーザーボイスチケット&quot;, 
+&quot;34&quot;, &quot;ビデオを見た（≥75％が見た）&quot;, 
+&quot;35&quot;, &quot;間接的な購読解除&quot;,
+&quot;36&quot;, &quot;間接的なバウンスメール&quot;,
+&quot;37&quot;, &quot;間接的な再購読&quot;,
+&quot;38&quot;, &quot;リンクされていない商談&quot;,
+&quot;ext&quot;, pd_jp_20151124__extension_activity_name__c + &quot;: &quot; + pd_jp_20151124__type_name__c, 
+&quot;不明なアクティビティ&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Activity種類名</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

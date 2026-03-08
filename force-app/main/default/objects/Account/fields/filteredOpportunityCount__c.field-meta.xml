@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>filteredOpportunityCount__c</fullName>
+    <label>対象商談数</label>
+    <summaryFilterItems>
+        <field>Opportunity.recordTypeId__c</field>
+        <operation>equals</operation>
+        <value>0125h000000Y9ROAA0</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

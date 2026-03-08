@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Pardot Application v1</label>
+    <navType>Standard</navType>
+    <tabs>standard-B2bHome</tabs>
+    <tabs>standard-B2bMarketablePeople</tabs>
+    <tabs>standard-Campaign</tabs>
+    <tabs>standard-B2bAutomation</tabs>
+    <tabs>standard-B2bPardotEmail</tabs>
+    <tabs>standard-B2bContent</tabs>
+    <tabs>standard-B2bPardotReports</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-B2bPardotSettings</tabs>
+    <tabs>property__c</tabs>
+    <tabs>property_account__c</tabs>
+    <tabs>contact_schedule__c</tabs>
+    <tabs>SolutionSalesLeadHistory__c</tabs>
+    <tabs>SupplyItem__c</tabs>
+    <tabs>Steel_delivery__c</tabs>
+    <tabs>Budget__c</tabs>
+    <tabs>BudgetSubmission__c</tabs>
+    <tabs>ST_Quote__c</tabs>
+    <tabs>ST_Quotedetails__c</tabs>
+    <tabs>NProperty__c</tabs>
+    <tabs>Opportunity_JU__c</tabs>
+    <tabs>IssueHearing2__c</tabs>
+    <tabs>test_nagashima_20250317__c</tabs>
+    <tabs>Theme__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

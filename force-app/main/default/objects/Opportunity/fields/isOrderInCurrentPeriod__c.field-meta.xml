@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isOrderInCurrentPeriod__c</fullName>
+    <formula>IF(
+    OR(
+        AND(
+            MONTH(en_zyutyuubi__c) &gt;= 7,
+            YEAR(en_zyutyuubi__c) = YEAR(TODAY())
+        ),
+        AND(
+            MONTH(en_zyutyuubi__c) &lt; 7,
+            YEAR(en_zyutyuubi__c) = YEAR(TODAY()) + 1
+        )
+    ),
+    TRUE,
+    FALSE
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>当期受注flg</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

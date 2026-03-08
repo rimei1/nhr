@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsBilledAmountExclTax__c</fullName>
+    <formula>OR(
+ Excludedfrombilling_summary__c == FALSE, 
+ isOutOfContractSplit__c == FALSE
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>④請求済金額_税抜（条件判定用）</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpectedforthistermRevenu__c</fullName>
+    <description>IF(
+  spot__c = TRUE,
+  EstimatedAmount__c,
+  
+  IF(
+IF(AND(spot__c ,SalesPeriod__c != ThisPeriod__c)
+			,0
+   ,IF ( ThisPeriod__c - SalesPeriod__c = 0
+    ,IF (Month(Today()) &lt; 7 , EstimatedAmount__c * (7- Month(Today())) /12 , EstimatedAmount__c * (19- Month(Today())) /12)
+    ,IF ( ThisPeriod__c - SalesPeriod__c = 1
+    , EstimatedAmount__c
+    , 0)))
+--------------------------------------------------------------------   
+ /* 発生月が今期に含まれているかどうかを判定 */
+    occur_revenu_month__c &gt;= DATE(YEAR(TODAY()) - IF(MONTH(TODAY()) &lt; 7, 1, 0), 7, 1) &amp;&amp;
+    occur_revenu_month__c &lt;= DATE(YEAR(TODAY()) + IF(MONTH(TODAY()) &gt;= 7, 1, 0), 6, 30),
+    
+    /* 今期内なら、月数に応じて金額を算出 */
+    IF(
+      MONTH(occur_revenu_month__c) &gt;= 7,
+      EstimatedAmount__c / 12 * (19 - MONTH(occur_revenu_month__c)),
+      EstimatedAmount__c / 12 * (7 - MONTH(occur_revenu_month__c))
+    ),
+    
+    /* 今期外は0 */
+    0
+  )
+)</description>
+    <formula>IF(
+				OR(SalesPeriod__c = ThisPeriod__c)
+				,IF (spot__c
+									,EstimatedAmount__c
+									,IF (Month(occur_revenu_month__c) &lt; 7 , EstimatedAmount__c * (7- Month(occur_revenu_month__c)) /12 , EstimatedAmount__c * (19- Month(occur_revenu_month__c)) /12))
+				,0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>今期売上想定額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

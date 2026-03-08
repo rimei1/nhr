@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CS Mobile閲覧権限</label>
+    <license>Salesforce</license>
+    <tabSettings>
+        <tab>CS_Mobile</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NextTermAmount__c</fullName>
+    <description>IF(AND(spot__c ,SalesPeriod__c != ThisPeriod__c + 1)
+			,0
+			,IF( OR( SalesPeriod__c -ThisPeriod__c = 1 ,SalesPeriod__c -ThisPeriod__c = 0 )
+      ,EstimatedAmount__c * Probability / 0.8
+      ,0))
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+IF(
+  spot__c = TRUE,
+  0,
+  
+  IF(
+    /* 来期内かどうかをチェック */
+    occur_revenu_month__c &gt;= DATE(YEAR(TODAY()) + IF(MONTH(TODAY()) &gt;= 7, 1, 0), 7, 1) &amp;&amp;
+    occur_revenu_month__c &lt;= DATE(YEAR(TODAY()) + IF(MONTH(TODAY()) &gt;= 7, 2, 1), 6, 30),
+    
+    /* 来期の場合：計算 */
+    EstimatedAmount__c * 0.3 / 0.8,
+    
+    /* それ以外は0 */
+    0
+  )
+)</description>
+    <formula>IF(
+				OR(SalesPeriod__c - ThisPeriod__c = 1)
+				,IF (spot__c
+									,NextExpectedforthistermRevenu__c * Probability /0.8
+									,NextExpectedforthistermRevenu__c * Probability /0.8)
+				,0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>KPI指標金額（来期）</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

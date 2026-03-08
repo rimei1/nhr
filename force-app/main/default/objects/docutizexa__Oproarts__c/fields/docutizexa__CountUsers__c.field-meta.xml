@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>docutizexa__CountUsers__c</fullName>
+    <deprecated>false</deprecated>
+    <label>Number of Users</label>
+    <summaryFilterItems>
+        <field>docutizexa__OproartsUser__c.docutizexa__User__c</field>
+        <operation>notEqual</operation>
+        <value></value>
+    </summaryFilterItems>
+    <summaryForeignKey>docutizexa__OproartsUser__c.docutizexa__Oproarts__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

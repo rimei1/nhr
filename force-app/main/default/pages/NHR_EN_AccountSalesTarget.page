@@ -1,0 +1,176 @@
+<apex:page contenttype="application/vnd.ms-excel;charset=UTF-8#{!fileName}.xls" controller="NHR_EN_AccountSalesTargetCtrl">
+    <head>
+        <style type="text/css">
+            .fontsetsize {
+                font-size:9pt;
+            }            
+            .titleclass1_1{
+                font-size:18pt;
+                font-weight: bold;
+            }
+            .titleclass1_2{
+                text-align: right;
+            }
+            .centerclass{
+                text-align: center;
+            }
+            .td1_1 {
+                border: 1px #000000 solid;
+            }
+            .td1_2 {
+            border-left: 1px #000000 solid;
+            border-right: 1px #000000 solid;
+            border-bottom: 1px #000000 solid;
+            border-top: 1px #000000 double ;
+            }
+            
+            .th1_1 {
+            width :  100px;
+            font-size:14pt;
+            font-weight: bold;
+            }
+            .th1_2 {
+                width :  70px;
+            }
+            .th2_1 {
+            background: #FFFF99;
+            border: 1px #000000 solid;
+            }
+            .th2_2 {
+            background: #CEF9DC;
+            border: 1px #000000 solid;
+            }
+            .th2_2_total {
+            background: #CEF9DC;
+            border-left: 1px #000000 solid;
+            border-right: 1px #000000 solid;
+            border-bottom: 1px #000000 solid;
+            border-top: 1px #000000 double ;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <table class="fontsetsize">
+            <tr>
+                <td class = "th1_1">竣工目標</td><!--A-->
+                
+                <td class = "th1_2"></td><!--C-->
+                <td class = "th1_2"></td><!--D-->
+                <td class = "th1_2"></td><!--E-->
+                <td class = "th1_2"></td><!--F-->
+                <td class = "th1_2"></td><!--G-->
+                <td class = "th1_2"></td><!--H-->
+                <td class = "th1_2"></td><!--I-->
+                <td class = "th1_2"></td><!--J-->
+                <td class = "th1_2"></td><!--K-->
+                <td class = "th1_2"></td><!--L-->
+                <td class = "th1_2"></td><!--M-->
+                <td class = "th1_2"></td><!--N-->
+                <td class = "th1_2"></td><!--O-->
+                <td class = "th1_2"></td><!--P-->
+                <td class = "th1_2"></td><!--Q--> 
+                <td class = "th1_2"></td><!--R-->
+                <td class = "th1_2"></td><!--S-->
+                <td class = "th1_2"></td><!--T-->
+                <td class = "th1_2"></td><!--U-->
+                <td class = "th1_2"></td><!--V-->
+                <td class = "th1_2"></td><!--W-->
+                <td class = "th1_2"></td><!--X-->
+                <td class = "th1_2"></td><!--Y-->
+                <td class = "th1_2"></td><!--Z-->
+                <td class = "th1_2"></td><!--AA-->
+                <td class = "th1_2"></td><!--AB-->
+                <td class = "th1_2"></td><!--AC-->
+            </tr>
+            <tr style = "height : 10px"></tr>
+            <tr>
+                <td rowspan = "2" class = "th2_1" ></td><!--A-->
+               
+                <td rowspan = "2" class = "th2_1"></td><!--C-->
+                <td colspan = "2" class = "th2_1">7月</td><!--D-->
+                <td colspan = "2" class = "th2_1">8月</td><!--F-->
+                <td colspan = "2" class = "th2_1">9月</td><!--H-->
+                <td colspan = "2" class = "th2_1">10月</td><!--J-->
+                <td colspan = "2" class = "th2_1">11月</td><!--L-->
+                <td colspan = "2" class = "th2_1">12月</td><!--N-->
+                <td colspan = "2" class = "th2_1">1月</td><!--P-->
+                <td colspan = "2" class = "th2_1">2月</td><!--R-->
+                <td colspan = "2" class = "th2_1">3月</td><!--T-->
+                <td colspan = "2" class = "th2_1">4月</td><!--V-->
+                <td colspan = "2" class = "th2_1">5月</td><!--X-->
+                <td colspan = "2" class = "th2_1">６月</td><!--Z-->
+                <td colspan = "2" class = "th2_1">合計</td><!--AB-->
+            </tr>
+            <tr>
+                <td class = "th2_1">請負</td><!--D-->
+                <td class = "th2_1">粗利</td><!--E-->
+                <td class = "th2_1">請負</td><!--F-->
+                <td class = "th2_1">粗利</td><!--G-->
+                <td class = "th2_1">請負</td><!--H-->
+                <td class = "th2_1">粗利</td><!--I-->
+                <td class = "th2_1">請負</td><!--J-->
+                <td class = "th2_1">粗利</td><!--K-->
+                <td class = "th2_1">請負</td><!--L-->
+                <td class = "th2_1">粗利</td><!--M-->
+                <td class = "th2_1">請負</td><!--N-->
+                <td class = "th2_1">粗利</td><!--O-->
+                <td class = "th2_1">請負</td><!--P-->
+                <td class = "th2_1">粗利</td><!--Q--> 
+                <td class = "th2_1">請負</td><!--R-->
+                <td class = "th2_1">粗利</td><!--S-->
+                <td class = "th2_1">請負</td><!--T-->
+                <td class = "th2_1">粗利</td><!--U-->
+                <td class = "th2_1">請負</td><!--V-->
+                <td class = "th2_1">粗利</td><!--W-->
+                <td class = "th2_1">請負</td><!--X-->
+                <td class = "th2_1">粗利</td><!--Y-->
+                <td class = "th2_1">請負</td><!--Z-->
+                <td class = "th2_1">粗利</td><!--AA-->
+                <td class = "th2_1">請負</td><!--AB-->
+                <td class = "th2_1">粗利</td><!--AC-->
+            </tr>
+            <!--大阪営業部-->
+            <apex:repeat value="{!FormCreationList}" var="recordList">
+                <apex:variable var="idx" value="{!0}" />
+                <apex:repeat value="{!recordList}" var="record">
+                    <tr >
+                        <apex:outputPanel rendered="{!If((mod ( idx ,5 )== 0), true, false)}">
+                            <td rowspan = "5" class="th2_2">{!record.Title1__c}</td>
+                            
+                        </apex:outputPanel>
+                        
+                        <td class="{!If((idx== 4), 'th2_2_total', 'th2_2')}">{!record.Title2__c}</td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.D__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.E__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.F__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.G__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.H__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.I__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.J__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.K__c}" /></apex:outputText></td>
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.L__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.M__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.N__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.O__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.P__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Q__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.R__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.S__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.T__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.U__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.V__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.W__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.X__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Y__c}" /></apex:outputText></td>    
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.Z__c}" /></apex:outputText></td> 
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.AA__c}" /></apex:outputText></td> 
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.AB__c}" /></apex:outputText></td> 
+                        <td class="{!If((idx== 4), 'td1_2', 'td1_1')}"><apex:outputText value="{0, number, ###,###}"><apex:param value="{!record.AC__c}" /></apex:outputText></td> 
+                    </tr>
+                    <apex:variable var="idx" value="{!idx + 1}" />
+                </apex:repeat>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Description__c</fullName>
+    <description>※システム利用
+概要：フローで、ロングテキストからテキストエリアに値を格納させるために用意。
+詳細：行動オブジェクトの「説明」のテキストを格納する項目
+目的：関連リストに表示させるため</description>
+    <label>行動-説明</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

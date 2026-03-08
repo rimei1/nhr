@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_ID_EN__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>SF_商談ID_エンジ</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>物件×GC (SF_商談ID_エンジ)</relationshipLabel>
+    <relationshipName>Opportunity_ID_EN</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

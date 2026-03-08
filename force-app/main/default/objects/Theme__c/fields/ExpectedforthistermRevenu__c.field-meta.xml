@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpectedforthistermRevenu__c</fullName>
+    <description>IF(OR(AND(spot__c ,SalesPeriod__c != ThisPeriod__c ) ,  ISPICKVAL(Phase__c, &apos;撤退&apos;)) 
+			,0
+			,IF ( ThisPeriod__c - SalesPeriod__c = 0 
+						,IF (Month(Today()) &lt; 7 , RemainingEstimateAmount__c * (7- Month(Today())) /12 , RemainingEstimateAmount__c * (19- Month(Today())) /12)
+						,IF ( ThisPeriod__c - SalesPeriod__c = 1 
+						, RemainingEstimateAmount__c 
+						, 0)))</description>
+    <formula>IF(
+				OR(SalesPeriod__c = ThisPeriod__c)
+				,IF (spot__c
+								,RemainingEstimateAmount__c
+								,IF (Month(occur_revenu_month__c) &lt; 7 , RemainingEstimateAmount__c * (7- Month(occur_revenu_month__c)) /12 , RemainingEstimateAmount__c * (19- Month(occur_revenu_month__c)) /12))
+				,0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>今期売上想定額</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

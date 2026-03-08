@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>【商談】ソリューション営業部</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DVA&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDORK&quot;&gt;&lt;/img&gt;&lt;/p&gt;&lt;p&gt;​&lt;/p&gt;</info>
+        <picklistValueName>プロスペクト</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DV9&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDtOf&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>予算申請</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DVC&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDtJp&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>企業レベル関心</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DVB&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDtQH&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>価格・条件交渉</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DV7&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDtWj&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>契約・納品完了</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DV8&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDtN3&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>提案</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;img src=&quot;https://forcecom175.file.force.com/servlet/rtaImage?eid=1CFRC0000000DVD&amp;amp;feoid=Info&amp;amp;refid=0EMRC00000XDjsM&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>発注手続き</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>RecordType_slution</recordTypeName>
+</PathAssistant>

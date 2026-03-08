@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>【商談】住環境</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>ju_mitsumoriup__c</fieldNames>
+        <info>&lt;p&gt;見積作成時には必ず見積をアップロード及び提案金額の入力をし、チェックをお願いします。&lt;/p&gt;</info>
+        <picklistValueName>初回見積提出</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>JU_ReasonForClose__c</fieldNames>
+        <info>&lt;p&gt;購買担当は乗り気であるが何かしらの理由があり今回は採用できないが、1年以内に採用の可能性を感じる&lt;/p&gt;&lt;p&gt;検討保留理由を​「採用/不採用/検討保留理由欄」に記載してください。&lt;/p&gt;&lt;p&gt;記載例：​「今回は〇〇の理由から採用(検討)に至らなかったが、△ヶ月後には再度提案の価値あり」&lt;/p&gt;</info>
+        <picklistValueName>検討保留</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Jukankyo</recordTypeName>
+</PathAssistant>

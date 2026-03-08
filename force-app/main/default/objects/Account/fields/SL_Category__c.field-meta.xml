@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_Category__c</fullName>
+    <label>SL_Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Broker仲介業者</fullName>
+                <default>false</default>
+                <label>Broker仲介業者</label>
+            </value>
+            <value>
+                <fullName>Corporate crime企業犯罪</fullName>
+                <default>false</default>
+                <label>Corporate crime企業犯罪</label>
+            </value>
+            <value>
+                <fullName>Building Materials建材</fullName>
+                <default>false</default>
+                <label>Building Materials建材</label>
+            </value>
+            <value>
+                <fullName>Claim Adjuster損害査定人</fullName>
+                <default>false</default>
+                <label>Claim Adjuster損害査定人</label>
+            </value>
+            <value>
+                <fullName>Film &amp; TV情報・テレビ</fullName>
+                <default>false</default>
+                <label>Film &amp; TV情報・テレビ</label>
+            </value>
+            <value>
+                <fullName>Broker/Locator 仲介業者/所在地</fullName>
+                <default>false</default>
+                <label>Broker/Locator 仲介業者/所在地</label>
+            </value>
+            <value>
+                <fullName>Architecture Engineering Construction_建築・エンジニアリング・建設</fullName>
+                <default>false</default>
+                <label>Architecture Engineering Construction_建築・エンジニアリング・建設</label>
+            </value>
+            <value>
+                <fullName>Agent代理店</fullName>
+                <default>false</default>
+                <label>Agent代理店</label>
+            </value>
+            <value>
+                <fullName>Facilities Management Documentation 施設管理文書</fullName>
+                <default>false</default>
+                <label>Facilities Management Documentation 施設管理文書</label>
+            </value>
+            <value>
+                <fullName>Event Planningイベント企画</fullName>
+                <default>false</default>
+                <label>Event Planningイベント企画</label>
+            </value>
+            <value>
+                <fullName>Architectual Firm建築設計事務所</fullName>
+                <default>false</default>
+                <label>Architectual Firm建築設計事務所</label>
+            </value>
+            <value>
+                <fullName>Corporate Real Estate企業不動産</fullName>
+                <default>false</default>
+                <label>Corporate Real Estate企業不動産</label>
+            </value>
+            <value>
+                <fullName>Primary/Secondary School 小学校/中学校</fullName>
+                <default>false</default>
+                <label>Primary/Secondary School 小学校/中学校</label>
+            </value>
+            <value>
+                <fullName>Federal Government連邦政府</fullName>
+                <default>false</default>
+                <label>Federal Government連邦政府</label>
+            </value>
+            <value>
+                <fullName>Home equipment家庭用機器</fullName>
+                <default>false</default>
+                <label>Home equipment家庭用機器</label>
+            </value>
+            <value>
+                <fullName>Forensic Engineering法医学工学</fullName>
+                <default>false</default>
+                <label>Forensic Engineering法医学工学</label>
+            </value>
+            <value>
+                <fullName>Music音楽</fullName>
+                <default>false</default>
+                <label>Music音楽</label>
+            </value>
+            <value>
+                <fullName>Internet Listing Serviceインターネットリスティングサービス</fullName>
+                <default>false</default>
+                <label>Internet Listing Serviceインターネットリスティングサービス</label>
+            </value>
+            <value>
+                <fullName>IndustryAgnostic業界を問わない</fullName>
+                <default>false</default>
+                <label>IndustryAgnostic業界を問わない</label>
+            </value>
+            <value>
+                <fullName>Home Renovation住宅改修</fullName>
+                <default>false</default>
+                <label>Home Renovation住宅改修</label>
+            </value>
+            <value>
+                <fullName>Hotels &amp; Resortsホテル・リゾート</fullName>
+                <default>false</default>
+                <label>Hotels &amp; Resortsホテル・リゾート</label>
+            </value>
+            <value>
+                <fullName>Construction Firm建設会社</fullName>
+                <default>false</default>
+                <label>Construction Firm建設会社</label>
+            </value>
+            <value>
+                <fullName>Publishing出版</fullName>
+                <default>false</default>
+                <label>Publishing出版</label>
+            </value>
+            <value>
+                <fullName>Forensics法医学</fullName>
+                <default>false</default>
+                <label>Forensics法医学</label>
+            </value>
+            <value>
+                <fullName>Home Inspection住宅点検</fullName>
+                <default>false</default>
+                <label>Home Inspection住宅点検</label>
+            </value>
+            <value>
+                <fullName>Interior Design室内設計</fullName>
+                <default>false</default>
+                <label>Interior Design室内設計</label>
+            </value>
+            <value>
+                <fullName>Construction Management Firm建設管理会社</fullName>
+                <default>false</default>
+                <label>Construction Management Firm建設管理会社</label>
+            </value>
+            <value>
+                <fullName>Restaurant飲食店</fullName>
+                <default>false</default>
+                <label>Restaurant飲食店</label>
+            </value>
+            <value>
+                <fullName>Engineeringエンジニアリング</fullName>
+                <default>false</default>
+                <label>Engineeringエンジニアリング</label>
+            </value>
+            <value>
+                <fullName>Otherその他</fullName>
+                <default>false</default>
+                <label>Otherその他</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>University大学</fullName>
+                <default>false</default>
+                <label>University大学</label>
+            </value>
+            <value>
+                <fullName>Industry Agnostic業界を問わない</fullName>
+                <default>false</default>
+                <label>Industry Agnostic業界を問わない</label>
+            </value>
+            <value>
+                <fullName>Social Mediaソーシャルメディア</fullName>
+                <default>false</default>
+                <label>Social Mediaソーシャルメディア</label>
+            </value>
+            <value>
+                <fullName>RealEstate不動産</fullName>
+                <default>false</default>
+                <label>RealEstate不動産</label>
+            </value>
+            <value>
+                <fullName>Retail Store店舗</fullName>
+                <default>false</default>
+                <label>Retail Store店舗</label>
+            </value>
+            <value>
+                <fullName>Other_その他</fullName>
+                <default>false</default>
+                <label>Other_その他</label>
+            </value>
+            <value>
+                <fullName>Service Providerサービス業</fullName>
+                <default>false</default>
+                <label>Service Providerサービス業</label>
+            </value>
+            <value>
+                <fullName>engineering and constructionエンジニアリング、施工</fullName>
+                <default>false</default>
+                <label>engineering and constructionエンジニアリング、施工</label>
+            </value>
+            <value>
+                <fullName>Service Providerサービス提供者</fullName>
+                <default>false</default>
+                <label>Service Providerサービス提供者</label>
+            </value>
+            <value>
+                <fullName>Property Management不動産管理</fullName>
+                <default>false</default>
+                <label>Property Management不動産管理</label>
+            </value>
+            <value>
+                <fullName>New Home Construction新築住宅</fullName>
+                <default>false</default>
+                <label>New Home Construction新築住宅</label>
+            </value>
+            <value>
+                <fullName>Facilities Management施設管理</fullName>
+                <default>false</default>
+                <label>Facilities Management施設管理</label>
+            </value>
+            <value>
+                <fullName>Vacation Rentals民泊</fullName>
+                <default>false</default>
+                <label>Vacation Rentals民泊</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isMatchTargetBillingCloseDate__c</fullName>
+    <formula>AND(BillingDate__c ==  ST_field_name__r.targetBillingCloseDate__c, NOT(ISBLANK(BillingDate__c)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>現場-対象請求締日との一致</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

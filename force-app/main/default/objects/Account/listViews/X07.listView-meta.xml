@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X07</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>JU_OwnerId__c</columns>
+    <columns>JU_Department__c</columns>
+    <columns>JU_AccountType__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ju_kouzasakuzyozumi__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>JU_ManagementTarget__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>JU_Department__c</field>
+        <operation>contains</operation>
+        <value>広島</value>
+    </filters>
+    <label>08.広島営業所担当</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Jyukankyo</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

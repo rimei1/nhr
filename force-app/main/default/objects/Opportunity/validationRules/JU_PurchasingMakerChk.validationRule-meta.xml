@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_PurchasingMakerChk</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName =&quot;Jukankyo&quot;
+				,ISBLANK(JU_Contact__c)
+				,OR(ISPICKVAL(StageName, &quot;購買決定者検討中&quot;)
+							, ISPICKVAL(StageName, &quot;トライアル&quot;)
+							, ISPICKVAL(StageName, &quot;採用一歩手前&quot;)
+							, ISPICKVAL(StageName, &quot;採用（受注）&quot;)
+							)
+			)</errorConditionFormula>
+    <errorMessage>購買決定者検討中以降のフェーズへ変更するため、「購買決定者」を入力してください。</errorMessage>
+</ValidationRule>

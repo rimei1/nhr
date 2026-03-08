@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CheckJU_CustomerFeaturesFutureEfforts__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>/空白判定_得意先の特徴・今後の取り組み</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

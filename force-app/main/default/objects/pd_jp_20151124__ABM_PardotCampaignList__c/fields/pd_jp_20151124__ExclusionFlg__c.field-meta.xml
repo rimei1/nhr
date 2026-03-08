@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pd_jp_20151124__ExclusionFlg__c</fullName>
+    <deprecated>false</deprecated>
+    <description>1:取り込み対象　2:除外対象</description>
+    <externalId>false</externalId>
+    <label>除外フラグ</label>
+    <length>1</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Honsha_4__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>トライアル結果の認知（良かったと認める）_本社決裁者</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

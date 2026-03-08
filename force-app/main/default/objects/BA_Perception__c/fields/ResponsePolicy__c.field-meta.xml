@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ResponsePolicy__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  OR(SubjectShow__c == &apos;取引先ステージUP障害排除&apos;, ISBLANK(SubjectShow__c)  ),&apos;&apos; 
+,CASE(TEXT(Contact__r.BuildAppKeyman__c)
+,&apos;DX推進者&apos;,
+IF(DX_Suishin_9__c,&apos;全社導入を推進するだけの意義があると期待させる→本採用決済の獲得に向けた具体的なアクションの確約&apos;
+,IF(DX_Suishin_8__c,&apos;導入してみて良かったと感じさせる→成果レポートの社内共有&apos;
+,IF(DX_Suishin_7__c,&apos;課題が解決できるイメージを具体的に持たせる→想定成果への合意&apos;
+,IF(DX_Suishin_6__c,&apos;導入を推進するだけの意義があると期待させる→導入に向けた具体的なアクションの確約（条件、スケジュールなど）&apos;
+,IF(DX_Suishin_5__c,&apos;社内を巻き込んで課題解決に乗り出そうと思わせる→今後の進め方への合意&apos;
+,IF(DX_Suishin_4__c,&apos;課題が解決できるイメージを具体的に持たせる→現場情報の引き出し&apos;
+,IF(DX_Suishin_3__c,&apos;課題に気づかせ、自分にとって有益な相手だと思わせる→課題の引き出し&apos;
+,IF(DX_Suishin_2__c,&apos;もう一度話を聞いてみたいと思わせる→2度目以降のアポイント承諾&apos;
+,IF(DX_Suishin_1__c,&apos;自分に関係のある相手だと思わせる→アポイント承諾&apos;
+,&apos;DX推進サービスの検討アクション促進→問い合わせを受ける&apos;)))))))))
+,&apos;決裁者_現場&apos;
+,IF(DX_Genba_5__c,&apos;トライアルしてみて良かったと感じさせる→トライアル結果の認知（良かったと認める）&apos;
+,IF(DX_Genba_4__c,&apos;課題が解決できるイメージを具体的に持たせる→想定成果への合意&apos;
+,IF(DX_Genba_3__c,&apos;課題が解決できるイメージを具体的に持たせる→自物件でのトライアル合意&apos;
+,IF(DX_Genba_2__c,&apos;自業務に有益なサービスだと思わせる→アポイント承諾&apos;
+,IF(DX_Genba_1__c,&apos;自社に関係のあるサービスだと思わせる→サービス名の認知完了&apos;
+,&apos;自業務にもいずれはDXが必要だと感じさせる→啓蒙完了&apos;)))))
+,&apos;決裁者_本社&apos;
+,IF(DX_Honsha_5__c,&apos;&apos;
+,IF(DX_Honsha_4__c,&apos;全社導入に値するサービスとして認めさせる→本採用の承認&apos;
+,IF(DX_Honsha_2__c,&apos;トライアルしてみて良かったと感じさせる→トライアル結果の認知（良かったと認める）&apos;
+,IF(DX_Honsha_1__c,&apos;自社に関係のあるサービスだと思わせる→サービス名の認知完了&apos;
+,&apos;自社にもいずれはDXが必要だと感じさせる→啓蒙完了&apos;))))
+,&apos;&apos;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>対応方針</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_Phase__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case( JU_StageName__c
+,&quot;未着手&quot; ,&quot;01.停滞保留中&quot;
+,&quot;訪問1回目&quot; ,&quot;02.訪問1回目&quot;
+,&quot;初回見積提出&quot; ,&quot;03.初回見積提出&quot;
+,&quot;購買決定者検討中&quot; ,&quot;04.購買決定者検討中&quot;
+,&quot;トライアル&quot;,&quot;05.トライアル&quot;
+,&quot;採用一歩手前&quot;,&quot;06.採用一歩手前&quot;
+,&quot;採用（受注）&quot;,&quot;07.採用（受注）&quot;
+,&quot;08.その他&quot;
+)</formula>
+    <label>フェーズ_JU</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

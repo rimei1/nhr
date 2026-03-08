@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>21</activeVersionNumber>
+    <description>日報作成時に日報のFrom～To期間の活動データを日報に紐づけ</description>
+    <masterLabel>SummaryReportFlow</masterLabel>
+</FlowDefinition>

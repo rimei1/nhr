@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShipmentTotalWithDiscountExclTax__c</fullName>
+    <label>③出荷累計_値引含む_税抜</label>
+    <summarizedField>ST_DeliveryRecord__c.ShippingAmountALL__c</summarizedField>
+    <summaryFilterItems>
+        <field>ST_DeliveryRecord__c.Excludedfrombilling_summary__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>ST_DeliveryRecord__c.isOutOfContractSplit__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ST_DeliveryRecord__c.ST_field_name__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

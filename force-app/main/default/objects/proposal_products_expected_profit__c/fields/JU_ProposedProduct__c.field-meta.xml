@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_ProposedProduct__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>提案商品</label>
+    <referenceTo>JU_ProposedProduct__c</referenceTo>
+    <relationshipLabel>提案商品カテゴリ別_期待収益</relationshipLabel>
+    <relationshipName>JU_ProposedProduct_proposal_products</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

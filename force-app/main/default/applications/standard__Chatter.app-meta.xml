@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-Chatter</defaultLandingTab>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <tabs>standard-Chatter</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>PrimeContractor__c</tabs>
+    <tabs>PartnerCompany__c</tabs>
+    <tabs>OrdersEstimates__c</tabs>
+    <tabs>CW_supplier__c</tabs>
+    <tabs>CW_supplier_memo__c</tabs>
+    <tabs>dx_object_phasesenni__c</tabs>
+    <tabs>property__c</tabs>
+    <tabs>property_account__c</tabs>
+    <tabs>contact_schedule__c</tabs>
+    <tabs>SolutionSalesLeadHistory__c</tabs>
+    <tabs>SupplyItem__c</tabs>
+    <tabs>Steel_delivery__c</tabs>
+    <tabs>Budget__c</tabs>
+    <tabs>BudgetSubmission__c</tabs>
+    <tabs>ST_Quote__c</tabs>
+    <tabs>ST_Quotedetails__c</tabs>
+    <tabs>NProperty__c</tabs>
+    <tabs>Opportunity_JU__c</tabs>
+    <tabs>IssueHearing2__c</tabs>
+    <tabs>test_nagashima_20250317__c</tabs>
+    <tabs>Theme__c</tabs>
+</CustomApplication>

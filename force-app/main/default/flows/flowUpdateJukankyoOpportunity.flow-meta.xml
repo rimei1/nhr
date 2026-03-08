@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>【商談】住環境商談_更新時処理 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>【商談】住環境商談_更新時処理</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>invokeFlowUpdAccount6CatProposeStatus</targetReference>
+        </connector>
+        <filterFormula>{!$Record.RecordTypeId} = &quot;0125h000000Y9ROAA0&quot;</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>invokeFlowUpdAccount6CatProposeStatus</name>
+        <label>呼び出し：【提案商品/取引先】6カテ商品提案状況記録</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>flowUpdAccount6CatProposeStatus</flowName>
+        <inputAssignments>
+            <name>inputOpportunity</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

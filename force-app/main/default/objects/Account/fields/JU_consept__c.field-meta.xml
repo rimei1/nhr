@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JU_consept__c</fullName>
+    <label>コンセプト</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>高級</fullName>
+                <default>false</default>
+                <label>高級</label>
+            </value>
+            <value>
+                <fullName>中級</fullName>
+                <default>false</default>
+                <label>中級</label>
+            </value>
+            <value>
+                <fullName>ローコスト</fullName>
+                <default>false</default>
+                <label>ローコスト</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

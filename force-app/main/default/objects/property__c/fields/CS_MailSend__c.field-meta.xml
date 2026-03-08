@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_MailSend__c</fullName>
+    <formula>AND(
+				OR( zyutyusaki__r.CS_ImportantCon__c , zouhougen__r.CS_ImportantInfo__c )
+,  tyakkoubi30__c 
+				)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CS_アラートメール送信対象</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

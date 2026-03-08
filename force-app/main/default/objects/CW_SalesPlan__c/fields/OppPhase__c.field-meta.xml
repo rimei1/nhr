@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppPhase__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+TEXT(BudgetActualType__c)= &quot;計画&quot;, &quot;00：A&quot;, 
+IF(
+TEXT(BudgetActualType__c)= &quot;得意先計画&quot;, &quot;00：A&quot;, 
+IF(
+TEXT(Oppotunity__r.StageName )=&quot;A (受注)&quot;,&quot;00：A&quot;, 
+IF(
+TEXT(Oppotunity__r.StageName )=&quot;C(確認)&quot;,&quot;02：C&quot;, 
+IF(
+TEXT(Oppotunity__r.StageName )=&quot;D(見積提出)&quot;,&quot;03：D&quot;, 
+&quot;&quot;
+
+)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>売上計画の予実区分が計画の場合、00:Aとして表示
+商談のフェーズがA,B,C,Dの場合は、それぞれの値にソート順をセット
+レポート用項目</inlineHelpText>
+    <label>*商談フェーズ</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

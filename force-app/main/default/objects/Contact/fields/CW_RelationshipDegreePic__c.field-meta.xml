@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CW_RelationshipDegreePic__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( CW_RelationshipDegree__c,
+&apos;Lv1&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746106000/RelationshipDegreeCW_Lv1?&quot;, &quot;&quot;,38, 690) ,
+&apos;Lv2&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746130000/RelationshipDegreeCW_Lv2?&quot;, &quot;&quot;,38, 690) ,
+&apos;Lv3&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746155000/RelationshipDegreeCW_Lv3?&quot;, &quot;&quot;,38, 690) ,
+&apos;Lv4&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746178000/RelationshipDegreeCW_Lv4?&quot;, &quot;&quot;,38, 690) ,
+&apos;Lv5&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746206000/RelationshipDegreeCW_Lv5?&quot;, &quot;&quot;,38, 690) ,
+&apos;Lv6&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746485000/RelationshipDegreeCW_Lv6?&quot;, &quot;&quot;,38, 690) ,
+&apos;&apos;, 
+IMAGE(&quot;https://forcecom175--c.visualforce.com/resource/1665746068000/RelationshipDegreeCW_Lv0?&quot;, &quot;&quot;,38, 690) ,
+&apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>関係構築度画像_CW</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
