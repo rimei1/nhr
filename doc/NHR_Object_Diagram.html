@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHR_Pro — オブジェクト構成図</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --bg2: #161b26;
+    --bg3: #1e2535;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --text: #e8eaf0;
+    --text2: #8892a4;
+    --text3: #5a6478;
+    --accent: #4f8ef7;
+
+    --en: #22c55e;   --en-bg: rgba(34,197,94,0.12);   --en-border: rgba(34,197,94,0.35);
+    --st: #3b82f6;   --st-bg: rgba(59,130,246,0.12);  --st-border: rgba(59,130,246,0.35);
+    --ju: #f59e0b;   --ju-bg: rgba(245,158,11,0.12);  --ju-border: rgba(245,158,11,0.35);
+    --dx: #f97316;   --dx-bg: rgba(249,115,22,0.12);  --dx-border: rgba(249,115,22,0.35);
+    --cs: #ec4899;   --cs-bg: rgba(236,72,153,0.12);  --cs-border: rgba(236,72,153,0.35);
+    --core: #a78bfa; --core-bg: rgba(167,139,250,0.12); --core-border: rgba(167,139,250,0.4);
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ヘッダー */
+  .header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #4f8ef7, #a78bfa);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; color: #fff;
+  }
+  .header-title { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+  .header-sub { font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
+  .header-meta {
+    display: flex; gap: 16px; align-items: center;
+  }
+  .meta-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* タブ */
+  .tabs-wrapper {
+    padding: 20px 32px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+  }
+  .tabs {
+    display: flex;
+    gap: 4px;
+  }
+  .tab {
+    padding: 8px 18px 10px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none;
+    color: var(--text3);
+    background: transparent;
+    transition: all .2s;
+    position: relative;
+    bottom: -1px;
+    font-family: 'Noto Sans JP', sans-serif;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--text2); background: var(--bg3); }
+  .tab.active {
+    color: var(--text);
+    background: var(--bg);
+    border-color: var(--border);
+    border-bottom-color: var(--bg);
+  }
+  .tab-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 7px;
+    vertical-align: middle;
+  }
+
+  /* コンテンツ */
+  .content { padding: 32px; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fadein .2s ease; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  /* 説明テキスト */
+  .desc {
+    font-size: 13px;
+    color: var(--text3);
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+  .desc strong { color: var(--text2); font-weight: 500; }
+
+  /* SVGラッパー */
+  .svg-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    overflow-x: auto;
+  }
+  .svg-wrap svg {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* SVG ノード共通スタイル */
+  .node-core rect   { fill: var(--core-bg); stroke: var(--core-border); stroke-width: 1.5; }
+  .node-core text   { fill: var(--core); }
+  .node-en rect     { fill: var(--en-bg);   stroke: var(--en-border);   stroke-width: 1.5; }
+  .node-en text     { fill: var(--en); }
+  .node-st rect     { fill: var(--st-bg);   stroke: var(--st-border);   stroke-width: 1.5; }
+  .node-st text     { fill: var(--st); }
+  .node-ju rect     { fill: var(--ju-bg);   stroke: var(--ju-border);   stroke-width: 1.5; }
+  .node-ju text     { fill: var(--ju); }
+  .node-dx rect     { fill: var(--dx-bg);   stroke: var(--dx-border);   stroke-width: 1.5; }
+  .node-dx text     { fill: var(--dx); }
+  .node-cs rect     { fill: var(--cs-bg);   stroke: var(--cs-border);   stroke-width: 1.5; }
+  .node-cs text     { fill: var(--cs); }
+  .node-pur rect    { fill: rgba(167,139,250,0.1); stroke: rgba(167,139,250,0.3); stroke-width: 1.5; }
+  .node-pur text    { fill: #a78bfa; }
+
+  .node { cursor: pointer; transition: opacity .15s; }
+  .node:hover { opacity: 0.82; }
+
+  text.label-main { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; }
+  text.label-sub  { font-family: 'Noto Sans JP', sans-serif; font-size: 10px; opacity: 0.8; }
+  text.sec-title  { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 700; }
+
+  .arr { stroke: rgba(255,255,255,0.2); stroke-width: 1.5; fill: none; }
+  .arr-en  { stroke: rgba(34,197,94,0.5); }
+  .arr-st  { stroke: rgba(59,130,246,0.5); }
+  .arr-ju  { stroke: rgba(245,158,11,0.5); }
+  .arr-cs  { stroke: rgba(236,72,153,0.5); }
+  .arr-pur { stroke: rgba(167,139,250,0.5); }
+
+  /* 凡例 */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; color: var(--text3);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* バッチ説明ボックス */
+  .info-box {
+    margin-top: 20px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text2);
+  }
+  .info-box h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .info-box code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: rgba(255,255,255,0.07);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: #7dd3fc;
+  }
+
+  /* フッター */
+  .footer {
+    margin-top: 40px;
+    padding: 20px 32px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+    display: flex; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">N</div>
+    <div>
+      <div class="header-title">NHR_Pro オブジェクト構成図</div>
+      <div class="header-sub">github.com/rimei1/nhr</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <span class="meta-badge">API v66.0</span>
+    <span class="meta-badge">SFDX</span>
+    <span class="meta-badge">生成: 2026-04-10</span>
+  </div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab active" onclick="show('all', this)">
+      <span class="tab-dot" style="background:#a78bfa"></span>全体概要
+    </button>
+    <button class="tab" onclick="show('en', this)">
+      <span class="tab-dot" style="background:#22c55e"></span>EN 建材
+    </button>
+    <button class="tab" onclick="show('st', this)">
+      <span class="tab-dot" style="background:#3b82f6"></span>ST スチール
+    </button>
+    <button class="tab" onclick="show('ju', this)">
+      <span class="tab-dot" style="background:#f59e0b"></span>JU
+    </button>
+    <button class="tab" onclick="show('cs', this)">
+      <span class="tab-dot" style="background:#ec4899"></span>CS
+    </button>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 全体概要 -->
+  <div id="all" class="panel active">
+    <div class="desc">
+      <strong>Account / Opportunity / Contact</strong> を中心に、各業務モジュール（EN・ST・JU・CS）のカスタムオブジェクトがリレーションで繋がる構造。
+      矢印は <strong>Lookup（参照）</strong> または <strong>MasterDetail（主従）</strong> 関係を示す。
+    </div>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 860 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- コア3オブジェクト -->
+        <g class="node node-core" title="Account">
+          <rect x="330" y="20" width="200" height="50" rx="10"/>
+          <text class="label-main" x="430" y="40" text-anchor="middle" dominant-baseline="central">Account</text>
+          <text class="label-sub" x="430" y="58" text-anchor="middle" dominant-baseline="central">取引先</text>
+        </g>
+        <g class="node node-core">
+          <rect x="330" y="130" width="200" height="50" rx="10"/>
+          <text class="label-main" x="430" y="150" text-anchor="middle" dominant-baseline="central">Opportunity</text>
+          <text class="label-sub" x="430" y="168" text-anchor="middle" dominant-baseline="central">商談（24種レコードタイプ）</text>
+        </g>
+        <g class="node node-core">
+          <rect x="330" y="240" width="200" height="50" rx="10"/>
+          <text class="label-main" x="430" y="260" text-anchor="middle" dominant-baseline="central">Contact</text>
+          <text class="label-sub" x="430" y="278" text-anchor="middle" dominant-baseline="central">取引先責任者</text>
+        </g>
+
+        <!-- コア間の接続 -->
+        <line x1="430" y1="70" x2="430" y2="130" class="arr" marker-end="url(#arw)"/>
+        <line x1="430" y1="180" x2="430" y2="240" class="arr" marker-end="url(#arw)"/>
+
+        <!-- EN モジュール -->
+        <g class="node node-en">
+          <rect x="30" y="120" width="175" height="50" rx="10"/>
+          <text class="label-main" x="117" y="140" text-anchor="middle" dominant-baseline="central">en_yojitsu__c</text>
+          <text class="label-sub"  x="117" y="158" text-anchor="middle" dominant-baseline="central">予実管理</text>
+        </g>
+        <g class="node node-en">
+          <rect x="30" y="200" width="175" height="50" rx="10"/>
+          <text class="label-main" x="117" y="220" text-anchor="middle" dominant-baseline="central">FormCreation__c</text>
+          <text class="label-sub"  x="117" y="238" text-anchor="middle" dominant-baseline="central">レポート帳票</text>
+        </g>
+        <path d="M205 145 L330 155" class="arr arr-en" marker-end="url(#arw)"/>
+        <path d="M117 120 C140 80 280 50 330 42" class="arr arr-en" marker-end="url(#arw)"/>
+
+        <!-- ST モジュール -->
+        <g class="node node-st">
+          <rect x="655" y="70" width="185" height="50" rx="10"/>
+          <text class="label-main" x="747" y="90" text-anchor="middle" dominant-baseline="central">ST_Opp_Snapshot__c</text>
+          <text class="label-sub"  x="747" y="108" text-anchor="middle" dominant-baseline="central">商談スナップショット</text>
+        </g>
+        <g class="node node-st">
+          <rect x="655" y="145" width="185" height="50" rx="10"/>
+          <text class="label-main" x="747" y="165" text-anchor="middle" dominant-baseline="central">ST_Dashboard__c</text>
+          <text class="label-sub"  x="747" y="183" text-anchor="middle" dominant-baseline="central">経営ダッシュボード</text>
+        </g>
+        <g class="node node-st">
+          <rect x="655" y="220" width="185" height="50" rx="10"/>
+          <text class="label-main" x="747" y="240" text-anchor="middle" dominant-baseline="central">ST_yojitsu__c</text>
+          <text class="label-sub"  x="747" y="258" text-anchor="middle" dominant-baseline="central">スチール予実</text>
+        </g>
+        <path d="M655 95 L530 155" class="arr arr-st" marker-end="url(#arw)"/>
+        <path d="M747 145 L747 120" class="arr arr-st" marker-end="url(#arw)"/>
+        <path d="M655 170 L530 42" class="arr arr-st" marker-end="url(#arw)"/>
+        <path d="M655 245 L530 160" class="arr arr-st" marker-end="url(#arw)"/>
+
+        <!-- JU モジュール -->
+        <g class="node node-ju">
+          <rect x="30" y="350" width="175" height="50" rx="10"/>
+          <text class="label-main" x="117" y="370" text-anchor="middle" dominant-baseline="central">KGIPlansResults__c</text>
+          <text class="label-sub"  x="117" y="388" text-anchor="middle" dominant-baseline="central">KGI計画・実績</text>
+        </g>
+        <g class="node node-ju">
+          <rect x="30" y="430" width="175" height="50" rx="10"/>
+          <text class="label-main" x="117" y="450" text-anchor="middle" dominant-baseline="central">Opportunity_JU__c</text>
+          <text class="label-sub"  x="117" y="468" text-anchor="middle" dominant-baseline="central">JU商談</text>
+        </g>
+        <path d="M205 375 L330 165" class="arr arr-ju" marker-end="url(#arw)"/>
+        <path d="M205 455 L330 165" class="arr arr-ju" marker-end="url(#arw)"/>
+        <path d="M205 445 L330 42" class="arr arr-ju" marker-end="url(#arw)"/>
+
+        <!-- CS モジュール -->
+        <g class="node node-cs">
+          <rect x="330" y="380" width="200" height="50" rx="10"/>
+          <text class="label-main" x="430" y="400" text-anchor="middle" dominant-baseline="central">BA_Perception__c</text>
+          <text class="label-sub"  x="430" y="418" text-anchor="middle" dominant-baseline="central">パーセプション分析</text>
+        </g>
+        <g class="node node-cs">
+          <rect x="330" y="460" width="200" height="50" rx="10"/>
+          <text class="label-main" x="430" y="480" text-anchor="middle" dominant-baseline="central">perception__c</text>
+          <text class="label-sub"  x="430" y="498" text-anchor="middle" dominant-baseline="central">CS詳細（Contact子）</text>
+        </g>
+        <line x1="430" y1="380" x2="430" y2="290" class="arr arr-cs" marker-end="url(#arw)"/>
+        <line x1="430" y1="460" x2="430" y2="290" class="arr arr-cs" marker-end="url(#arw)"/>
+
+        <!-- 予算 -->
+        <g class="node node-pur">
+          <rect x="655" y="350" width="185" height="50" rx="10"/>
+          <text class="label-main" x="747" y="370" text-anchor="middle" dominant-baseline="central">BudgetSubmission__c</text>
+          <text class="label-sub"  x="747" y="388" text-anchor="middle" dominant-baseline="central">予算申請</text>
+        </g>
+        <g class="node node-pur">
+          <rect x="655" y="430" width="185" height="50" rx="10"/>
+          <text class="label-main" x="747" y="450" text-anchor="middle" dominant-baseline="central">Budget__c</text>
+          <text class="label-sub"  x="747" y="468" text-anchor="middle" dominant-baseline="central">予算（MasterDetail）</text>
+        </g>
+        <path d="M655 375 L530 165" class="arr arr-pur" marker-end="url(#arw)"/>
+        <line x1="747" y1="430" x2="747" y2="400" class="arr arr-pur" marker-end="url(#arw)"/>
+
+        <!-- モジュールラベル -->
+        <text class="sec-title" x="117" y="105" text-anchor="middle" fill="rgba(34,197,94,0.6)">EN モジュール</text>
+        <text class="sec-title" x="747" y="55" text-anchor="middle" fill="rgba(59,130,246,0.6)">ST モジュール</text>
+        <text class="sec-title" x="117" y="335" text-anchor="middle" fill="rgba(245,158,11,0.6)">JU モジュール</text>
+        <text class="sec-title" x="430" y="365" text-anchor="middle" fill="rgba(236,72,153,0.6)">CS モジュール</text>
+        <text class="sec-title" x="747" y="335" text-anchor="middle" fill="rgba(167,139,250,0.6)">予算管理</text>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>コアオブジェクト</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>EN（建材・建具）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>ST（スチール）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>JU（BPO/KPI）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>CS（顧客管理）</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>予算管理</div>
+      <div class="legend-item" style="border-style:dashed">矢印 = Lookup / MasterDetail</div>
+    </div>
+  </div>
+
+  <!-- EN モジュール -->
+  <div id="en" class="panel">
+    <div class="desc">
+      <strong>EN（建材・建具）モジュール</strong>: 商談（<code>en_zenekonsh</code> レコードタイプ）と取引先を軸に、予実管理・帳票・仕入先を管理。
+      カスタムメタデータ <code>EN_FiscalYear__mdt</code>（会計年度）・<code>EN_Report__mdt</code>（大阪/東京設定）を参照して集計処理が動く。
+    </div>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arw2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <g class="node node-core">
+          <rect x="310" y="20" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="40" text-anchor="middle" dominant-baseline="central">Account</text>
+          <text class="label-sub"  x="410" y="58" text-anchor="middle" dominant-baseline="central">取引先</text>
+        </g>
+        <g class="node node-core">
+          <rect x="310" y="120" width="200" height="60" rx="10"/>
+          <text class="label-main" x="410" y="142" text-anchor="middle" dominant-baseline="central">Opportunity</text>
+          <text class="label-sub"  x="410" y="161" text-anchor="middle" dominant-baseline="central">RecordType: en_zenekonsh</text>
+          <text class="label-sub"  x="410" y="174" text-anchor="middle" dominant-baseline="central">105 カスタム項目（EN_*）</text>
+        </g>
+        <line x1="410" y1="70" x2="410" y2="120" class="arr" marker-end="url(#arw2)"/>
+
+        <g class="node node-en">
+          <rect x="30" y="110" width="185" height="50" rx="10"/>
+          <text class="label-main" x="122" y="130" text-anchor="middle" dominant-baseline="central">en_yojitsu__c</text>
+          <text class="label-sub"  x="122" y="148" text-anchor="middle" dominant-baseline="central">予実管理（実績/予算）</text>
+        </g>
+        <path d="M215 135 L310 155" class="arr arr-en" marker-end="url(#arw2)"/>
+        <path d="M122 110 C180 70 280 45 310 42" class="arr arr-en" marker-end="url(#arw2)"/>
+        <text x="248" y="88" text-anchor="middle" font-size="9" fill="rgba(34,197,94,0.5)" font-family="JetBrains Mono, monospace">Account</text>
+
+        <g class="node node-en">
+          <rect x="30" y="210" width="185" height="50" rx="10"/>
+          <text class="label-main" x="122" y="230" text-anchor="middle" dominant-baseline="central">FormCreation__c</text>
+          <text class="label-sub"  x="122" y="248" text-anchor="middle" dominant-baseline="central">レポート帳票データ</text>
+        </g>
+
+        <g class="node node-en">
+          <rect x="645" y="110" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="130" text-anchor="middle" dominant-baseline="central">EN_Supplier__c</text>
+          <text class="label-sub"  x="737" y="148" text-anchor="middle" dominant-baseline="central">仕入先</text>
+        </g>
+        <path d="M645 135 L510 155" class="arr arr-en" marker-end="url(#arw2)"/>
+        <text x="580" y="127" text-anchor="middle" font-size="9" fill="rgba(34,197,94,0.5)" font-family="JetBrains Mono, monospace">Opp__c</text>
+
+        <g class="node node-en">
+          <rect x="645" y="200" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="220" text-anchor="middle" dominant-baseline="central">EN_prospect__c</text>
+          <text class="label-sub"  x="737" y="238" text-anchor="middle" dominant-baseline="central">見込み客</text>
+        </g>
+        <path d="M645 225 L510 165" class="arr arr-en" marker-end="url(#arw2)"/>
+        <path d="M645 210 L510 42" class="arr arr-en" marker-end="url(#arw2)"/>
+
+        <!-- カスタムメタデータ -->
+        <g class="node" style="cursor:default">
+          <rect x="310" y="260" width="200" height="46" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4 3"/>
+          <text class="label-main" x="410" y="279" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.45)" font-size="11">EN_FiscalYear__mdt</text>
+          <text class="label-sub"  x="410" y="295" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.3)">会計年度設定（カスタムメタデータ）</text>
+        </g>
+        <g class="node" style="cursor:default">
+          <rect x="310" y="322" width="200" height="42" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4 3"/>
+          <text class="label-main" x="410" y="340" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.45)" font-size="11">EN_Report__mdt</text>
+          <text class="label-sub"  x="410" y="356" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.3)">レポート設定（大阪/東京）</text>
+        </g>
+        <text x="545" y="275" font-size="10" fill="rgba(255,255,255,0.2)" font-family="Noto Sans JP, sans-serif">点線 = カスタムメタデータ</text>
+      </svg>
+    </div>
+
+    <div class="info-box">
+      <h4>ENモジュール Batch処理フロー</h4>
+      <code>NHR_EN_SalesReportBatch1〜5</code> が連鎖実行 →
+      <code>FormCreation__c</code> に帳票データを書き込み →
+      <code>NHR_EN_SalesReportCtrl</code>（VFコントローラ）が Excel 出力。<br>
+      SOQLは全て <code>NHR_Dao.cls</code> に集約。定数は <code>NHR_Constant.cls</code> の <code>BATCHNAME_*</code> を参照。
+    </div>
+  </div>
+
+  <!-- ST モジュール -->
+  <div id="st" class="panel">
+    <div class="desc">
+      <strong>ST（スチール）モジュール</strong>: 鉄鋼業の受注・納品・経営ダッシュボードを管理。
+      <code>@InvocableMethod</code> で Flow から Batch を起動し、スナップショット → ダッシュボードへ段階的に集計する。
+    </div>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 860 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arw3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <g class="node node-core">
+          <rect x="310" y="20" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="40" text-anchor="middle" dominant-baseline="central">Account</text>
+          <text class="label-sub"  x="410" y="58" text-anchor="middle" dominant-baseline="central">取引先</text>
+        </g>
+        <g class="node node-core">
+          <rect x="310" y="120" width="200" height="60" rx="10"/>
+          <text class="label-main" x="410" y="142" text-anchor="middle" dominant-baseline="central">Opportunity</text>
+          <text class="label-sub"  x="410" y="161" text-anchor="middle" dominant-baseline="central">RecordType: SteelCons / Steel_Goal</text>
+          <text class="label-sub"  x="410" y="174" text-anchor="middle" dominant-baseline="central">57 カスタム項目（ST_*）</text>
+        </g>
+        <line x1="410" y1="70" x2="410" y2="120" class="arr" marker-end="url(#arw3)"/>
+
+        <g class="node node-st">
+          <rect x="30" y="100" width="185" height="50" rx="10"/>
+          <text class="label-main" x="122" y="120" text-anchor="middle" dominant-baseline="central">ST_Opp_Snapshot__c</text>
+          <text class="label-sub"  x="122" y="138" text-anchor="middle" dominant-baseline="central">商談スナップショット</text>
+        </g>
+        <path d="M215 125 L310 155" class="arr arr-st" marker-end="url(#arw3)"/>
+
+        <g class="node node-st">
+          <rect x="30" y="200" width="185" height="50" rx="10"/>
+          <text class="label-main" x="122" y="220" text-anchor="middle" dominant-baseline="central">ST_ManageDashboard__c</text>
+          <text class="label-sub"  x="122" y="238" text-anchor="middle" dominant-baseline="central">経営ダッシュボード</text>
+        </g>
+        <line x1="122" y1="200" x2="122" y2="150" class="arr arr-st" marker-end="url(#arw3)"/>
+        <text x="136" y="180" font-size="9" fill="rgba(59,130,246,0.5)" font-family="JetBrains Mono, monospace">Snapshot参照</text>
+        <path d="M215 225 L310 42" class="arr arr-st" marker-end="url(#arw3)"/>
+
+        <g class="node node-st">
+          <rect x="645" y="100" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="120" text-anchor="middle" dominant-baseline="central">ST_yojitsu__c</text>
+          <text class="label-sub"  x="737" y="138" text-anchor="middle" dominant-baseline="central">スチール予実</text>
+        </g>
+        <path d="M645 125 L510 155" class="arr arr-st" marker-end="url(#arw3)"/>
+        <path d="M645 110 L510 42" class="arr arr-st" marker-end="url(#arw3)"/>
+
+        <g class="node node-st">
+          <rect x="645" y="200" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="220" text-anchor="middle" dominant-baseline="central">ST_ConstructionSite__c</text>
+          <text class="label-sub"  x="737" y="238" text-anchor="middle" dominant-baseline="central">工事現場</text>
+        </g>
+        <path d="M645 225 L510 42" class="arr arr-st" marker-end="url(#arw3)"/>
+
+        <g class="node node-st">
+          <rect x="645" y="290" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="310" text-anchor="middle" dominant-baseline="central">ST_DeliveryRecord__c</text>
+          <text class="label-sub"  x="737" y="328" text-anchor="middle" dominant-baseline="central">納品記録</text>
+        </g>
+        <line x1="737" y1="290" x2="737" y2="250" class="arr arr-st" marker-end="url(#arw3)"/>
+        <text x="756" y="275" font-size="9" fill="rgba(59,130,246,0.5)" font-family="JetBrains Mono, monospace">MasterDetail</text>
+
+        <g class="node node-st">
+          <rect x="310" y="230" width="200" height="46" rx="10"/>
+          <text class="label-main" x="410" y="250" text-anchor="middle" dominant-baseline="central">ST_Quote__c</text>
+          <text class="label-sub"  x="410" y="268" text-anchor="middle" dominant-baseline="central">スチール見積</text>
+        </g>
+        <path d="M410 230 L410 180" class="arr arr-st" marker-end="url(#arw3)"/>
+
+        <!-- Batch連鎖フロー図 -->
+        <rect x="30" y="340" width="780" height="100" rx="10" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+        <text x="50" y="368" font-size="12" font-weight="700" fill="rgba(59,130,246,0.8)" font-family="Noto Sans JP, sans-serif">Batch連鎖パターン</text>
+        <text x="50" y="388" font-size="11" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono, monospace">@InvocableMethod → PreBatch → Batch → Batch2 → Batch3 → Batch4</text>
+        <text x="50" y="408" font-size="11" fill="rgba(255,255,255,0.4)" font-family="Noto Sans JP, sans-serif">↳ ST_ManageDashboard__c へ集計結果を段階的に書き込む（各Batchの finish() で次を起動）</text>
+        <text x="50" y="428" font-size="11" fill="rgba(255,255,255,0.4)" font-family="Noto Sans JP, sans-serif">↳ NHR_Constant.BATCHNAME_ST_* で各Batch名を管理</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- JU モジュール -->
+  <div id="ju" class="panel">
+    <div class="desc">
+      <strong>JU（BPO/KPI）モジュール</strong>: KGI・KPI管理と独自商談テーブルを保持。
+      <code>JU_BPOGoal__mdt</code>（カスタムメタデータ）で地域別の目標値を管理し、<code>NHR_JU_BPOKPIKGIReportBatch</code> が集計処理を実行する。
+    </div>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arw4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g class="node node-core">
+          <rect x="310" y="20" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="40" text-anchor="middle" dominant-baseline="central">Account</text>
+          <text class="label-sub"  x="410" y="58" text-anchor="middle" dominant-baseline="central">120 カスタム項目（JU_*）</text>
+        </g>
+        <g class="node node-core">
+          <rect x="310" y="120" width="200" height="60" rx="10"/>
+          <text class="label-main" x="410" y="142" text-anchor="middle" dominant-baseline="central">Opportunity</text>
+          <text class="label-sub"  x="410" y="161" text-anchor="middle" dominant-baseline="central">RecordType: JU_NewTactics</text>
+          <text class="label-sub"  x="410" y="174" text-anchor="middle" dominant-baseline="central">81 カスタム項目（JU_*）</text>
+        </g>
+        <g class="node node-core">
+          <rect x="310" y="230" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="250" text-anchor="middle" dominant-baseline="central">Contact</text>
+          <text class="label-sub"  x="410" y="268" text-anchor="middle" dominant-baseline="central">120 カスタム項目（JU_*）</text>
+        </g>
+        <line x1="410" y1="70" x2="410" y2="120" class="arr" marker-end="url(#arw4)"/>
+        <line x1="410" y1="180" x2="410" y2="230" class="arr" marker-end="url(#arw4)"/>
+
+        <g class="node node-ju">
+          <rect x="30" y="110" width="185" height="50" rx="10"/>
+          <text class="label-main" x="122" y="130" text-anchor="middle" dominant-baseline="central">KGIPlansResults__c</text>
+          <text class="label-sub"  x="122" y="148" text-anchor="middle" dominant-baseline="central">KGI計画・実績</text>
+        </g>
+        <path d="M215 135 L310 155" class="arr arr-ju" marker-end="url(#arw4)"/>
+
+        <g class="node node-ju">
+          <rect x="30" y="220" width="185" height="60" rx="10"/>
+          <text class="label-main" x="122" y="242" text-anchor="middle" dominant-baseline="central">Opportunity_JU__c</text>
+          <text class="label-sub"  x="122" y="261" text-anchor="middle" dominant-baseline="central">JU商談（別テーブル）</text>
+          <text class="label-sub"  x="122" y="274" text-anchor="middle" dominant-baseline="central">AccountId / OppName参照</text>
+        </g>
+        <path d="M215 250 L310 155" class="arr arr-ju" marker-end="url(#arw4)"/>
+        <path d="M215 235 L310 42" class="arr arr-ju" marker-end="url(#arw4)"/>
+        <path d="M215 265 L310 260" class="arr arr-ju" marker-end="url(#arw4)"/>
+
+        <g class="node node-ju">
+          <rect x="645" y="100" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="120" text-anchor="middle" dominant-baseline="central">JU_Category__c</text>
+          <text class="label-sub"  x="737" y="138" text-anchor="middle" dominant-baseline="central">JUカテゴリ</text>
+        </g>
+        <g class="node" style="cursor:default">
+          <rect x="645" y="200" width="185" height="50" rx="10" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+          <text class="label-main" x="737" y="220" text-anchor="middle" dominant-baseline="central" fill="rgba(245,158,11,0.5)" font-size="11">JU_BPOGoal__mdt</text>
+          <text class="label-sub"  x="737" y="238" text-anchor="middle" dominant-baseline="central" fill="rgba(245,158,11,0.35)">BPO目標（カスタムメタデータ）</text>
+        </g>
+        <g class="node node-ju">
+          <rect x="645" y="300" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="320" text-anchor="middle" dominant-baseline="central">DepCategory__c</text>
+          <text class="label-sub"  x="737" y="338" text-anchor="middle" dominant-baseline="central">部署カテゴリ（Contact紐付）</text>
+        </g>
+        <path d="M645 325 L510 260" class="arr arr-ju" marker-end="url(#arw4)"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- CS モジュール -->
+  <div id="cs" class="panel">
+    <div class="desc">
+      <strong>CS（顧客管理）モジュール</strong>: パーセプションマッピング分析を中心に顧客関係度を管理。
+      <code>perception__c</code> は Contact の <strong>MasterDetail（主従）</strong> 子オブジェクト。
+      <code>NHR_CS_PerceptualMappingBatchSchedule</code> で定期実行される。
+    </div>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arw5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g class="node node-core">
+          <rect x="310" y="20" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="40" text-anchor="middle" dominant-baseline="central">Account</text>
+          <text class="label-sub"  x="410" y="58" text-anchor="middle" dominant-baseline="central">22 カスタム項目（CS_*）</text>
+        </g>
+        <g class="node node-core">
+          <rect x="310" y="120" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="140" text-anchor="middle" dominant-baseline="central">Opportunity</text>
+          <text class="label-sub"  x="410" y="158" text-anchor="middle" dominant-baseline="central">RecordType: CSWEB 等</text>
+        </g>
+        <g class="node node-core">
+          <rect x="310" y="220" width="200" height="50" rx="10"/>
+          <text class="label-main" x="410" y="240" text-anchor="middle" dominant-baseline="central">Contact</text>
+          <text class="label-sub"  x="410" y="258" text-anchor="middle" dominant-baseline="central">取引先責任者</text>
+        </g>
+        <line x1="410" y1="70" x2="410" y2="120" class="arr" marker-end="url(#arw5)"/>
+        <line x1="410" y1="170" x2="410" y2="220" class="arr" marker-end="url(#arw5)"/>
+
+        <g class="node node-cs">
+          <rect x="30" y="110" width="185" height="50" rx="10"/>
+          <text class="label-main" x="122" y="130" text-anchor="middle" dominant-baseline="central">BA_Perception__c</text>
+          <text class="label-sub"  x="122" y="148" text-anchor="middle" dominant-baseline="central">パーセプション分析</text>
+        </g>
+        <path d="M215 128 L310 42" class="arr arr-cs" marker-end="url(#arw5)"/>
+        <path d="M215 142 L310 240" class="arr arr-cs" marker-end="url(#arw5)"/>
+
+        <g class="node node-cs">
+          <rect x="30" y="220" width="185" height="60" rx="10"/>
+          <text class="label-main" x="122" y="242" text-anchor="middle" dominant-baseline="central">perception__c</text>
+          <text class="label-sub"  x="122" y="261" text-anchor="middle" dominant-baseline="central">CS知覚詳細</text>
+          <text class="label-sub"  x="122" y="274" text-anchor="middle" dominant-baseline="central">Contact の MasterDetail 子</text>
+        </g>
+        <path d="M215 255 L310 140" class="arr arr-cs" marker-end="url(#arw5)"/>
+        <line x1="215" y1="248" x2="310" y2="248" class="arr arr-cs" marker-end="url(#arw5)"/>
+        <text x="265" y="242" font-size="9" fill="rgba(236,72,153,0.6)" font-family="JetBrains Mono, monospace">MasterDetail</text>
+
+        <g class="node node-cs">
+          <rect x="645" y="110" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="130" text-anchor="middle" dominant-baseline="central">CSKeyPerson__c</text>
+          <text class="label-sub"  x="737" y="148" text-anchor="middle" dominant-baseline="central">キーパーソン管理</text>
+        </g>
+        <g class="node node-cs">
+          <rect x="645" y="210" width="185" height="50" rx="10"/>
+          <text class="label-main" x="737" y="230" text-anchor="middle" dominant-baseline="central">RelationBuildlv__c</text>
+          <text class="label-sub"  x="737" y="248" text-anchor="middle" dominant-baseline="central">関係構築レベル</text>
+        </g>
+
+        <!-- Batch処理フロー -->
+        <rect x="30" y="320" width="780" height="46" rx="10" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.2)" stroke-width="1"/>
+        <text x="50" y="340" font-size="11" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono, monospace">NHR_CS_PerceptualMappingBatchSchedule → Batch → BA_Perception__c に集計結果を書き込み</text>
+        <text x="50" y="357" font-size="11" fill="rgba(255,255,255,0.4)" font-family="Noto Sans JP, sans-serif">↳ NHR_CS_PerceptualMappingCtrl（Auraコントローラ）がデータを提供</text>
+      </svg>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  <span>NHR_Pro — Salesforce Object Diagram  |  API v66.0  |  github.com/rimei1/nhr</span>
+  <span>Generated by Claude Code  |  2026-04-10</span>
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
