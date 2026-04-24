@@ -183,6 +183,14 @@
                 <behavior>Readonly</behavior>
                 <field>EN_orderAmountPropertyCompThisTerm__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>orderedPropertyCount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>propertyOrderRate__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -196,6 +204,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>EN_grossProfitPropertyCompThisTerm__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>filteredOpportunityCount__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

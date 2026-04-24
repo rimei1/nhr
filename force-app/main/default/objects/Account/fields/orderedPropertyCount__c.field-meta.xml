@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>orderedPropertyCount__c</fullName>
+    <label>受注物件数</label>
+    <summaryFilterItems>
+        <field>Opportunity.recordTypeId__c</field>
+        <operation>equals</operation>
+        <value>0125h000000Y9ROAA0</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.isOrderInCurrentPeriodForTotal__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>
