@@ -106,7 +106,7 @@ global without sharing class NHR_XX_YYYBatch
 ```
 
 - バッチは複数段階に分けて**連鎖実行**するパターンが多い（Batch → Batch2 → Batch3...）
-- バッチ名定数は `NHR_Constant` に `BATCHNAME_XX` 形式で追加する
+- バッチ名定数は `独自バッチの中` に `BATCHNAME_XX` 形式で追加する
 
 ### Ctrlクラスの標準実装
 
@@ -230,7 +230,7 @@ npm run lint
 # 新規Batchクラス作成
 「NHR_{モジュール}_{機能}Batch を作成してください。
  処理内容: ○○、対象オブジェクト: ○○、バッチサイズ: 200
- NHR_Constant に BATCHNAME_XX も追加してください」
+ 独自バッチの中 に BATCHNAME_XX も追加してください」
 
 # 新規Ctrlクラス作成（Aura向け）
 「NHR_{モジュール}_{機能}Ctrl（Aura向け）を作成してください。
