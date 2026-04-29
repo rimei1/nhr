@@ -13,11 +13,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Pre_Q__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CS__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>IsAllDayEvent</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -28,10 +36,6 @@
                 <field>EndDateTime</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>WhoId</field>
             </layoutItems>
@@ -40,12 +44,8 @@
                 <field>WhatId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>channelType__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CS_Property__c</field>
+                <behavior>Required</behavior>
+                <field>OwnerId</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -154,6 +154,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>minutesNotSharedWithOtherBusiness__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>channelType__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

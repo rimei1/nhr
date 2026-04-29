@@ -12,6 +12,11 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
+                <field>Pre_Q__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
                 <field>CS_inquiry__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>

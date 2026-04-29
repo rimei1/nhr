@@ -235,6 +235,37 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>EN_AluminumSupplier__c</picklist>
+        <values>
+            <fullName>三協立山%28千葉%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>三協立山%28埼玉%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>三協立山%28東京%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>三協立山%28横浜%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>伊藤製作所</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>協同サッシ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>総伸工業</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>EN_Last2Monthzyutyuumikomi__c</picklist>
         <values>
             <fullName>Aランク</fullName>
@@ -1150,6 +1181,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>松井 大樹</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>横山 康志</fullName>
             <default>false</default>
         </values>
@@ -1191,6 +1226,25 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>SpecialConstruction__c</picklist>
+        <values>
+            <fullName>PC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ハイRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>該当無し</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>逆打ち</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Type</picklist>
         <values>
             <fullName>Existing Business</fullName>
@@ -1213,6 +1267,29 @@
         </values>
         <values>
             <fullName>内定</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>completion_check_application_status__c</picklist>
+        <values>
+            <fullName>却下</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>承認中</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>承認済</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>未申請</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>申請中</fullName>
             <default>false</default>
         </values>
     </picklistValues>

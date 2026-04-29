@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable"
+              controller="NHR_EN_OrderPlanExportCtrl"
+              access="global">
+
+    <aura:attribute name="isLoading"      type="Boolean" default="false"/>
+    <aura:attribute name="isSuccess"      type="Boolean" default="false"/>
+    <aura:attribute name="successMessage" type="String"  default=""/>
+    <aura:attribute name="errorMessage"   type="String"  default=""/>
+
+    <lightning:card title="受注計画・実績　Excel出力" iconName="utility:download">
+        <div class="slds-p-around_medium">
+
+            <!-- 実行ボタン -->
+            <div class="slds-m-bottom_medium">
+                <lightning:button label="大阪"
+                                  variant="brand"
+                                  iconName="utility:email"
+                                  onclick="{!c.handleExport}"
+                                  disabled="{!v.isLoading}"/>
+            </div>
+
+            <!-- ローディング -->
+            <aura:if isTrue="{!v.isLoading}">
+                <div class="slds-m-top_medium">
+                    <lightning:spinner alternativeText="処理中..." size="medium"/>
+                    <p class="slds-m-top_small slds-text-color_weak">
+                        処理中です。完了後にメールが届きます...
+                    </p>
+                </div>
+            </aura:if>
+
+            <!-- 成功メッセージ -->
+            <aura:if isTrue="{!v.isSuccess}">
+                <div class="slds-notify slds-notify_alert slds-theme_success slds-m-top_medium" role="alert">
+                    <lightning:icon iconName="utility:success" size="small" class="slds-m-right_x-small"/>
+                    {!v.successMessage}
+                </div>
+            </aura:if>
+
+            <!-- エラーメッセージ -->
+            <aura:if isTrue="{!not(empty(v.errorMessage))}">
+                <div class="slds-notify slds-notify_alert slds-theme_error slds-m-top_medium" role="alert">
+                    <lightning:icon iconName="utility:error" size="small" class="slds-m-right_x-small"/>
+                    {!v.errorMessage}
+                </div>
+            </aura:if>
+
+        </div>
+    </lightning:card>
+
+</aura:component>

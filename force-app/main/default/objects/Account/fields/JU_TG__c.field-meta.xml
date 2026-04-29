@@ -31,11 +31,6 @@
                 <label>TG1000</label>
             </value>
             <value>
-                <fullName>IGHD</fullName>
-                <default>false</default>
-                <label>IGHD</label>
-            </value>
-            <value>
                 <fullName>HMR（ハウスメーカー）</fullName>
                 <default>false</default>
                 <label>HMR（ハウスメーカー）</label>
@@ -69,6 +64,12 @@
                 <fullName>タカカツホームズ</fullName>
                 <default>false</default>
                 <label>タカカツホームズ</label>
+            </value>
+            <value>
+                <fullName>IGHD</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>IGHD</label>
             </value>
         </valueSetDefinition>
     </valueSet>

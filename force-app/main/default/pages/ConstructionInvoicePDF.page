@@ -1,0 +1,589 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           applyHtmlTag="true"
+           applyBodyTag="false"
+           renderAs="pdf"
+           contentType="text/html; charset=UTF-8">
+<head>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm 6mm 12mm;
+  }
+
+  body {
+    font-family: "Arial Unicode MS", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.0;
+    color: #000;
+    background: #fff;
+  }
+
+  /* ========== ヘッダー ========== */
+  .header-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-bottom: 2pt;
+    border: none;
+  }
+  .header-table td { border: none; }
+  /* 左：御請求日ブロック下端と右：登録番号ブロック下端を行内で揃える */
+  .header-table .header-left,
+  .header-table .header-right {
+    vertical-align: bottom;
+  }
+  /* 左を広げ、宛先枠を用紙横幅の約65〜70％相当に（従来52%×70%だと全体で36%にしかならないため） */
+  .header-left {
+    width: 66%;
+    vertical-align: top;
+  }
+  .header-right {
+    width: 34%;
+    vertical-align: top;
+    padding-left: 6pt;
+  }
+
+  /* 右列「タイトル＋会社名〜TEL(386付近)」ブロックの総高に近づける */
+  .recipient-box {
+    border: 1px solid #000;
+    width: 96%;
+    max-width: 96%;
+    min-height: 116pt;
+    height: 90pt;
+  }
+
+  /* 左：御請求日は中央、下は左カラム全幅の下線（添付2） */
+  .header-date-line {
+    width: 96%;
+    border-collapse: collapse;
+    margin-top: 10pt;
+    table-layout: fixed;
+  }
+  .header-date-line .header-date-label-row {
+    text-align: center;
+    font-size: 9.5pt;
+    padding: 0;
+    border: none;
+    vertical-align: bottom;
+  }
+  .header-date-line .header-date-label-text {
+    display: inline-block;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2pt;
+    padding-right: 36pt;
+    line-height: 1.0;
+  }
+  /* タイトル：右カラムで右寄せ、枠は外側tdのみ・枠内は中央（角丸なし） */
+  .invoice-title-wrap {
+    width: 100%;
+    margin-bottom: 10pt;
+  }
+  .invoice-title-wrap td {
+    text-align: center;
+    padding: 0;
+    border: none;
+    vertical-align: top;
+  }
+  .invoice-title-inner {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+  .invoice-title-outer {
+    text-align: center;
+    vertical-align: middle;
+    height: 30pt;
+    padding: 0 18pt;
+    line-height: 30pt;
+  }
+  .invoice-title {
+    font-size: 22pt;
+    font-weight: bold;
+    letter-spacing: 5pt;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: baseline;
+  }
+
+  /* 右下：登録番号（角なしの2マス） */
+  .touroku-inline-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 6pt;
+    border: 1px solid #000;
+  }
+  .touroku-inline-table td {
+    border: 1px solid #000;
+    padding: 1pt 3pt;
+    font-size: 8pt;
+    height: 12pt;
+    line-height: 12pt;
+    vertical-align: middle;
+  }
+  .touroku-inline-lbl {
+    width: 50%;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .touroku-inline-val {
+    width: 50%;
+    text-align: left;
+  }
+
+  .company-block {
+    line-height: 1.15;
+    width: 100%;
+  }
+  /* 会社名〜連絡先を1ブロックにし、印をブロック全体の右上に重ねる */
+  .company-issuer-stack {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    padding: 0 0 2pt 0;
+    margin-bottom: 4pt;
+  }
+  .company-seal-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+  }
+  .company-issuer-stack .company-name {
+    font-size: 13pt;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0 0 10pt 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+  }
+  .company-issuer-stack .company-info {
+    font-size: 8.5pt;
+    line-height: 1.25;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+  }
+
+  /* 現場名・サマリー左6列と同じ有効幅（78%）に揃える */
+  .genba-align-wrapper {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 10pt;
+    margin-bottom: 0;
+  }
+  .genba-align-wrapper td {
+    border: none;
+    padding: 0;
+    vertical-align: top;
+  }
+  .summary-main-td {
+    width: 78%;
+    padding: 0;
+    border: none;
+    vertical-align: top;
+  }
+  .summary-right-spacer {
+    width: 22%;
+    padding: 0;
+    border: none;
+  }
+
+  /* ========== 現場名（枠線あり・ページ列なし） ========== */
+  .genba-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    table-layout: fixed;
+    margin-bottom: 3pt;
+  }
+  .genba-table td {
+    font-size: 10pt;
+    padding: 3pt 4pt;
+    height: 22pt;
+    line-height: 22pt;
+    vertical-align: middle;
+    border: 1px solid #000;
+  }
+  .genba-label { width: 52pt; letter-spacing: 3pt; }
+
+  /* ========== サマリーエリア ========== */
+  .summary-area-inner {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 5pt;
+    margin-bottom: 2pt;
+  }
+  .summary-area-inner > tbody > tr > td {
+    padding: 0;
+    vertical-align: top;
+    border: none;
+  }
+  .summary-area-inner > tbody > tr > td.summary-right-td {
+    width: 22%;
+  }
+
+  /* 6列メインテーブル */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    table-layout: fixed;
+  }
+  .summary-table th,
+  .summary-table td {
+    border: 1px solid #000;
+    font-size: 8.5pt;
+    text-align: center;
+    padding: 3pt 2pt;
+    height: 22pt;
+    line-height: 20pt;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+  .s-col1 { width: 18%; }
+  .s-col2 { width: 18%; }
+  .s-col3 { width: 17%; }
+  .s-col4 { width: 13%; }
+  .s-col5 { width: 18%; }
+  .s-col6 { width: 16%; }
+
+  /* 右側：左の6列表と同じ2段（10%列は各行22pt・上下罫線なし） */
+  .summary-right-td {
+    vertical-align: top;
+    padding: 0 0 0 2pt;
+  }
+  .summary-right-grid {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    table-layout: fixed;
+  }
+  .summary-right-grid td {
+    border: 1px solid #000;
+    font-size: 8pt;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3pt 2pt;
+    height: 22pt;
+    line-height: 20pt;
+    overflow: hidden;
+  }
+  .summary-right-grid .pct-cell {
+    width: 30%;
+    font-size: 8.5pt;
+    border-top: none;
+    border-bottom: none;
+    line-height: 20pt;
+    vertical-align: middle;
+  }
+  .summary-right-grid .pct-cell-follow {
+    border-top: none;
+  }
+  .seikyu-head-cell {
+    white-space: nowrap;
+    font-size: 8pt;
+  }
+  .seikyu-val-cell {
+    text-align: right;
+    font-size: 8.5pt;
+  }
+
+  /* ========== 明細テーブル ========== */
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    table-layout: fixed;
+    margin-top: 5pt;
+    margin-bottom: 2pt;
+  }
+  .detail-table th,
+  .detail-table td {
+    border: 1px solid #000;
+    font-size: 9.5pt;
+    padding: 3pt 3pt;
+    height: 20pt;
+    line-height: 1.15;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+  .detail-table th { text-align: center; font-weight: normal; }
+  /* 数量列を広げ、他列を微調整（合計100%） */
+  .col-date    { width: 10%; text-align: center; }
+  .col-name    { width: 21%; text-align: left;   }
+  .col-spec    { width: 16%; text-align: left;   }
+  .col-qty     { width:  8%; text-align: right;  }
+  .col-unit    { width:  5%; text-align: center; }
+  .col-price   { width:  9%; text-align: right;  }
+  .col-amount  { width: 14%; text-align: right;  }
+  .col-remarks { width: 17%; text-align: left;   }
+  .total-row td {
+    font-size: 9.5pt;
+    height: 20pt;
+    line-height: 1.15;
+  }
+
+  /* ========== フッター（1テーブル・銀行4行と印欄の行数差はrowspanで調整） ========== */
+  .footer-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    table-layout: fixed;
+    margin-top: 7pt;
+  }
+  .footer-table td { border: 1px solid #000; vertical-align: middle; }
+
+  /* 1行目が colspan=2 のため td の width が効かない → colgroup で1列目を固定 */
+  .footer-col-bank-label {
+    width: 72pt;
+  }
+  .footer-col-stamp {
+    width: 22%;
+  }
+  .footer-col-tantou {
+    width: 18%;
+  }
+  /* 銀行ラベル：最長「口　座　番　号」が収まる幅＋左右3pt */
+  .footer-bank-label {
+    font-size: 9pt;
+    padding: 2pt 3pt;
+    white-space: nowrap;
+  }
+  .footer-bank-val {
+    font-size: 9.5pt;
+    padding: 2pt 3pt;
+  }
+  .footer-note-cell {
+    font-size: 9pt;
+    padding: 2pt 3pt;
+    vertical-align: top;
+  }
+
+  .stamp-header {
+    font-size: 9.5pt;
+    text-align: center;
+    padding: 2pt 3pt;
+    height: auto;
+    line-height: 1.2;
+    vertical-align: middle;
+  }
+  .stamp-body {
+    height: 44pt;
+    vertical-align: top;
+    padding: 2pt;
+  }
+
+  /* ページ番号 */
+  .page-footer {
+    text-align: right;
+    font-size: 9pt;
+    margin-top: 2pt;
+    line-height: 1.0;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ヘッダー（左：宛先＋御請求日下線／右：タイトル〜登録番号） -->
+  <table class="header-table">
+    <tr>
+      <td class="header-left">
+        <div class="recipient-box"></div>
+        <table class="header-date-line">
+          <tr>
+            <td class="header-date-label-row">
+                <span class="header-date-label-text">御　請　求　日</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="header-right">
+        <table class="invoice-title-wrap">
+          <tr>
+            <td>
+              <table class="invoice-title-inner" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="invoice-title-outer" style="border: 1px solid #000000; padding-left: 42pt; padding-right: 42pt;">
+                    <span class="invoice-title">請 求 書</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <div class="company-block">
+          <div class="company-issuer-stack">
+            <apex:image styleClass="company-seal-img" url="{!$Resource.Seal}" width="80" height="80"/>
+            <div class="company-name">ノハラスチール株式会社</div>
+            <div class="company-info">事業本部</div>
+            <div class="company-info">〒160-0022</div>
+            <div class="company-info">東京都新宿区新宿１－１－１１</div>
+            <div class="company-info">ザイマックス新宿御苑ビル4F</div>
+            <div class="company-info">TEL 03-3357-3142　FAX 03-3357-3124</div>
+          </div>
+          <table class="touroku-inline-table">
+            <tr>
+              <td class="touroku-inline-lbl">登録番号</td>
+              <td class="touroku-inline-val">T3011101037035</td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- 現場名（サマリー左6列と同じ78%幅） -->
+  <table class="genba-align-wrapper">
+    <tr>
+      <td class="summary-main-td">
+        <table class="genba-table">
+          <tr>
+            <td class="genba-label">現　場　名</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+      <td class="summary-right-spacer"></td>
+    </tr>
+  </table>
+
+  <!-- サマリー：6列 ＋ 右側（10% と 当月御請求金額 横並び） -->
+  <table class="summary-area-inner">
+    <tbody>
+      <tr>
+        <td class="summary-main-td">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th class="s-col1">前月御請求金額</th>
+                <th class="s-col2">当月御入金額</th>
+                <th class="s-col3">差　引　残　高</th>
+                <th class="s-col4">そ　の　他</th>
+                <th class="s-col5">当月御買上金額</th>
+                <th class="s-col6">当月消費税等額</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <!-- 右：10% ＋ 当月御請求金額（横並び） -->
+        <td class="summary-right-td">
+          <table class="summary-right-grid">
+            <tr>
+              <td class="pct-cell pct-cell-follow">&nbsp;</td>
+              <td class="seikyu-head-cell">当月御請求金額</td>
+            </tr>
+            <tr>
+              <td class="pct-cell">10%</td>
+              <td class="seikyu-val-cell">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 明細テーブル（正しい8列構造） -->
+  <table class="detail-table">
+    <thead>
+      <tr>
+        <th class="col-date">出　荷　日</th>
+        <th class="col-name">品　　　　　名</th>
+        <th class="col-spec">規　　　　　格</th>
+        <th class="col-qty">数　量</th>
+        <th class="col-unit">単位</th>
+        <th class="col-price">単　　価</th>
+        <th class="col-amount">本　体　金　額</th>
+        <th class="col-remarks">備　　　　　考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr><td class="col-date">&nbsp;</td><td class="col-name">&nbsp;</td><td class="col-spec">&nbsp;</td><td class="col-qty">&nbsp;</td><td class="col-unit">&nbsp;</td><td class="col-price">&nbsp;</td><td class="col-amount">&nbsp;</td><td class="col-remarks">&nbsp;</td></tr>
+      <tr class="total-row">
+        <td colspan="6" style="text-align:center;">合　計</td>
+        <td class="col-amount" style="text-align:right;">0</td>
+        <td class="col-remarks">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- フッター（ネスト table なし・銀行行と印欄は rowspan で行数調整） -->
+  <table class="footer-table">
+    <colgroup>
+      <col class="footer-col-bank-label" />
+      <col />
+      <col class="footer-col-stamp" />
+      <col class="footer-col-tantou" />
+    </colgroup>
+    <tr>
+      <td colspan="2" class="footer-note-cell">お振込は下記銀行宛にお願い致します。</td>
+      <td class="col-stamp stamp-header">責　任　者　印</td>
+      <td class="col-tantou stamp-header">担　当</td>
+    </tr>
+    <tr>
+      <td class="footer-bank-label">銀　行　名</td>
+      <td class="footer-bank-val">みずほ銀行</td>
+      <td class="col-stamp stamp-body" rowspan="4">&nbsp;</td>
+      <td class="col-tantou stamp-body" rowspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="footer-bank-label">支　店　名</td>
+      <td class="footer-bank-val">麹町支店</td>
+    </tr>
+    <tr>
+      <td class="footer-bank-label">口　座　番　号</td>
+      <td class="footer-bank-val">普通　1182458</td>
+    </tr>
+    <tr>
+      <td class="footer-bank-label">口　座　名　義</td>
+      <td class="footer-bank-val">ノハラスチール㈱</td>
+    </tr>
+  </table>
+
+  <!-- ページ番号 -->
+  <div class="page-footer" style="text-align: center;">1 / 1</div>
+
+</body>
+</apex:page>

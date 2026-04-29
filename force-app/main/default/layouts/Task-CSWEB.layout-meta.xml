@@ -75,6 +75,10 @@
                 <behavior>Edit</behavior>
                 <field>CS_Property__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Pre_Q__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

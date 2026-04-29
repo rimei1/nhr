@@ -30,6 +30,9 @@
                 <elementReference>inputDeliveryRecords</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>decideUpdProductsWithoutPresetSortOrder</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>clearInputDeliveryRecordsWhenUnic</name>
@@ -259,6 +262,29 @@
         </connector>
     </assignments>
     <assignments>
+        <name>setRecordCounter</name>
+        <label>setRecordCounter</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>counterFilterNonProductFromDeliveryRecordsWithoutPresetSortOrder</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterFilterProductFromDeliveryRecordsWithoutPresetSortOrder</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>filterProductFromDeliveryRecordsWithoutPresetSortOrder</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>getMainItemForPrimarySort</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>setSortOrderIncrementStepWhenShippingItem</name>
         <label>setSortOrderIncrementStepWhenShippingItem</label>
         <locationX>0</locationX>
@@ -338,6 +364,90 @@
             <targetReference>setNewSortOrderValue</targetReference>
         </connector>
     </assignments>
+    <collectionProcessors>
+        <name>filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>getDeliveryRecordForProductsWithoutPresetSortOrder</collectionReference>
+        <conditionLogic>or</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>運搬費</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>運送費</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>ユニック代</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>宅急便</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>filterProductFromDeliveryRecordsWithoutPresetSortOrder</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>filterProductFromDeliveryRecordsWithoutPresetSortOrder</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>filterProductFromDeliveryRecordsWithoutPresetSortOrder</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>getDeliveryRecordForProductsWithoutPresetSortOrder</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>NotEqualTo</operator>
+            <rightValue>
+                <stringValue>運搬費</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>NotEqualTo</operator>
+            <rightValue>
+                <stringValue>運送費</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>NotEqualTo</operator>
+            <rightValue>
+                <stringValue>ユニック代</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder.ST_item__c</leftValueReference>
+            <operator>NotEqualTo</operator>
+            <rightValue>
+                <stringValue>宅急便</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>setRecordCounter</targetReference>
+        </connector>
+    </collectionProcessors>
     <decisions>
         <name>decideIsExistXxxSortOrder</name>
         <label>decideIsExistXxxSortOrder</label>
@@ -498,10 +608,33 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>counterFilterProductFromDeliveryRecordsWithoutPresetSortOrder</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>setNewSortOrderWhenSupplementalItem</targetReference>
             </connector>
             <label>whenSupplementalItem</label>
+        </rules>
+        <rules>
+            <name>whenProductsWithoutPresetSortOrder</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>counterFilterProductFromDeliveryRecordsWithoutPresetSortOrder</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>decideUpdProductsWithoutPresetSortOrder</targetReference>
+            </connector>
+            <label>whenProductsWithoutPresetSortOrder</label>
         </rules>
     </decisions>
     <decisions>
@@ -509,6 +642,9 @@
         <label>decideTakkyubin</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>decideUpdProductsWithoutPresetSortOrder</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
         <rules>
             <name>whenTakkyubin</name>
@@ -579,7 +715,28 @@
             <label>whenUnic</label>
         </rules>
     </decisions>
-    <description>レギュラー、イレギュラーパターンの非製品ソート順ルールを調整</description>
+    <decisions>
+        <name>decideUpdProductsWithoutPresetSortOrder</name>
+        <label>decideUpdProductsWithoutPresetSortOrder</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>デフォルトの結果</defaultConnectorLabel>
+        <rules>
+            <name>whenUpdProductsWithoutPresetSortOrder</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>counterFilterProductFromDeliveryRecordsWithoutPresetSortOrder</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>invokeAssignPrimarySortOrderToDeliveryRecordForProductsWithoutPresetSortOrder</targetReference>
+            </connector>
+            <label>whenUpdProductsWithoutPresetSortOrder</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <formulas>
         <name>inputStartIndexWhenTakkyubin</name>
@@ -658,7 +815,7 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
         <dataType>Number</dataType>
         <expression>IF(
   CONTAINS({!$Record.ST_item__c}, &quot;値引&quot;),
-  99,
+  9999,
 
   IF(
     OR(
@@ -682,21 +839,21 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
             CONTAINS({!$Record.ST_item__c}, &quot;運送費&quot;)
           )
         ),
-        95,
+        9995,
 
         IF(
           AND(
             ISBLANK({!$Record.MakerCode__c}),
             CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
           ),
-          96,
+          9996,
 
           IF(
             AND(
               ISBLANK({!$Record.MakerCode__c}),
               CONTAINS({!$Record.ST_item__c}, &quot;宅急便&quot;)
             ),
-            97,
+            9997,
             NULL
           )
         )
@@ -711,19 +868,19 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
         <dataType>Number</dataType>
         <expression>IF(
   CONTAINS({!$Record.ST_item__c}, &quot;値引&quot;),
-  99,
+  9999,
   IF(
     OR(
         CONTAINS({!$Record.ST_item__c}, &quot;運搬費&quot;),
         CONTAINS({!$Record.ST_item__c}, &quot;運送費&quot;)
     ),
-    95,
+    9995,
     IF(
       CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;),
-      96,
+      9996,
       IF(
         CONTAINS({!$Record.ST_item__c}, &quot;宅急便&quot;),
-        97,
+        9997,
         IF(
           OR(
             {!$Record.ST_item__c} = &quot;異形棒鋼&quot;,
@@ -766,6 +923,83 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>getDeliveryRecordForProductsWithoutPresetSortOrder</name>
+        <label>getDeliveryRecordForProductsWithoutPresetSortOrder</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9</filterLogic>
+        <filters>
+            <field>ST_field_name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ST_field_name__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ST_item__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>値引</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ST_item__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>異形棒鋼</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ST_item__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>異形丸鋼</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ST_item__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>ネジ鉄筋</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ST_item__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>ﾈｼﾞ鉄筋</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MakerCode__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>MakerCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.MakerCode__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>BillingDate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.BillingDate__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ST_DeliveryRecord__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>getMainItemForPrimarySort</name>
         <label>getMainItemForPrimarySort</label>
@@ -1003,7 +1237,7 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>getMainItemForPrimarySort</targetReference>
+            <targetReference>getDeliveryRecordForProductsWithoutPresetSortOrder</targetReference>
         </connector>
         <filterFormula>AND(
   /* 無限ループ防止：フロー起因更新では起動しない */
@@ -1171,6 +1405,31 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
             </value>
         </inputAssignments>
     </subflows>
+    <subflows>
+        <name>invokeAssignPrimarySortOrderToDeliveryRecordForProductsWithoutPresetSortOrder</name>
+        <label>呼び出し：【納入実績】規定値なし製品に関連する正規ソート順の割り当て</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>flowAssignPrimarySortOrderToDeliveryRecordForProductsWithoutPresetSortOrder</flowName>
+        <inputAssignments>
+            <name>inputDeliveryRecord_nonProduct</name>
+            <value>
+                <elementReference>filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputDeliveryRecord_Product</name>
+            <value>
+                <elementReference>filterProductFromDeliveryRecordsWithoutPresetSortOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputStartIndex</name>
+            <value>
+                <numberValue>100.0</numberValue>
+            </value>
+        </inputAssignments>
+    </subflows>
     <variables>
         <name>baseStartIndex</name>
         <dataType>Number</dataType>
@@ -1178,6 +1437,28 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <scale>2</scale>
+    </variables>
+    <variables>
+        <name>counterFilterNonProductFromDeliveryRecordsWithoutPresetSortOrder</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterFilterProductFromDeliveryRecordsWithoutPresetSortOrder</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
     </variables>
     <variables>
         <name>counterShippingItemForPrimarySort</name>
@@ -1202,6 +1483,14 @@ CONTAINS({!$Record.ST_item__c}, &quot;ユニック&quot;)
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <scale>2</scale>
+    </variables>
+    <variables>
+        <name>currentItem_filterNonProductFromDeliveryRecordsWithoutPresetSortOrder</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ST_DeliveryRecord__c</objectType>
     </variables>
     <variables>
         <name>inputDeliveryRecords</name>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_shipping_date_invoice__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(ST_shipping_date__c), &apos;&apos;,
+TEXT(YEAR(ST_shipping_date__c)) &amp; &apos;/&apos; &amp; TEXT(MONTH(ST_shipping_date__c)) &amp; &apos;/&apos; &amp; TEXT(DAY(ST_shipping_date__c))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>出荷日_請求用</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

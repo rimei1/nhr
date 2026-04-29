@@ -146,31 +146,12 @@
                 <default>false</default>
                 <label>2024/7/24更新分</label>
             </value>
+            <value>
+                <fullName>提案不可</fullName>
+                <default>false</default>
+                <label>提案不可</label>
+            </value>
         </valueSetDefinition>
-        <valueSettings>
-            <controllingFieldValue>不採用</controllingFieldValue>
-            <valueName>コストメリット無し</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>不採用</controllingFieldValue>
-            <valueName>既存商流維持</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>不採用</controllingFieldValue>
-            <valueName>競合他社提案優位</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>不採用</controllingFieldValue>
-            <valueName>現在検討の余地無し</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>不採用</controllingFieldValue>
-            <valueName>材工分離不可</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>不採用</controllingFieldValue>
-            <valueName>単品商材での支給化不可</valueName>
-        </valueSettings>
         <valueSettings>
             <controllingFieldValue>採用（受注）</controllingFieldValue>
             <valueName>メーカー切替え</valueName>
@@ -250,6 +231,34 @@
         <valueSettings>
             <controllingFieldValue>採用（受注）</controllingFieldValue>
             <valueName>その他</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>コストメリット無し</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>既存商流維持</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>競合他社提案優位</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>現在検討の余地無し</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>材工分離不可</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>単品商材での支給化不可</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>不採用</controllingFieldValue>
+            <valueName>提案不可</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

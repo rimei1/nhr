@@ -8,5 +8,6 @@
   "name": "NHR_Pro",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "66.0"
+  "sourceApiVersion": "66.0",
+  "defaultLwcLanguage": "javascript"
 }

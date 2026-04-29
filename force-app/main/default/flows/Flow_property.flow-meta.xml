@@ -294,7 +294,7 @@
         <name>CreateConstructorA1</name>
         <label>工事店A-1作成</label>
         <locationX>776</locationX>
-        <locationY>743</locationY>
+        <locationY>776</locationY>
         <assignmentItems>
             <assignToReference>vsRecPropertyAccount.Number__c</assignToReference>
             <operator>Assign</operator>
@@ -314,6 +314,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>軽鉄ボード</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -346,6 +353,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>壁装仕上</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA2</targetReference>
         </connector>
@@ -374,6 +388,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>木質床</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -406,6 +427,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>その他</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA4</targetReference>
         </connector>
@@ -434,6 +462,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>その他</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -466,6 +501,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>軽鉄ボード</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA1_0</targetReference>
         </connector>
@@ -494,6 +536,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>壁装仕上</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -526,6 +575,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>木質床</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA3_0</targetReference>
         </connector>
@@ -533,8 +589,8 @@
     <assignments>
         <name>CreateConstructorB4</name>
         <label>工事店B-4作成</label>
-        <locationX>1099</locationX>
-        <locationY>1471</locationY>
+        <locationX>1098</locationX>
+        <locationY>1470</locationY>
         <assignmentItems>
             <assignToReference>vsRecPropertyAccount.Number__c</assignToReference>
             <operator>Assign</operator>
@@ -556,6 +612,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>その他</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA4_0</targetReference>
         </connector>
@@ -564,7 +627,7 @@
         <name>CreateConstructorB5</name>
         <label>工事店B-5作成</label>
         <locationX>1094</locationX>
-        <locationY>1710</locationY>
+        <locationY>1709</locationY>
         <assignmentItems>
             <assignToReference>vsRecPropertyAccount.Number__c</assignToReference>
             <operator>Assign</operator>
@@ -584,6 +647,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>その他</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -616,6 +686,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>軽鉄ボード</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA1_0_0</targetReference>
         </connector>
@@ -644,6 +721,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>壁装仕上</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -676,6 +760,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>木質床</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA3_0_0</targetReference>
         </connector>
@@ -706,6 +797,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>その他</stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_ConstructorA4_0_0</targetReference>
         </connector>
@@ -734,6 +832,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>その他</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -796,6 +901,13 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>AddToProperty_AccountCllectionVariable_GeneralInteriorA_0</targetReference>
         </connector>
@@ -826,24 +938,15 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </assignmentItems>
-        <connector>
-            <targetReference>AddToProperty_AccountCllectionVariable_GeneralInteriorA_0_0</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>getpropertyid</name>
-        <label>物件ID割り当て</label>
-        <locationX>540</locationX>
-        <locationY>394</locationY>
         <assignmentItems>
-            <assignToReference>propertyID</assignToReference>
+            <assignToReference>vsRecPropertyAccount.Typeofwork__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Record.Id</elementReference>
+                <stringValue></stringValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>CreateGeneralInteriorA</targetReference>
+            <targetReference>AddToProperty_AccountCllectionVariable_GeneralInteriorA_0_0</targetReference>
         </connector>
     </assignments>
     <environments>Default</environments>
@@ -868,32 +971,6 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordCreates>
-        <name>create_koujitena_5</name>
-        <label>工事店A-5作成</label>
-        <locationX>776</locationX>
-        <locationY>2663</locationY>
-        <inputAssignments>
-            <field>Number__c</field>
-            <value>
-                <stringValue>6</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>account_type__c</field>
-            <value>
-                <stringValue>工事店A-5</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>property__c</field>
-            <value>
-                <elementReference>propertyID</elementReference>
-            </value>
-        </inputAssignments>
-        <object>property_account__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
     <recordCreates>
         <name>CreatePropertyAccount_0_0</name>
         <label>物件/得意先レコードを作成</label>

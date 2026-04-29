@@ -110,6 +110,11 @@
                 <default>false</default>
                 <label>徳光 善行</label>
             </value>
+            <value>
+                <fullName>松井 大樹</fullName>
+                <default>false</default>
+                <label>松井 大樹</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

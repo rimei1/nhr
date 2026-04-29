@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
     <height>250</height>
-    <label>契約外_ROUND出力</label>
+    <label>契約外_ROUND</label>
     <optionsCreateFeedItem>false</optionsCreateFeedItem>
     <page>document_dx_ROUNDout2_page</page>
     <type>VisualforcePage</type>

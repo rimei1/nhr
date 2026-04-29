@@ -252,6 +252,104 @@
                 <elementReference>targetStructuralCollection_caseSaiyou</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetStructuralCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetStructuralCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetGypsumBoardCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetGypsumBoardCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetInsulationCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetInsulationCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetLightGaugeSteelCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetLightGaugeSteelCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetOtherCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetOtherCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetReadyMixedConcreteCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetReadyMixedConcreteCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetRebarCollection_caseTeianHuka</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetRebarCollection_caseTeianHuka</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetStructuralCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetStructuralCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetGypsumBoardCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetGypsumBoardCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetInsulationCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetInsulationCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetLightGaugeSteelCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetLightGaugeSteelCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetOtherCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetOtherCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetReadyMixedConcreteCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetReadyMixedConcreteCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>counterTargetRebarCollection_caseKentouHoryu</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>targetRebarCollection_caseKentouHoryu</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>updTargetAccount</targetReference>
         </connector>
@@ -278,34 +376,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetGypsumBoardCollection_caseNull</name>
+        <name>targetGypsumBoardCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetGypsumBoardCollection_caseNull</label>
+        <label>targetGypsumBoardCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetGypsumBoardCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetGypsumBoardCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetGypsumBoardCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetGypsumBoardCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetGypsumBoardCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -318,64 +423,50 @@
         <label>targetGypsumBoardCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetGypsumBoardCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>検討保留</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
-            <rightValue>
-                <numberValue>90.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -388,12 +479,12 @@
         <label>targetGypsumBoardCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetGypsumBoardCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -404,24 +495,52 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
+        <name>targetGypsumBoardCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetGypsumBoardCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetGypsumBoardCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>不採用</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>提案不可</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>targetLightGaugeSteelCollection</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>targetGypsumBoardCollection_caseX</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>targetGypsumBoardCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetGypsumBoardCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>targetLightGaugeSteelCollection</targetReference>
+            <targetReference>targetGypsumBoardCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -460,34 +579,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetInsulationCollection_caseNull</name>
+        <name>targetInsulationCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetInsulationCollection_caseNull</label>
+        <label>targetInsulationCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetInsulationCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetInsulationCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetInsulationCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetInsulationCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetInsulationCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -500,64 +626,50 @@
         <label>targetInsulationCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetInsulationCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>検討保留</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
-            <rightValue>
-                <numberValue>90.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -570,12 +682,12 @@
         <label>targetInsulationCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetInsulationCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -586,24 +698,52 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
+        <name>targetInsulationCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetInsulationCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetInsulationCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>不採用</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>提案不可</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>targetGypsumBoardCollection</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>targetInsulationCollection_caseX</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>targetInsulationCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetInsulationCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>targetGypsumBoardCollection</targetReference>
+            <targetReference>targetInsulationCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -628,34 +768,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetLightGaugeSteelCollection_caseNull</name>
+        <name>targetLightGaugeSteelCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetLightGaugeSteelCollection_caseNull</label>
+        <label>targetLightGaugeSteelCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetLightGaugeSteelCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetLightGaugeSteelCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetLightGaugeSteelCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetLightGaugeSteelCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetLightGaugeSteelCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -668,64 +815,50 @@
         <label>targetLightGaugeSteelCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetLightGaugeSteelCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>検討保留</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
-            <rightValue>
-                <numberValue>90.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -738,12 +871,12 @@
         <label>targetLightGaugeSteelCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetLightGaugeSteelCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -754,24 +887,52 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
+        <name>targetLightGaugeSteelCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetLightGaugeSteelCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetLightGaugeSteelCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>不採用</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>提案不可</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>targetOtherCollection</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>targetLightGaugeSteelCollection_caseX</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>targetLightGaugeSteelCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetLightGaugeSteelCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>targetOtherCollection</targetReference>
+            <targetReference>targetLightGaugeSteelCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -866,34 +1027,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetOtherCollection_caseNull</name>
+        <name>targetOtherCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetOtherCollection_caseNull</label>
+        <label>targetOtherCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetOtherCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetOtherCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetOtherCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetOtherCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetOtherCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -906,64 +1074,50 @@
         <label>targetOtherCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetOtherCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>検討保留</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
-            <rightValue>
-                <numberValue>365.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -976,12 +1130,12 @@
         <label>targetOtherCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetOtherCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -992,24 +1146,52 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
+        <name>targetOtherCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetOtherCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetOtherCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>不採用</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>提案不可</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>setCounterTargetXxxCollection</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>targetOtherCollection_caseX</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>targetOtherCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetOtherCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>setCounterTargetXxxCollection</targetReference>
+            <targetReference>targetOtherCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -1018,12 +1200,12 @@
         <label>targetReadyMixedConcreteCollection</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>getJU_ProposedProduct</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.Category__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.Category__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>生コン</stringValue>
@@ -1034,34 +1216,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetReadyMixedConcreteCollection_caseNull</name>
+        <name>targetReadyMixedConcreteCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetReadyMixedConcreteCollection_caseNull</label>
+        <label>targetReadyMixedConcreteCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetReadyMixedConcreteCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetReadyMixedConcreteCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetReadyMixedConcreteCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetReadyMixedConcreteCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetReadyMixedConcreteCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -1074,68 +1263,82 @@
         <label>targetReadyMixedConcreteCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetReadyMixedConcreteCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>X1_targetReadyMixedConcreteCollection_caseSaiyou</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetReadyMixedConcreteCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetReadyMixedConcreteCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetReadyMixedConcreteCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
-                <stringValue>検討保留</stringValue>
+                <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>提案不可</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>X1_targetReadyMixedConcreteCollection_caseSaiyou</targetReference>
+            <targetReference>targetRebarCollection</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -1144,19 +1347,19 @@
         <label>targetReadyMixedConcreteCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetReadyMixedConcreteCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>targetRebarCollection</targetReference>
+            <targetReference>targetReadyMixedConcreteCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -1181,34 +1384,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetRebarCollection_caseNull</name>
+        <name>targetRebarCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetRebarCollection_caseNull</label>
+        <label>targetRebarCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetRebarCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetRebarCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetRebarCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetRebarCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetRebarCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -1221,64 +1431,50 @@
         <label>targetRebarCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetRebarCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>検討保留</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
-            <rightValue>
-                <numberValue>90.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -1291,12 +1487,12 @@
         <label>targetRebarCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetRebarCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -1307,24 +1503,52 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
+        <name>targetRebarCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetRebarCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetRebarCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>不採用</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>提案不可</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>targetInsulationCollection</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>targetRebarCollection_caseX</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>targetRebarCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetRebarCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>targetInsulationCollection</targetReference>
+            <targetReference>targetRebarCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -1377,34 +1601,41 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <name>targetStructuralCollection_caseNull</name>
+        <name>targetStructuralCollection_caseKentouHoryu</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>targetStructuralCollection_caseNull</label>
+        <label>targetStructuralCollection_caseKentouHoryu</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetStructuralCollection</collectionReference>
-        <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>未着手</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>検討保留</stringValue>
             </rightValue>
         </conditions>
+        <connector>
+            <targetReference>targetStructuralCollection_caseTeianHuka</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <name>targetStructuralCollection_caseNull</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetStructuralCollection_caseNull</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetStructuralCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>GreaterThan</operator>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>90.0</numberValue>
+                <stringValue>未着手</stringValue>
             </rightValue>
         </conditions>
         <connector>
@@ -1417,64 +1648,50 @@
         <label>targetStructuralCollection_caseO</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetStructuralCollection</collectionReference>
-        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)</conditionLogic>
+        <conditionLogic>1 OR 2 OR 3 OR 4 OR 5 OR 6</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>停滞保留中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>訪問1回目</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>初回見積提出</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>購買決定者検討中</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>トライアル</stringValue>
             </rightValue>
         </conditions>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用一歩手前</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <stringValue>検討保留</stringValue>
-            </rightValue>
-        </conditions>
-        <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.oppStageStagnantDays__c</leftValueReference>
-            <operator>LessThanOrEqualTo</operator>
-            <rightValue>
-                <numberValue>90.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -1487,12 +1704,12 @@
         <label>targetStructuralCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetStructuralCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -1503,24 +1720,52 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
+        <name>targetStructuralCollection_caseTeianHuka</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>targetStructuralCollection_caseTeianHuka</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>targetStructuralCollection</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>不採用</stringValue>
+            </rightValue>
+        </conditions>
+        <conditions>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.JU_saiyouhusaiyoumeisai__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <stringValue>提案不可</stringValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>targetReadyMixedConcreteCollection</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <name>targetStructuralCollection_caseX</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>targetStructuralCollection_caseX</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetStructuralCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>不採用</stringValue>
             </rightValue>
         </conditions>
         <connector>
-            <targetReference>targetReadyMixedConcreteCollection</targetReference>
+            <targetReference>targetStructuralCollection_caseKentouHoryu</targetReference>
         </connector>
     </collectionProcessors>
     <collectionProcessors>
@@ -1529,12 +1774,12 @@
         <label>targetReadyMixedConcreteCollection_caseSaiyou</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <assignNextValueToReference>currentItem_targetReadyMixedConcreteCollection_caseX</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_targetStructuralCollection_caseO</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>targetReadyMixedConcreteCollection</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_targetReadyMixedConcreteCollection_caseX.opportunityStageName__c</leftValueReference>
+            <leftValueReference>currentItem_targetStructuralCollection_caseO.opportunityStageName__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <stringValue>採用（受注）</stringValue>
@@ -1552,26 +1797,23 @@
     {!counterTargetGypsumBoardCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetGypsumBoardCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetGypsumBoardCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetGypsumBoardCollection_caseX} &gt; 0,
-            {!counterTargetGypsumBoardCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetGypsumBoardCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetGypsumBoardCollection_caseX} = 0,
-                {!counterTargetGypsumBoardCollection_caseO} = 0,
-                {!counterTargetGypsumBoardCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetGypsumBoardCollection_caseNull} = 0,
-                {!counterTargetGypsumBoardCollection_caseNull} &gt; 0
+                {!counterTargetGypsumBoardCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetGypsumBoardCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetGypsumBoardCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1584,26 +1826,23 @@
     {!counterTargetInsulationCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetInsulationCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetInsulationCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetInsulationCollection_caseX} &gt; 0,
-            {!counterTargetInsulationCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetInsulationCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetInsulationCollection_caseX} = 0,
-                {!counterTargetInsulationCollection_caseO} = 0,
-                {!counterTargetInsulationCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetInsulationCollection_caseNull} = 0,
-                {!counterTargetInsulationCollection_caseNull} &gt; 0
+                {!counterTargetInsulationCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetInsulationCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetInsulationCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1616,26 +1855,23 @@
     {!counterTargetLightGaugeSteelCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetLightGaugeSteelCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetLightGaugeSteelCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetLightGaugeSteelCollection_caseX} &gt; 0,
-            {!counterTargetLightGaugeSteelCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetLightGaugeSteelCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetLightGaugeSteelCollection_caseX} = 0,
-                {!counterTargetLightGaugeSteelCollection_caseO} = 0,
-                {!counterTargetLightGaugeSteelCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetLightGaugeSteelCollection_caseNull} = 0,
-                {!counterTargetLightGaugeSteelCollection_caseNull} &gt; 0
+                {!counterTargetLightGaugeSteelCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetLightGaugeSteelCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetLightGaugeSteelCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1648,26 +1884,23 @@
     {!counterTargetOtherCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetOtherCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetOtherCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetOtherCollection_caseX} &gt; 0,
-            {!counterTargetOtherCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetOtherCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetOtherCollection_caseX} = 0,
-                {!counterTargetOtherCollection_caseO} = 0,
-                {!counterTargetOtherCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetOtherCollection_caseNull} = 0,
-                {!counterTargetOtherCollection_caseNull} &gt; 0
+                {!counterTargetOtherCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetOtherCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetOtherCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1680,26 +1913,23 @@
     {!counterTargetReadyMixedConcreteCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetReadyMixedConcreteCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetReadyMixedConcreteCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetReadyMixedConcreteCollection_caseX} &gt; 0,
-            {!counterTargetReadyMixedConcreteCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetReadyMixedConcreteCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetReadyMixedConcreteCollection_caseX} = 0,
-                {!counterTargetReadyMixedConcreteCollection_caseO} = 0,
-                {!counterTargetReadyMixedConcreteCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetReadyMixedConcreteCollection_caseNull} = 0,
-                {!counterTargetReadyMixedConcreteCollection_caseNull} &gt; 0
+                {!counterTargetReadyMixedConcreteCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetReadyMixedConcreteCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetReadyMixedConcreteCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1712,26 +1942,23 @@
     {!counterTargetRebarCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetRebarCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetRebarCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetRebarCollection_caseX} &gt; 0,
-            {!counterTargetRebarCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetRebarCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetRebarCollection_caseX} = 0,
-                {!counterTargetRebarCollection_caseO} = 0,
-                {!counterTargetRebarCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetRebarCollection_caseNull} = 0,
-                {!counterTargetRebarCollection_caseNull} &gt; 0
+                {!counterTargetRebarCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetRebarCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetRebarCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1744,26 +1971,23 @@
     {!counterTargetStructuralCollection_caseSaiyou} &gt; 0,
     &quot;採用済&quot;,
     IF(
-    {!counterTargetStructuralCollection_caseO} &gt; 0,
-    &quot;O&quot;,
+        {!counterTargetStructuralCollection_caseO} &gt; 0,
+        &quot;O&quot;,
         IF(
-            AND(
-            {!counterTargetStructuralCollection_caseX} &gt; 0,
-            {!counterTargetStructuralCollection_caseO} = 0
-            ),
-            &quot;X&quot;,
-            /* 以降の IF 文、20250127時点で意味がないが、要求仕様にのっとり記述 */
+            {!counterTargetStructuralCollection_caseKentouHoryu} &gt; 0,
+            &quot;検討保留&quot;,
             IF(
-            AND(
-                {!counterTargetStructuralCollection_caseX} = 0,
-                {!counterTargetStructuralCollection_caseO} = 0,
-                {!counterTargetStructuralCollection_caseSaiyou} = 0,
-                OR(
-                {!counterTargetStructuralCollection_caseNull} = 0,
-                {!counterTargetStructuralCollection_caseNull} &gt; 0
+                {!counterTargetStructuralCollection_caseNull} &gt; 0,
+                &quot;-&quot;,
+                IF(
+                    {!counterTargetStructuralCollection_caseTeianHuka} &gt; 0,
+                    &quot;提案不可&quot;,
+                    IF(
+                        {!counterTargetStructuralCollection_caseX} &gt; 0,
+                        &quot;X&quot;,
+                        NULL
+                    )
                 )
-            ),
-                NULL, NULL
             )
         )
     )
@@ -1814,6 +2038,13 @@
             <operator>EqualTo</operator>
             <value>
                 <elementReference>targetAccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>excludedProposedProductId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -1899,6 +2130,17 @@
         </value>
     </variables>
     <variables>
+        <name>counterTargetGypsumBoardCollection_caseKentouHoryu</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetGypsumBoardCollection_caseNull</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -1929,6 +2171,17 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>counterTargetGypsumBoardCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetGypsumBoardCollection_caseX</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -1941,6 +2194,17 @@
     </variables>
     <variables>
         <name>counterTargetInsulationCollection</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterTargetInsulationCollection_caseKentouHoryu</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -1981,6 +2245,17 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>counterTargetInsulationCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetInsulationCollection_caseX</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -1993,6 +2268,17 @@
     </variables>
     <variables>
         <name>counterTargetLightGaugeSteelCollection</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterTargetLightGaugeSteelCollection_caseKentouHoryu</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -2033,6 +2319,17 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>counterTargetLightGaugeSteelCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetLightGaugeSteelCollection_caseX</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -2045,6 +2342,17 @@
     </variables>
     <variables>
         <name>counterTargetOtherCollection</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterTargetOtherCollection_caseKentouHoryu</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -2085,6 +2393,17 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>counterTargetOtherCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetOtherCollection_caseX</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -2097,6 +2416,17 @@
     </variables>
     <variables>
         <name>counterTargetReadyMixedConcreteCollection</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterTargetReadyMixedConcreteCollection_caseKentouHoryu</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -2137,6 +2467,17 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>counterTargetReadyMixedConcreteCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetReadyMixedConcreteCollection_caseX</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -2149,6 +2490,17 @@
     </variables>
     <variables>
         <name>counterTargetRebarCollection</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterTargetRebarCollection_caseKentouHoryu</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -2189,6 +2541,17 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>counterTargetRebarCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
         <name>counterTargetRebarCollection_caseX</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -2201,6 +2564,17 @@
     </variables>
     <variables>
         <name>counterTargetStructuralCollection</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>counterTargetStructuralCollection_caseKentouHoryu</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -2239,6 +2613,17 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <scale>0</scale>
+    </variables>
+    <variables>
+        <name>counterTargetStructuralCollection_caseTeianHuka</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
     </variables>
     <variables>
         <name>counterTargetStructuralCollection_caseX</name>
@@ -2284,14 +2669,6 @@
         <objectType>JU_ProposedProduct__c</objectType>
     </variables>
     <variables>
-        <name>currentItem_targetReadyMixedConcreteCollection_caseX</name>
-        <dataType>SObject</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <objectType>JU_ProposedProduct__c</objectType>
-    </variables>
-    <variables>
         <name>currentItem_targetRebarCollection</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
@@ -2306,6 +2683,21 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>JU_ProposedProduct__c</objectType>
+    </variables>
+    <variables>
+        <name>currentItem_targetStructuralCollection_caseO</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>JU_ProposedProduct__c</objectType>
+    </variables>
+    <variables>
+        <name>excludedProposedProductId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>inputAccountId</name>

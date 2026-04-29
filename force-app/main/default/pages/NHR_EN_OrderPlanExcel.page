@@ -1,0 +1,349 @@
+<!--
+    NHR_EN_OrderPlanExcel.page
+    Excel出力用VFページ
+    URLパラメータ: fy=202506 & targetDate=2025-12-31
+-->
+<apex:page controller="NHR_EN_OrderPlanExcelCtrl"
+           contentType="application/vnd.ms-excel#大阪受注計画_{!fiscalYear}.xls"
+           showHeader="false"
+           sidebar="false"
+           standardStylesheets="false">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:x="urn:schemas-microsoft-com:office:excel"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"/>
+    <style>
+        body  { font-family:"MS Gothic","Meiryo",sans-serif; font-size:10pt; }
+        table { border-collapse:collapse; }
+        td,th { border:0.5pt solid #999; padding:2px 4px; white-space:nowrap; }
+
+        .hdr-title   { background:#1F497D; color:#FFF; font-weight:bold; font-size:12pt; }
+        .hdr-month   { background:#1F497D; color:#FFF; font-weight:bold; text-align:center; }
+        .hdr-sub     { background:#2E75B6; color:#FFF; text-align:center; font-size:9pt; }
+        .hdr-person  { background:#4F81BD; color:#FFF; font-weight:bold; text-align:center; }
+        .hdr-summary { background:#1F497D; color:#FFF; font-weight:bold; text-align:center; }
+
+        /* 行背景 */
+        .row-name         { background:#DCE6F1; font-weight:bold; text-align:center; vertical-align:middle; }
+        .row-label        { background:#EBF3FB; font-weight:bold; vertical-align:middle; }
+        .row-plan         { background:#FFFFFF; }
+        .row-actual       { background:#FFFCE0; }
+        .row-diff         { background:#FCE4D6; }
+        .row-total-plan   { background:#DCE6F1; font-weight:bold; }
+        .row-total-actual { background:#FFF2CC; font-weight:bold; }
+        .row-total-diff   { background:#FCE4D6; font-weight:bold; }
+
+.num          { text-align:right; mso-number-format:"\#\,\#\#0"; }
+        .num-diff-pos { text-align:right; color:#0070C0; mso-number-format:"\#\,\#\#0"; }
+        .num-diff-neg { text-align:right; color:#C00000; mso-number-format:"\#\,\#\#0"; }
+        .sep-row td   { background:#C8D8EA; height:3px; border:none; }
+    </style>
+</head>
+<body>
+<table>
+
+    <!-- エラー表示（getContent()で取得したときにエラー内容が見える） -->
+    <apex:outputPanel rendered="{!LEN(errorMessage) > 0}">
+        <tr><td style="color:red; font-weight:bold;">
+            <apex:outputText value="{!errorMessage}" escape="false"/>
+        </td></tr>
+    </apex:outputPanel>
+
+    <!-- タイトル -->
+    <tr>
+        <td colspan="72" class="hdr-title">
+            大阪受注計画と実績　{!fiscalYear}期　（<apex:outputText value="{0,date,yyyy年MM月dd日}"><apex:param value="{!targetDate}"/></apex:outputText> 現在）
+        </td>
+    </tr>
+
+    <!-- 月ヘッダー（1行目） -->
+    <tr>
+        <th rowspan="2" class="hdr-person">営業担当者</th>
+        <th rowspan="2" class="hdr-person">種別</th>
+        <apex:repeat value="{!months}" var="mon">
+            <th colspan="5" class="hdr-month" style="border-right:2.5pt solid #333;"><apex:outputText value="{!mon}"/></th>
+        </apex:repeat>
+        <th colspan="2" class="hdr-summary">累計<br/>（受注確定）</th>
+        <th colspan="2" class="hdr-summary">年間<br/>（受注確定＋見込み）</th>
+        <th colspan="2" class="hdr-summary">Aランク</th>
+        <th colspan="2" class="hdr-summary">Bランク</th>
+        <th colspan="2" class="hdr-summary">Cランク</th>
+    </tr>
+    <!-- サブヘッダー（2行目） -->
+    <tr>
+        <apex:repeat value="{!months}" var="mon">
+            <th class="hdr-sub">受注金額</th>
+            <th class="hdr-sub">受注粗利</th>
+            <th class="hdr-sub">取引先名</th>
+            <th class="hdr-sub">確度</th>
+            <th class="hdr-sub" style="border-right:2.5pt solid #333;">商談名</th>
+        </apex:repeat>
+        <th class="hdr-sub">受注金額</th>
+        <th class="hdr-sub">受注粗利</th>
+        <th class="hdr-sub">受注金額</th>
+        <th class="hdr-sub">受注粗利</th>
+        <th class="hdr-sub">A金額</th>
+        <th class="hdr-sub">A粗利</th>
+        <th class="hdr-sub">B金額</th>
+        <th class="hdr-sub">B粗利</th>
+        <th class="hdr-sub">C金額</th>
+        <th class="hdr-sub">C粗利</th>
+    </tr>
+
+    <!-- ===== 担当者ブロック ===== -->
+    <apex:repeat value="{!personBlocks}" var="pb">
+
+        <!--
+            行ループは「最大行数」基準の planRowIndexes / actualRowIndexes を使用。
+            月別セルは rowNumber が一致する行だけ値を出す。
+            一致しない（その月の行数が少ない）場合は背景色付きの空セルを出力して罫線を保持。
+        -->
+
+        <!-- ===== 計画行 ===== -->
+        <apex:repeat value="{!pb.planRowIndexes}" var="idx">
+            <tr>
+
+                <!-- 担当者名 -->
+                <apex:outputPanel rendered="{!idx == 0}">
+                    <td class="row-name"><apex:outputText value="{!pb.personName}"/></td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!idx != 0}">
+                    <td class="row-plan"></td>
+                </apex:outputPanel>
+
+                <!-- 種別ラベル -->
+                <apex:outputPanel rendered="{!idx == 0}">
+                    <td class="row-label">受注計画</td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!idx != 0}">
+                    <td class="row-plan"></td>
+                </apex:outputPanel>
+
+                <!-- 月別セル：該当行があれば値、なければ背景色付き空セル -->
+                <apex:repeat value="{!months}" var="mon">
+                    <apex:variable var="monthRows" value="{!pb.planRowsByMonth[mon]}"/>
+                    <apex:variable var="hasRow"    value="{!pb.planRowCountByMonth[mon] > idx}"/>
+                    <!-- 値あり行 -->
+                    <apex:repeat value="{!monthRows}" var="rw">
+                        <apex:outputPanel rendered="{!AND(hasRow, rw.rowNumber == idx + 1)}">
+                            <td class="num row-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!rw.orderAmount}"/></apex:outputText></td>
+                            <td class="num row-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!rw.grossProfit}"/></apex:outputText></td>
+                            <td class="row-plan"><apex:outputText value="{!rw.generalContractor}"/></td>
+                            <td class="row-plan"><apex:outputText value="{!rw.projectRank}"/></td>
+                            <td class="row-plan" style="border-right:2.5pt solid #333;"><apex:outputText value="{!rw.projectName}"/></td>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                    <!-- 空セル（この月は行数が足りない） -->
+                    <apex:outputPanel rendered="{!NOT(hasRow)}">
+                        <td class="row-plan"></td>
+                        <td class="row-plan"></td>
+                        <td class="row-plan"></td>
+                        <td class="row-plan"></td>
+                        <td class="row-plan" style="border-right:2.5pt solid #333;"></td>
+                    </apex:outputPanel>
+                </apex:repeat>
+
+                <!-- 計画集計列（1行目のみ値） -->
+                <apex:outputPanel rendered="{!idx == 0}">
+                    <td class="sum-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.planCumulativeAmount}"/></apex:outputText></td>
+                    <td class="sum-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.planCumulativeProfit}"/></apex:outputText></td>
+                    <td class="sum-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.planAnnualAmount}"/></apex:outputText></td>
+                    <td class="sum-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.planAnnualProfit}"/></apex:outputText></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!idx != 0}">
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                    <td class="sum-plan-label"></td>
+                </apex:outputPanel>
+
+            </tr>
+        </apex:repeat>
+
+        <!-- ===== 実績行 ===== -->
+        <apex:repeat value="{!pb.actualRowIndexes}" var="idx">
+            <tr>
+
+                <!-- 担当者名 -->
+                <apex:outputPanel rendered="{!idx == 0}">
+                    <td class="row-name"></td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!idx != 0}">
+                    <td class="row-actual"></td>
+                </apex:outputPanel>
+
+                <!-- 種別ラベル -->
+                <apex:outputPanel rendered="{!idx == 0}">
+                    <td class="row-label">実績</td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!idx != 0}">
+                    <td class="row-actual"></td>
+                </apex:outputPanel>
+
+                <!-- 月別セル -->
+                <apex:repeat value="{!months}" var="mon">
+                    <apex:variable var="monthRows" value="{!pb.actualRowsByMonth[mon]}"/>
+                    <apex:variable var="hasRow"    value="{!pb.actualRowCountByMonth[mon] > idx}"/>
+                    <apex:repeat value="{!monthRows}" var="rw">
+                        <apex:outputPanel rendered="{!AND(hasRow, rw.rowNumber == idx + 1)}">
+                            <td class="num row-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!rw.orderAmount}"/></apex:outputText></td>
+                            <td class="num row-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!rw.grossProfit}"/></apex:outputText></td>
+                            <td class="row-actual" style="background:#FFFCE0;"><apex:outputText value="{!rw.generalContractor}"/></td>
+                            <td class="row-actual" style="background:#FFFCE0;"><apex:outputText value="{!rw.projectRank}"/></td>
+                            <td class="row-actual" style="border-right:2.5pt solid #333; background:#FFFCE0;"><apex:outputText value="{!rw.projectName}"/></td>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                    <apex:outputPanel rendered="{!NOT(hasRow)}">
+                        <td class="row-actual"></td>
+                        <td class="row-actual"></td>
+                        <td class="row-actual"></td>
+                        <td class="row-actual"></td>
+                        <td class="row-actual" style="border-right:2.5pt solid #333; background:#FFFCE0;"></td>
+                    </apex:outputPanel>
+                </apex:repeat>
+
+                <!-- 集計列（1行目のみ値） -->
+                <apex:outputPanel rendered="{!idx == 0}">
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.confirmedCumulativeAmount}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.confirmedCumulativeProfit}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.annualTotalAmount}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.annualTotalProfit}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.rankAAmount}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.rankAProfit}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.rankBAmount}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.rankBProfit}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.rankCAmount}"/></apex:outputText></td>
+                    <td class="sum-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.rankCProfit}"/></apex:outputText></td>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!idx != 0}">
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                    <td class="sum-actual-label"></td>
+                </apex:outputPanel>
+
+            </tr>
+        </apex:repeat>
+
+        <!-- ===== 差分行 ===== -->
+        <tr>
+            <td class="row-name"></td>
+            <td class="row-label" style="color:#C00000;">差分</td>
+            <apex:repeat value="{!months}" var="mon">
+                <td class="{!IF(pb.diffAmountByMonth[mon] >= 0,'num-diff-pos','num-diff-neg')}">
+                    <apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.diffAmountByMonth[mon]}"/></apex:outputText>
+                </td>
+                <td class="{!IF(pb.diffProfitByMonth[mon] >= 0,'num-diff-pos','num-diff-neg')}">
+                    <apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.diffProfitByMonth[mon]}"/></apex:outputText>
+                </td>
+                <td class="row-diff"></td>
+                <td class="row-diff"></td>
+                <td class="row-diff" style="border-right:2.5pt solid #333; background:#FCE4D6;"></td>
+            </apex:repeat>
+            <td class="{!IF(pb.diffCumulativeAmount >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.diffCumulativeAmount}"/></apex:outputText></td>
+            <td class="{!IF(pb.diffCumulativeProfit >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.diffCumulativeProfit}"/></apex:outputText></td>
+            <td class="{!IF(pb.diffAnnualAmount >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.diffAnnualAmount}"/></apex:outputText></td>
+            <td class="{!IF(pb.diffAnnualProfit >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!pb.diffAnnualProfit}"/></apex:outputText></td>
+            <td class="row-diff"></td>
+            <td class="row-diff"></td>
+            <td class="row-diff"></td>
+            <td class="row-diff"></td>
+            <td class="row-diff"></td>
+            <td class="row-diff"></td>
+        </tr>
+
+        <!-- 担当者区切り線 -->
+        <tr><td colspan="62" style="background:#C8D8EA; height:3px; border:none;"></td><td colspan="10" style="background:#FFFFFF; height:3px; border:none;"></td></tr>
+
+    </apex:repeat>
+
+    <!-- ===== 合計行 ===== -->
+    <tr>
+        <td class="row-name" rowspan="3">合計</td>
+        <td class="row-label">受注計画</td>
+        <apex:repeat value="{!months}" var="mon">
+            <td class="num row-total-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.planAmountByMonth[mon]}"/></apex:outputText></td>
+            <td class="num row-total-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.planProfitByMonth[mon]}"/></apex:outputText></td>
+            <td class="row-total-plan"></td>
+            <td class="row-total-plan"></td>
+            <td class="row-total-plan" style="border-right:2.5pt solid #333;"></td>
+        </apex:repeat>
+        <td class="num row-total-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.planCumulativeAmount}"/></apex:outputText></td>
+        <td class="num row-total-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.planCumulativeProfit}"/></apex:outputText></td>
+        <td class="num row-total-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.planAnnualAmount}"/></apex:outputText></td>
+        <td class="num row-total-plan"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.planAnnualProfit}"/></apex:outputText></td>
+        <td class="row-total-plan"></td>
+        <td class="row-total-plan"></td>
+        <td class="row-total-plan"></td>
+        <td class="row-total-plan"></td>
+        <td class="row-total-plan"></td>
+        <td class="row-total-plan"></td>
+    </tr>
+    <tr>
+        <td class="row-label">実績</td>
+        <apex:repeat value="{!months}" var="mon">
+            <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.actualAmountByMonth[mon]}"/></apex:outputText></td>
+            <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.actualProfitByMonth[mon]}"/></apex:outputText></td>
+            <td class="row-total-actual"></td>
+            <td class="row-total-actual"></td>
+            <td class="row-total-actual" style="border-right:2.5pt solid #333;"></td>
+        </apex:repeat>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.confirmedCumulativeAmount}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.confirmedCumulativeProfit}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.annualTotalAmount}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.annualTotalProfit}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.rankAAmount}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.rankAProfit}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.rankBAmount}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.rankBProfit}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.rankCAmount}"/></apex:outputText></td>
+        <td class="num row-total-actual"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.rankCProfit}"/></apex:outputText></td>
+    </tr>
+    <tr>
+        <td class="row-label" style="color:#C00000;">差分</td>
+        <apex:repeat value="{!months}" var="mon">
+            <td class="{!IF(totalSummary.diffAmountByMonth[mon] >= 0,'num-diff-pos','num-diff-neg')}">
+                <apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.diffAmountByMonth[mon]}"/></apex:outputText>
+            </td>
+            <td class="{!IF(totalSummary.diffProfitByMonth[mon] >= 0,'num-diff-pos','num-diff-neg')}">
+                <apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.diffProfitByMonth[mon]}"/></apex:outputText>
+            </td>
+            <td class="row-total-diff"></td>
+            <td class="row-total-diff"></td>
+            <td class="row-total-diff" style="border-right:2.5pt solid #333;"></td>
+        </apex:repeat>
+        <td class="{!IF(totalSummary.diffCumulativeAmount >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.diffCumulativeAmount}"/></apex:outputText></td>
+        <td class="{!IF(totalSummary.diffCumulativeProfit >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.diffCumulativeProfit}"/></apex:outputText></td>
+        <td class="{!IF(totalSummary.diffAnnualAmount >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.diffAnnualAmount}"/></apex:outputText></td>
+        <td class="{!IF(totalSummary.diffAnnualProfit >= 0,'num-diff-pos','num-diff-neg')}"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalSummary.diffAnnualProfit}"/></apex:outputText></td>
+        <td class="row-total-diff"></td>
+        <td class="row-total-diff"></td>
+        <td class="row-total-diff"></td>
+        <td class="row-total-diff"></td>
+        <td class="row-total-diff"></td>
+        <td class="row-total-diff"></td>
+    </tr>
+
+</table>
+</body>
+</html>
+</apex:page>

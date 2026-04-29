@@ -5,7 +5,7 @@
     <label>Account Engagement ユーザー（リード除外）</label>
     <license>AccountEngagementPsl</license>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_unit_invoice__c</fullName>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+SUBSTITUTE(
+ST_unit__c,
+&quot;ａ&quot;,&quot;a&quot;),
+&quot;ｂ&quot;,&quot;b&quot;),
+&quot;ｃ&quot;,&quot;c&quot;),
+&quot;ｄ&quot;,&quot;d&quot;),
+&quot;ｅ&quot;,&quot;e&quot;),
+&quot;ｆ&quot;,&quot;f&quot;),
+&quot;ｇ&quot;,&quot;g&quot;),
+&quot;ｈ&quot;,&quot;h&quot;),
+&quot;ｉ&quot;,&quot;i&quot;),
+&quot;ｊ&quot;,&quot;j&quot;),
+&quot;ｋ&quot;,&quot;k&quot;),
+&quot;ｌ&quot;,&quot;l&quot;),
+&quot;ｍ&quot;,&quot;m&quot;),
+&quot;ｎ&quot;,&quot;n&quot;),
+&quot;ｏ&quot;,&quot;o&quot;),
+&quot;ｐ&quot;,&quot;p&quot;),
+&quot;ｑ&quot;,&quot;q&quot;),
+&quot;ｒ&quot;,&quot;r&quot;),
+&quot;ｓ&quot;,&quot;s&quot;),
+&quot;ｔ&quot;,&quot;t&quot;),
+&quot;ｕ&quot;,&quot;u&quot;),
+&quot;ｖ&quot;,&quot;v&quot;),
+&quot;ｗ&quot;,&quot;w&quot;),
+&quot;ｘ&quot;,&quot;x&quot;),
+&quot;ｙ&quot;,&quot;y&quot;),
+&quot;ｚ&quot;,&quot;z&quot;),
+&quot; &quot;,&quot;&quot;),
+&quot;Ａ&quot;,&quot;A&quot;),
+&quot;Ｂ&quot;,&quot;B&quot;),
+&quot;Ｃ&quot;,&quot;C&quot;),
+&quot;Ｄ&quot;,&quot;D&quot;),
+&quot;Ｅ&quot;,&quot;E&quot;),
+&quot;Ｆ&quot;,&quot;F&quot;),
+&quot;Ｇ&quot;,&quot;G&quot;),
+&quot;Ｈ&quot;,&quot;H&quot;),
+&quot;Ｉ&quot;,&quot;I&quot;),
+&quot;Ｊ&quot;,&quot;J&quot;),
+&quot;Ｋ&quot;,&quot;K&quot;),
+&quot;Ｌ&quot;,&quot;L&quot;),
+&quot;Ｍ&quot;,&quot;M&quot;),
+&quot;Ｎ&quot;,&quot;N&quot;),
+&quot;Ｏ&quot;,&quot;O&quot;),
+&quot;Ｐ&quot;,&quot;P&quot;),
+&quot;Ｑ&quot;,&quot;Q&quot;),
+&quot;Ｒ&quot;,&quot;R&quot;),
+&quot;Ｓ&quot;,&quot;S&quot;),
+&quot;Ｔ&quot;,&quot;T&quot;),
+&quot;Ｕ&quot;,&quot;U&quot;),
+&quot;Ｖ&quot;,&quot;V&quot;),
+&quot;Ｗ&quot;,&quot;W&quot;),
+&quot;Ｘ&quot;,&quot;X&quot;),
+&quot;Ｙ&quot;,&quot;Y&quot;),
+&quot;Ｚ&quot;,&quot;Z&quot;),
+&quot;　&quot;,&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>単位_請求用</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ST_IsTarget_KankouCheck__c</fullName>
+    <formula>AND(
+    NOT(ISBLANK(ST_InitialNotifyDate_KankouCheck__c)),
+    TODAY() &gt;= ST_InitialNotifyDate_KankouCheck__c,
+    TODAY() &lt;= ST_InitialNotifyDate_KankouCheck__c + 7
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>完工チェック依頼のリマインド通知対象</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

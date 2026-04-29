@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Bill__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+  Account__c,
+
+  &quot;伊藤忠丸紅住商テクノ株式会社東京営業本部棒&quot;, &quot;伊藤忠丸紅住商テクノスチール株式会社&quot;,
+  &quot;株式会社ナカノフドー建設東京支社&quot;, &quot;株式会社ナカノフドー建設&quot;,
+  &quot;糸井商事株式会社宇都宮支店&quot;, &quot;糸井商事株式会社&quot;,
+  &quot;名取屋興産株式会社渋谷営業所&quot;, &quot;名取屋興産株式会社&quot;,
+  &quot;株式会社上滝東京支店&quot;, &quot;株式会社上滝&quot;,
+  &quot;太啓建設株式会社神奈川営業所&quot;, &quot;太啓建設株式会社&quot;,
+  &quot;株式会社守谷商会東京支店&quot;, &quot;株式会社守谷商会&quot;,
+  &quot;日鉄物産株式会社建材営業第一部棒鋼課&quot;, &quot;日鉄物産株式会社&quot;,
+  &quot;小町建設株式会社本社&quot;, &quot;小町建設株式会社&quot;,
+  &quot;株式会社藤木工務店東京支店&quot;, &quot;株式会社藤木工務店&quot;,
+  &quot;アイサワ工業株式会社東京支店&quot;, &quot;アイサワ工業株式会社&quot;,
+
+  Account__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>得意先名（請求書用）</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

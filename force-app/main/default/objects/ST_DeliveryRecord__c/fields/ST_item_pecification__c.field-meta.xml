@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ST_item_pecification__c</fullName>
     <externalId>false</externalId>
-    <formula>ST_item__c &amp; &quot;_&quot; &amp;  ST_specification__c</formula>
+    <formula>ST_item_converted__c &amp; &quot;_&quot; &amp;  ST_specification__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>品目_仕様</label>
     <required>false</required>

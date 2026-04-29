@@ -6,6 +6,7 @@
     <columns>ST_customer_code__c</columns>
     <columns>ST_project_number__c</columns>
     <columns>consumptionTaxRate__c</columns>
+    <columns>CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>Status__c</field>

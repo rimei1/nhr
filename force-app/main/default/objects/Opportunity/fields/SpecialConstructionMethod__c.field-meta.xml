@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SpecialConstructionMethod__c</fullName>
+    <formula>AND(TEXT(StageName) == &quot;完成&quot;,  TEXT(SpecialConstruction__c ) != &quot;該当なし&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>特殊工法（逆打ち等）</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

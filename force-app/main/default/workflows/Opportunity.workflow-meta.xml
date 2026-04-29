@@ -12,6 +12,29 @@
         <template>CW_mailt1/CS_PhaseEDCBA</template>
     </alerts>
     <alerts>
+        <fullName>ApplicationOpp</fullName>
+        <ccEmails>www.natsuko17.com@gmail.com</ccEmails>
+        <description>【商談】申請完工</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>hiroki-matsui@n-inc.co.jp</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>ApprovalFolder/ApplicationOpp</template>
+    </alerts>
+    <alerts>
+        <fullName>ApplicationOppCC</fullName>
+        <description>【商談】申請完工通知</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>hiroki-matsui@n-inc.co.jp</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>ApprovalFolder/ApplicationOppCC</template>
+    </alerts>
+    <alerts>
         <fullName>AssetEndDateSendMail</fullName>
         <ccEmails>nohara@vdc-solution.jp</ccEmails>
         <description>【お知らせメール】契約終了日２ヶ月前</description>
@@ -67,6 +90,25 @@
         <field>StageName</field>
         <literalValue>商談成立確定</literalValue>
         <name>フェーズ変更</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ActionUpdateStatus</fullName>
+        <field>completion_check_application_status__c</field>
+        <name>【商談】完工チェック申請状況</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>NextValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ActionUpdateStatusRejection</fullName>
+        <field>completion_check_application_status__c</field>
+        <literalValue>却下</literalValue>
+        <name>【商談】完工チェック申請状況_却下</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>

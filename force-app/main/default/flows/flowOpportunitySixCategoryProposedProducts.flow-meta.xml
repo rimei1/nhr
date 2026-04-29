@@ -377,6 +377,13 @@ IF({!isOtherProposed}, &quot;その他;&quot;, &quot;&quot;)</expression>
                 <elementReference>targetOppId</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>excludedProposedProductId</elementReference>
+            </value>
+        </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>JU_ProposedProduct__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -396,6 +403,13 @@ IF({!isOtherProposed}, &quot;その他;&quot;, &quot;&quot;)</expression>
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>excludedProposedProductId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>inputOpp</name>
         <dataType>SObject</dataType>

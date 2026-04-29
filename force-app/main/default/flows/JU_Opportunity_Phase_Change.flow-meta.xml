@@ -527,32 +527,32 @@
     <formulas>
         <name>F_JU_ReasonForClose_1</name>
         <dataType>String</dataType>
-        <expression>{!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;訪問1回目停滞中&apos;</expression>
+        <expression>LEFT({!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;訪問1回目停滞中&apos;, 255)</expression>
     </formulas>
     <formulas>
         <name>F_JU_ReasonForClose_2</name>
         <dataType>String</dataType>
-        <expression>{!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;見積提出停滞中&apos;</expression>
+        <expression>LEFT({!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;見積提出停滞中&apos;, 255)</expression>
     </formulas>
     <formulas>
         <name>F_JU_ReasonForClose_3</name>
         <dataType>String</dataType>
-        <expression>{!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;購買決定者検討停滞中&apos;</expression>
+        <expression>LEFT({!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;購買決定者検討停滞中&apos;,255)</expression>
     </formulas>
     <formulas>
         <name>F_JU_ReasonForClose_4</name>
         <dataType>String</dataType>
-        <expression>{!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;採用一歩手前停滞中&apos;</expression>
+        <expression>LEFT({!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;採用一歩手前停滞中&apos;,255)</expression>
     </formulas>
     <formulas>
         <name>F_JU_ReasonForClose_5</name>
         <dataType>String</dataType>
-        <expression>{!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;トライアル停滞中&apos;</expression>
+        <expression>LEFT({!Loop.JU_ReasonForClose__c} &amp; BR() &amp;&apos;トライアル停滞中&apos;,255)</expression>
     </formulas>
     <formulas>
         <name>F_JU_ReasonForClose_6</name>
         <dataType>String</dataType>
-        <expression>{!Loop.JU_ReasonForClose__c} &amp; BR() &amp; TEXT({!Loop.JU_teitaimeisai__c})</expression>
+        <expression>LEFT({!Loop.JU_ReasonForClose__c} &amp; BR() &amp; TEXT({!Loop.JU_teitaimeisai__c}),255)</expression>
     </formulas>
     <interviewLabel>【商談】 EN予実管理自動作成・編集（エンジ） {!$Flow.CurrentDateTime}</interviewLabel>
     <label>【商談】 フェーズ自動移行_JU</label>
@@ -700,7 +700,9 @@
             <targetReference>Get_Opps</targetReference>
         </connector>
         <schedule>
+            <dayOfMonthToRun>0</dayOfMonthToRun>
             <frequency>Daily</frequency>
+            <frequencyNumber>0</frequencyNumber>
             <startDate>2024-11-29</startDate>
             <startTime>07:00:00.000Z</startTime>
         </schedule>

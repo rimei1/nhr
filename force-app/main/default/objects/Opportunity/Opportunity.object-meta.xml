@@ -175,15 +175,9 @@
     </profileSearchLayouts>
     <profileSearchLayouts>
         <fields>OPPORTUNITY.NAME</fields>
-        <fields>CW_EstimatedContent__c</fields>
         <fields>ACCOUNT.NAME</fields>
-        <fields>OPPORTUNITY.RECORDTYPE</fields>
-        <fields>OPPORTUNITY.AMOUNT</fields>
-        <fields>EstimatedAmount__c</fields>
-        <fields>ExpectedforthistermRevenu__c</fields>
-        <fields>OPPORTUNITY.STAGE_NAME</fields>
-        <fields>CORE.USERS.ALIAS</fields>
-        <fields>Department__c</fields>
+        <fields>ST_SalesRepresentative__c</fields>
+        <fields>ST_Constructionpersonnel__c</fields>
         <profileName>ノハラスチール</profileName>
     </profileSearchLayouts>
     <recordTypeTrackFeedHistory>true</recordTypeTrackFeedHistory>

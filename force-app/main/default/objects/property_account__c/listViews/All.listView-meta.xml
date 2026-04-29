@@ -6,11 +6,16 @@
     <columns>genbatantousya2__c</columns>
     <columns>targetDateNextProperty__c</columns>
     <columns>nextProperty__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>account_type__c</columns>
+    <columns>Account__c</columns>
+    <columns>property__c</columns>
+    <columns>construction1__c</columns>
+    <columns>construction2__c</columns>
+    <columns>construction3__c</columns>
+    <columns>construction4__c</columns>
+    <columns>construction5__c</columns>
+    <columns>Status__c</columns>
     <filterScope>Everything</filterScope>
-    <filters>
-        <field>genbatantousya__c</field>
-        <operation>contains</operation>
-        <value>テスト</value>
-    </filters>
     <label>すべて選択</label>
 </ListView>

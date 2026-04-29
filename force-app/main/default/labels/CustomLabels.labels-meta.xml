@@ -23,4 +23,12 @@
         <shortDescription>NHR_ST_Years</shortDescription>
         <value>3</value>
     </labels>
+    <labels>
+        <fullName>CS_None</fullName>
+        <categories>CS</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>CS_該当無し</shortDescription>
+        <value>001RC00001MkQNJYA3</value>
+    </labels>
 </CustomLabels>

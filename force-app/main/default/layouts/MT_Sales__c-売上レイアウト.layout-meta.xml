@@ -32,6 +32,10 @@
                 <behavior>Edit</behavior>
                 <field>AmountGoal__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SalesForecastforThisPeriod__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>

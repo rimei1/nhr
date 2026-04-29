@@ -1,0 +1,58 @@
+<aura:component
+    controller="NHR_EN_PartnerMeetingCtrl"
+    implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+    access="global">
+
+    <aura:attribute name="isLoading"   type="Boolean" default="false" />
+    <aura:attribute name="targetMonth" type="String"  default="" />
+    <aura:attribute name="errorMsg"    type="String"  default="" />
+    <aura:attribute name="successMsg"  type="String"  default="" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card title="パートナー会議資料 Excel出力" iconName="utility:file">
+        <div class="slds-p-around_medium">
+
+            <!-- 対象月表示 -->
+            <div class="slds-m-bottom_medium">
+                <p class="slds-text-body_small slds-text-color_weak">
+                    対象月: <strong>{!v.targetMonth}</strong>
+                </p>
+            </div>
+
+            <!-- エラー -->
+            <aura:if isTrue="{!v.errorMsg != ''}">
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_small" role="alert">
+                    <lightning:icon iconName="utility:error" size="x-small" class="slds-m-right_x-small" />
+                    {!v.errorMsg}
+                </div>
+            </aura:if>
+
+            <!-- 成功 -->
+            <aura:if isTrue="{!v.successMsg != ''}">
+                <div class="slds-notify slds-notify_alert slds-alert_success slds-m-bottom_small" role="alert">
+                    <lightning:icon iconName="utility:success" size="x-small" class="slds-m-right_x-small" />
+                    {!v.successMsg}
+                </div>
+            </aura:if>
+
+            <!-- ローディング -->
+            <aura:if isTrue="{!v.isLoading}">
+                <div class="slds-align_absolute-center slds-p-around_medium">
+                    <lightning:spinner alternativeText="処理中..." size="medium" />
+                </div>
+            </aura:if>
+
+            <!-- Excel出力ボタン（1つのみ） -->
+            <lightning:button
+                label="Excel出力"
+                iconName="utility:download"
+                iconPosition="left"
+                onclick="{!c.sendExcel}"
+                disabled="{!v.isLoading}"
+                variant="brand" />
+
+        </div>
+    </lightning:card>
+
+</aura:component>

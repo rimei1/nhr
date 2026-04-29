@@ -1,0 +1,107 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" standardController="ST_ConstructionSite__c" extensions="docutizexa.ButtonExtendController">
+<script type="text/javascript" src="/canvas/sdk/js/publisher.js"></script>
+<script type="text/javascript" src="{!HTMLENCODE(URLFOR($Resource.docutizexa__docutizeButtonExtends_1_00))}"></script>
+<script type="text/javascript" src="{!HTMLENCODE(URLFOR($Resource.docutizexa__docutize_1_01))}"></script>
+<script type="text/javascript" src="{!HTMLENCODE(URLFOR($Resource.docutizexa__dialog,'dialog-1.01.js'))}"></script>
+<apex:stylesheet value="{!HTMLENCODE(URLFOR($Resource.docutizexa__dialog,'dialog-1.01.css'))}"/>
+<script type="text/javascript">
+async function submitAction() {
+  var objectId = '{!JSENCODE(CASESAFEID($CurrentPage.parameters.id))}';
+  var reportName = 'スチール_工事_請求書_契約内_ROUNDDOWN(PDF)';
+  // ドキュメント出力時のエラーチェック条件を指定します。
+  var errors = [];
+  if (errors && errors.length > 0){
+      var errMsg = '';
+      var checkResult = await checkError('{!$RemoteAction.ButtonExtendController.checkRecordIds}',{
+          recordIds:[objectId],
+          reportName:reportName,
+          errors:errors
+      }).catch(function(err){
+          errMsg  = err.message;
+      });
+      if(errMsg){
+          return abort('{!JSENCODE($Label.docutizexa__UNEXPECTED_ERROR_OCCURRED)}\n' + errMsg);
+      }
+      if (checkResult) {
+          var resultObj = JSON.parse(checkResult);
+          var errorMsgs = resultObj.errorMsgs;
+          if(errorMsgs.length > 0){
+              return abort('{!JSENCODE($Label.docutizexa__ERRORS_FOUND_DO_NOTHING)}\n' + errorMsgs.join('\n'));
+          }
+      }
+  }
+  var instanceUrl;
+  if(/\.my\.site\.com$/.test(location.origin)){
+    var pathname = location.pathname.replace(/(^\/[^\/]+)\/.*/, '$1');
+    instanceUrl = location.origin + (pathname === '/apex' ? '' : pathname);
+  } else {
+    instanceUrl = '{!JSENCODE(OrgDomainURL)}';
+  }
+  DOCUTIZE.BRIDGE.action({
+    objectId:objectId,
+    reportName:reportName,
+    errors:errors,
+
+    // type:'create', // ドキュメントを生成してダウンロード
+    // type:'attach', // ドキュメントを生成して生成元レコードに添付
+    // type:'attach_and_download', // ドキュメントを生成して生成元レコードに添付し、それをダウンロード
+    type:'create',
+
+    // ドキュメント出力後のレコードの更新条件を指定します。
+    updates:[{"value":"true","type":"value","format":"","fieldType":"BOOLEAN","field":"Invoice_contract__c"}],
+
+    // 設定切替の条件を指定します。
+    patterns:[],
+
+    // 活動履歴の作成の有無を指定します。
+    // 指定しない場合、カスタム設定の「活動登録ON」の指定に準じます。
+    createTask:'true',
+
+    // ドキュメントの結合について指定します。'engine'を指定すると、PDFファイルを1ファイルに結合します。それ以外の場合は結合しません。
+    mergeMode:'none',
+
+    // ファイルの添付先を指定できます。
+    // attachTo:'(Object Id)',
+
+    // 生成するドキュメントの所有者をオブジェクトIDで指定できます。
+    // attachOwnerId:'(Object Id)',
+
+    // zipファイルを生成する場合のファイル名を指定できます。
+    // zipFileName:'(File Name)',
+
+    // 活動履歴の件名
+    // taskSubject:'(Subject)',
+
+    // 活動履歴のコメント
+    // taskComment:'(Comment)',
+
+    // 処理を実行する子画面について、処理が正常に完了した際の自動遷移先を指定できます。
+    //successUrl:'https://...',
+
+    // dit:'(Title)', // PDF出力時限定。PDFの「文書のプロパティ」の「タイトル」に表示させたい文字列を指定できます。
+    // dia:'(Author)', // PDF出力時限定。PDFの「文書のプロパティ」の「作成者」に表示させたい文字列を指定できます。
+    // dis:'(Subject)', // PDF出力時限定。PDFの「文書のプロパティ」の「サブタイトル」に表示させたい文字列を指定できます。
+    // dik:'(Keyword)', // PDF出力時限定。PDFの「文書のプロパティ」の「キーワード」に表示させたい文字列を指定できます。
+
+    // docutizeb- Force.com API に必要な諸パラメータです。
+    // このパラメータを編集しないでください。
+    nsPrefix:'{!JSENCODE($Setup.docutizexa__DocutizeStaticsSetting__c.docutizexa__OPROARTSConnectorPrefix__c)}',
+    username:'{!JSENCODE($User.Username)}',
+    instanceUrl:instanceUrl,
+    callback:'/action'
+  })
+  .url('{!JSENCODE(DocutizebModeratorURL)}')
+  .submitInNewWindow();
+  DOCUTIZE.BRIDGE.publisherClose();
+}
+DOCUTIZE.BRIDGE.addOnLoadHandler(function () { submitAction(); });
+</script>
+<div class="slds-scope">
+    <div class="slds-p-vertical_x-small">
+        <h1 class="slds-text-heading_small">{!HTMLENCODE($Label.docutizexa__ACTION_BUTTON_VF_PROCESSING)}</h1>
+        <p class="slds-text-body_regular">
+            <a href="#" onclick="submitAction();">{!HTMLENCODE($Label.docutizexa__ACTION_BUTTON_VF_IF_NOT_AUTO_RUN)}</a>
+        </p>
+    </div>
+</div>
+</apex:page>

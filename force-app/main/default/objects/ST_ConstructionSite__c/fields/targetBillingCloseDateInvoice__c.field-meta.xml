@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>targetBillingCloseDateInvoice__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(YEAR(targetBillingCloseDate__c)) &amp; &apos;/&apos; &amp; TEXT(MONTH(targetBillingCloseDate__c)) &amp; &apos;/&apos; &amp; TEXT(DAY(targetBillingCloseDate__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>請求用_対象請求締日</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

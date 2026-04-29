@@ -1,0 +1,217 @@
+<!--
+    NHR_EN_PartnerMeetingExcel.page
+    パートナー会議資料 Excel出力用VFページ
+    URLパラメータ: targetMonth=2026-02-01
+
+    修正履歴:
+    v4: No1. ランク表示を「Aランク」→「A」に変換（SUBSTITUTE使用）
+        No2. B列(物件名)・C列(施工会社)・G列(施主)・H列(設計)の列幅拡大、縮小して全体表示
+        No3. 金額を千円単位で表示（Apex側で /1000 済みの値を受け取るか、VF側で書式変更）
+             ※ en_zyutyuumokuhyougaku__c が円単位の場合は Apex 側で 1000 除算が必要
+             ※ すでに千円単位の場合は書式のみ変更（#,##0）
+-->
+<apex:page controller="NHR_EN_PartnerMeetingExcelCtrl"
+    contentType="application/vnd.ms-excel#{!HTMLENCODE(sheetName)}.xls"
+    showHeader="false"
+    sidebar="false"
+    standardStylesheets="false">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:x="urn:schemas-microsoft-com:office:excel"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"/>
+    <style>
+        body  { font-family:"游ゴシック","Meiryo",sans-serif; font-size:11pt; }
+        table { border-collapse:collapse; }
+        td,th { border:0.5pt solid #999; padding:2px 6px; white-space:nowrap; vertical-align:middle; }
+
+        /* タイトル行 */
+        .hdr-title { font-weight:bold; font-size:11pt; vertical-align:middle; }
+        .hdr-unit  { font-size:8pt; font-weight:bold; text-align:center; }
+
+        /* ヘッダー行 */
+        .hdr       { background:#1F497D; color:#FFF; font-weight:bold; text-align:center;
+                     border:1pt solid #333; }
+        .hdr-left  { background:#1F497D; color:#FFF; font-weight:bold; text-align:center;
+                     border:1pt solid #333; border-left:2pt solid #000; }
+        .hdr-right { background:#1F497D; color:#FFF; font-weight:bold; text-align:center;
+                     border:1pt solid #333; border-right:2pt solid #000; }
+
+        /* データ行 */
+        /* No1: ランク列（A列）- 中央揃え・左端thick */
+        .dt-rank   { text-align:center; border-left:2pt solid #000; border-top:0.5pt solid #999;
+                     border-right:0.5pt solid #999; border-bottom:0.5pt solid #999; }
+        /* No2: 縮小して全体表示が必要な列（物件名・施工会社・施主・設計） */
+        .dt-shrink { text-align:left; border:0.5pt solid #999;
+                     mso-shrink-to-fit:True; }
+        /* 通常テキスト列 */
+        .dt        { text-align:left;   border:0.5pt solid #999; }
+        .dt-center { text-align:center; border:0.5pt solid #999; }
+        .dt-right  { text-align:left;   border:0.5pt solid #999; border-right:2pt solid #000; }
+
+        /* No3: 数値（右寄せ・千円単位カンマ区切り） */
+        /* mso-number-format で #,##0 を指定→千円単位で渡された値をカンマ表示 */
+        .num       { text-align:right; border:0.5pt solid #999;
+                     mso-number-format:"\#\,\#\#0"; }
+
+        /* 合計行 */
+        .tot-label { font-weight:bold; text-align:center; border-left:2pt solid #000;
+                     border-top:2pt solid #000; border-right:0.5pt solid #999;
+                     border-bottom:2pt solid #000; }
+        .tot       { font-weight:bold; border-top:2pt solid #000; border-bottom:2pt solid #000;
+                     border-left:0.5pt solid #999; border-right:0.5pt solid #999; }
+        .tot-num   { font-weight:bold; text-align:right; border-top:2pt solid #000;
+                     border-bottom:2pt solid #000; border-left:0.5pt solid #999;
+                     border-right:0.5pt solid #999; mso-number-format:"\#\,\#\#0"; }
+        .tot-right { font-weight:bold; border-top:2pt solid #000; border-bottom:2pt solid #000;
+                     border-left:0.5pt solid #999; border-right:2pt solid #000; }
+    </style>
+</head>
+<body>
+<table>
+
+    <!-- エラー表示（getContent()取得時にエラーを可視化） -->
+    <apex:outputPanel rendered="{!LEN(errorMessage) > 0}">
+        <tr>
+            <td style="color:red; font-weight:bold;" colspan="13">
+                <apex:outputText value="{!errorMessage}" escape="false"/>
+            </td>
+        </tr>
+    </apex:outputPanel>
+
+    <!-- ===== 列幅定義 ===== -->
+    <!--
+        No2対応: 物件名(B)・施工会社(C)・施主(G)・設計(H) を広め設定
+        単位 pt。mso-width-source:userset でデータなし時も維持。
+    -->
+    <colgroup>
+        <col style="width:40pt;  mso-width-source:userset;"/>  <!-- A: ランク（短め） -->
+        <col style="width:150pt; mso-width-source:userset;"/>  <!-- B: 物件名（広め） -->
+        <col style="width:130pt; mso-width-source:userset;"/>  <!-- C: 施工会社（広め） -->
+        <col style="width:90pt;  mso-width-source:userset;"/>  <!-- D: アルミ発注先 -->
+        <col style="width:72pt;  mso-width-source:userset;"/>  <!-- E: 初回納期 -->
+        <col style="width:72pt;  mso-width-source:userset;"/>  <!-- F: 竣工 -->
+        <col style="width:130pt; mso-width-source:userset;"/>  <!-- G: 施主（広め） -->
+        <col style="width:130pt; mso-width-source:userset;"/>  <!-- H: 設計（広め） -->
+        <col style="width:68pt;  mso-width-source:userset;"/>  <!-- I: 当月予定 -->
+        <col style="width:68pt;  mso-width-source:userset;"/>  <!-- J: 翌月予定 -->
+        <col style="width:68pt;  mso-width-source:userset;"/>  <!-- K: 翌々月予定 -->
+        <col style="width:72pt;  mso-width-source:userset;"/>  <!-- L: 翌々月以降 -->
+        <col style="width:90pt;  mso-width-source:userset;"/>  <!-- M: 備考 -->
+    </colgroup>
+
+    <!-- ===== 行1: タイトル ===== -->
+    <tr style="height:36pt;">
+        <td colspan="8" class="hdr-title">
+            パートナー会議資料&#13;&#10;　　　　　　　　　　　　　　　　野原グループ㈱　　担当者　<apex:outputText value="{!HTMLENCODE(reporterName)}"/>
+        </td>
+        <td colspan="4" class="hdr-unit">単位：千円　＊アルミ建具金額を記載</td>
+        <td></td>
+    </tr>
+
+    <!-- ===== 行2: ヘッダー ===== -->
+    <tr style="height:22pt;">
+        <th class="hdr-left" >ランク</th>
+        <th class="hdr"      >物件名</th>
+        <th class="hdr"      >施工会社</th>
+        <th class="hdr"      >アルミ発注先</th>
+        <th class="hdr"      >初回納期</th>
+        <th class="hdr"      >竣工</th>
+        <th class="hdr"      >施主</th>
+        <th class="hdr"      >設計</th>
+        <th class="hdr"      ><apex:outputText value="{!col1Label}"/></th>
+        <th class="hdr"      ><apex:outputText value="{!col2Label}"/></th>
+        <th class="hdr"      ><apex:outputText value="{!col3Label}"/></th>
+        <th class="hdr"      ><apex:outputText value="{!col4Label}"/></th>
+        <th class="hdr-right">備考</th>
+    </tr>
+
+    <!-- ===== 行3-23: データ行 ===== -->
+    <apex:repeat value="{!meetingRows}" var="r">
+        <tr style="height:16pt;">
+            <!--
+                No1: ランク表示
+                「Aランク」→「A」、「Bランク」→「B」、「Cランク」→「C」
+                SUBSTITUTE で「ランク」を空文字に置換
+            -->
+            <td class="dt-rank">
+                <apex:outputText value="{!SUBSTITUTE(r.rank, 'ランク', '')}"/>
+            </td>
+            <!-- No2: 縮小して全体表示（dt-shrink クラス） -->
+            <td class="dt-shrink"><apex:outputText value="{!HTMLENCODE(r.bukenName)}"    /></td>
+            <td class="dt-shrink"><apex:outputText value="{!HTMLENCODE(r.sekoCompany)}"  /></td>
+            <td class="dt-center"><apex:outputText value="{!HTMLENCODE(r.aluminumOrder)}" /></td>
+            <td class="dt-center"><apex:outputText value="{!HTMLENCODE(r.firstDelivery)}" /></td>
+            <td class="dt-center"><apex:outputText value="{!HTMLENCODE(r.completion)}"    /></td>
+            <!-- No2: 縮小して全体表示 -->
+            <td class="dt-shrink"><apex:outputText value="{!HTMLENCODE(r.sesyu)}"         /></td>
+            <td class="dt-shrink"><apex:outputText value="{!HTMLENCODE(r.sekkei)}"        /></td>
+            <!--
+                No3: 金額は千円単位で出力
+                Apex側で col1Amount 等が円単位なら /1000 して渡す（NHR_EN_PartnerMeetingCtrl側で対応）
+                mso-number-format:#,##0 で千円単位のカンマ表示
+            -->
+            <apex:outputText rendered="{!r.col1Amount != null}">
+                <td class="num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!r.col1Amount}"/></apex:outputText></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col1Amount == null}">
+                <td class="num"></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col2Amount != null}">
+                <td class="num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!r.col2Amount}"/></apex:outputText></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col2Amount == null}">
+                <td class="num"></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col3Amount != null}">
+                <td class="num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!r.col3Amount}"/></apex:outputText></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col3Amount == null}">
+                <td class="num"></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col4Amount != null}">
+                <td class="num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!r.col4Amount}"/></apex:outputText></td>
+            </apex:outputText>
+            <apex:outputText rendered="{!r.col4Amount == null}">
+                <td class="num"></td>
+            </apex:outputText>
+            <!-- 備考: 空欄固定 -->
+            <td class="dt-right"></td>
+        </tr>
+    </apex:repeat>
+
+    <!-- 空行パディング（21行になるまで） -->
+    <apex:repeat value="{!emptyRows}" var="e">
+        <tr style="height:16pt;">
+            <td class="dt-rank"  ></td>
+            <td class="dt-shrink"></td>
+            <td class="dt-shrink"></td>
+            <td class="dt-center"></td>
+            <td class="dt-center"></td>
+            <td class="dt-center"></td>
+            <td class="dt-shrink"></td>
+            <td class="dt-shrink"></td>
+            <td class="num"      ></td>
+            <td class="num"      ></td>
+            <td class="num"      ></td>
+            <td class="num"      ></td>
+            <td class="dt-right" ></td>
+        </tr>
+    </apex:repeat>
+
+    <!-- ===== 合計行 ===== -->
+    <!-- 列構成: A(ランク) + B〜H(物件名〜設計=7列) + I〜L(金額4列) + M(備考) = 13列 -->
+    <tr style="height:16pt;">
+        <td class="tot-label">合計</td>
+        <td class="tot" colspan="7"></td>
+        <td class="tot-num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalCol1}"/></apex:outputText></td>
+        <td class="tot-num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalCol2}"/></apex:outputText></td>
+        <td class="tot-num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalCol3}"/></apex:outputText></td>
+        <td class="tot-num"><apex:outputText value="{0,number,###,###,###}"><apex:param value="{!totalCol4}"/></apex:outputText></td>
+        <td class="tot-right"></td>
+    </tr>
+
+</table>
+</body>
+</html>
+</apex:page>

@@ -6,17 +6,6 @@
     <environments>Default</environments>
     <interviewLabel>【取引先】一括処理 分割実行フロー（P2） {!$Flow.CurrentDateTime}</interviewLabel>
     <label>【取引先】一括処理 分割実行フロー（P2）</label>
-    <loops>
-        <name>loopByGetOpp</name>
-        <label>loopByGetOpp</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <collectionReference>getOpp</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>invokeFlowOpportunitySixCategoryProposedProducts</targetReference>
-        </nextValueConnector>
-    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -36,48 +25,13 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordLookups>
-        <name>getOpp</name>
-        <label>getOpp</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>loopByGetOpp</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>AccountId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>RecordTypeId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>0125h000000Y9ROAA0</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>proposedProductCount__c</field>
-            <operator>GreaterThan</operator>
-            <value>
-                <numberValue>0.0</numberValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>getOpp</targetReference>
+            <targetReference>invokeFlowUpdAccount6CatProposeStatus</targetReference>
         </connector>
-        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8) AND 9</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>partitionKey__c</field>
             <operator>EqualTo</operator>
@@ -134,35 +88,27 @@
                 <stringValue>F</stringValue>
             </value>
         </filters>
-        <filters>
-            <field>filteredOpportunityCount__c</field>
-            <operator>GreaterThan</operator>
-            <value>
-                <numberValue>0.0</numberValue>
-            </value>
-        </filters>
         <object>Account</object>
         <schedule>
+            <dayOfMonthToRun>0</dayOfMonthToRun>
             <frequency>Once</frequency>
-            <startDate>2026-02-14</startDate>
-            <startTime>11:00:00.000Z</startTime>
+            <frequencyNumber>0</frequencyNumber>
+            <startDate>2026-03-16</startDate>
+            <startTime>01:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <subflows>
-        <name>invokeFlowOpportunitySixCategoryProposedProducts</name>
-        <label>呼び出し：【商談】6カテ提案商品の記録</label>
+        <name>invokeFlowUpdAccount6CatProposeStatus</name>
+        <label>呼び出し：【提案商品/取引先】6カテ商品提案状況記録</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <connector>
-            <targetReference>loopByGetOpp</targetReference>
-        </connector>
-        <flowName>flowOpportunitySixCategoryProposedProducts</flowName>
+        <flowName>flowUpdAccount6CatProposeStatus</flowName>
         <inputAssignments>
-            <name>inputOpp</name>
+            <name>inputAccountId</name>
             <value>
-                <elementReference>loopByGetOpp</elementReference>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
     </subflows>

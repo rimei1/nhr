@@ -4282,7 +4282,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>Tab</actionName>
-        <content>DX61</content>
+        <content>FlexiPage91</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>standard-home</pageOrSobjectType>
         <type>Flexipage</type>
@@ -5914,7 +5914,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>Tab</actionName>
-        <content>FlexiPage333</content>
+        <content>HomeCSWEB</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>standard-home</pageOrSobjectType>
         <type>Flexipage</type>
@@ -7883,7 +7883,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>DX</content>
+        <content>DX7</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.RecordType_Other</recordType>
@@ -7892,7 +7892,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>DX</content>
+        <content>DX7</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.RecordType_Other</recordType>
@@ -8057,7 +8057,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>AccountJyuknkyo</content>
+        <content>DX7</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.CommonRecordType</recordType>
@@ -8066,7 +8066,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>AccountJyuknkyo</content>
+        <content>DX7</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.CommonRecordType</recordType>
@@ -8090,6 +8090,56 @@
         <recordType>Account.X00Parent</recordType>
         <type>Flexipage</type>
         <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>DX7</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.RecordType_common_vendor</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>DX7</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.RecordType_common_vendor</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>FlexiPage397</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>ConstructionReviewMeeting__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>FlexiPage397</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ConstructionReviewMeeting__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>FlexiPage397</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>ConstructionReviewMeeting__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ノハラスチール</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>FlexiPage397</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ConstructionReviewMeeting__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ノハラスチール</profile>
     </profileActionOverrides>
     <setupExperience>all</setupExperience>
     <tabs>standard-home</tabs>
@@ -8123,6 +8173,7 @@
     <tabs>Theme__c</tabs>
     <tabs>ST_ConstructionSite__c</tabs>
     <tabs>ST_DeliveryRecord__c</tabs>
+    <tabs>MT_Sales_SAP__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>PF_UtilityBar</utilityBar>
 </CustomApplication>
